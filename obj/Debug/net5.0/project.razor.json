@@ -15636,6 +15636,11 @@
       "FilePath": "c:\\Blog\\Post\\ASP NET CORE\\Scadenzario\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Blog\\Post\\ASP NET CORE\\Scadenzario\\Views\\Scadenze\\Detail.cshtml",
+      "TargetPath": "Views\\Scadenze\\Detail.cshtml",
+      "FileKind": "mvc"
     }
   ],
   "SerializationFormat": "0.2"

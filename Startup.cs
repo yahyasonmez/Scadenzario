@@ -40,7 +40,7 @@ namespace Scadenzario
             app.UseEndpoints(endpoint => endpoint.MapGet("/",async context =>
             {
                  string nome = context.Request.Query["nome"];
-                 await context.Response.WriteAsync($"Hello! {nome.ToUpper()}");
+                 await context.Response.WriteAsync($"Hello! {nome}");
             }));
             
         }
