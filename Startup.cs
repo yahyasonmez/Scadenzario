@@ -25,6 +25,7 @@ namespace Scadenzario
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,13 +36,23 @@ namespace Scadenzario
                 app.UseDeveloperExceptionPage();
             }
             app.UseStaticFiles();
+            //Endpoint routing Middleware
             app.UseRouting();
 
-            app.UseEndpoints(endpoint => endpoint.MapGet("/",async context =>
-            {
-                 string nome = context.Request.Query["nome"];
-                 await context.Response.WriteAsync($"Hello! {nome}");
-            }));
+            //EndpointMiddleware
+
+            /*--Una route viene identificata da un nome, in questo caso default
+            e tre frammenti controller,action e id. Grazie a questa Route il
+            meccanismo di routing è in grado di soddisfare le richieste. Facciamo un esempio
+            Supponiamo che arrivi la seguente richiesta HTTP /Scadenze/Detail/5
+            Grazie a questo template il meccanismo di routing sa che deve andare a chiamare
+            un controller chiamato Scadenze, la cui action è Detail e a cui passa
+            l'id 5.*/
+            
+            app.UseEndpoints(routeBuilder => {
+                routeBuilder.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
+                routeBuilder.MapRazorPages();
+            });
             
         }
     }

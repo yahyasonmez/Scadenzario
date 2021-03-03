@@ -38,3 +38,4 @@ C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\ref\Scadenzario.dll
 C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Scadenzario.pdb
 C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Scadenzario.genruntimeconfig.cache
 C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Scadenzario.csproj.CopyComplete
+C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Razor\Views\Scadenze\Detail.cshtml.g.cs
