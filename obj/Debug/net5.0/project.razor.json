@@ -15618,23 +15618,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Blog\\Post\\ASP NET CORE\\Scadenzario\\Views\\_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Blog\\Post\\ASP NET CORE\\Scadenzario\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Blog\\Post\\ASP NET CORE\\Scadenzario\\Views\\Home\\Privacy.cshtml",
-      "TargetPath": "Views\\Home\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Blog\\Post\\ASP NET CORE\\Scadenzario\\Views\\_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
     },
     {
