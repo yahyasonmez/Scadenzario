@@ -6,11 +6,11 @@ namespace Scadenzario.Controllers
     {
         public IActionResult Index()
         {
-            return Content("Sono l'action Index");
+            return View();
         }
         public IActionResult Detail(int id)
         {
-            return Content($"Sono l'action Detail, id passato {id}");
+            return View();
         }
     }
 }
