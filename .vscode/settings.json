@@ -1,5 +1,11 @@
 {
     "emmet.includeLanguages": {
         "aspnetcorerazor": "html"
-    }
+    },
+    "git.allowForcePush": true,
+    "fontAwesomeAutocomplete.patterns": [
+        "**/*.cshtml"
+    ],
+    "fontAwesomeAutocomplete.triggerWord": "f"
+    
 }
