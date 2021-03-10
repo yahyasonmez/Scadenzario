@@ -6,7 +6,7 @@ namespace Scadenzario.Controllers
     {
         public IActionResult Index()
         {
-            return Content("Sono la Index del Controller Home.");
+            return View();
         }  
     }
 }

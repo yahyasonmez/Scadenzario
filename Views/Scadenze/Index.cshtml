@@ -1,0 +1,35 @@
+<h1>Lista Scadenze</h1>
+<br>
+@for( int i=1;i<=10;i++)
+{
+    <div class="row">
+        <div class="col-0" style="width:0px;visibility:hidden;">
+            IDScadenza 
+        </div>
+        <div class="col-0" style="width:0px;visibility:hidden;">
+            IDUser
+        </div>
+        <div class="col-md-2">
+            Beneficiario
+        </div>
+        <div class="col-md-2">
+            Data Scadenza
+        </div>
+        <div class="col-md-1">
+            Importo
+        </div>
+        <div class="col-md-1">
+            Sollecito
+        </div>
+        <div class="col-md-2">
+            Giorni Ritardo
+        </div>
+        <div class="col-md-2">
+            Data Pagamento
+        </div>
+        <div class="col-md-2">
+            <a class="btn btn-outline-primary" asp-action="Detail" asp-controller="Scadenze">Dettaglio</a>
+        </div>
+    </div>
+}
+
