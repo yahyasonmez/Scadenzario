@@ -36,3 +36,4 @@ C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Razor\Views\Scadenze\Deta
 C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Razor\Views\Scadenze\Index.cshtml.g.cs
 C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
