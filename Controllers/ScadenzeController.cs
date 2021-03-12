@@ -1,4 +1,7 @@
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using Scadenzario.Models.Services.Application;
+using Scadenzario.Models.ViewModels;
 
 namespace Scadenzario.Controllers
 {
@@ -6,7 +9,10 @@ namespace Scadenzario.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            var scadenzeService = new ScadenzeService();
+            List<ScadenzeViewModel> scadenze = new();
+            scadenze = scadenzeService.GetScadenze();
+            return View(scadenze);
         }
         public IActionResult Detail(int id)
         {
