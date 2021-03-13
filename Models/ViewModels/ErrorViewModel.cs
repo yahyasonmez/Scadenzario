@@ -1,6 +1,6 @@
 using System;
 
-namespace Scadenzario.Models
+namespace Scadenzario.Models.ViewModels
 {
     public class ErrorViewModel
     {
