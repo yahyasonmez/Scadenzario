@@ -37,3 +37,42 @@ C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Razor\Views\Scadenze\Inde
 C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
 C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\bin\Debug\net5.0\appsettings.Development.json
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\bin\Debug\net5.0\appsettings.json
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\bin\Debug\net5.0\Scadenzario.exe
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\bin\Debug\net5.0\Scadenzario.deps.json
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\bin\Debug\net5.0\Scadenzario.runtimeconfig.json
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\bin\Debug\net5.0\Scadenzario.runtimeconfig.dev.json
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\bin\Debug\net5.0\Scadenzario.dll
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\bin\Debug\net5.0\ref\Scadenzario.dll
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\bin\Debug\net5.0\Scadenzario.pdb
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\bin\Debug\net5.0\Scadenzario.Views.dll
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\bin\Debug\net5.0\Scadenzario.Views.pdb
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\obj\Debug\net5.0\Scadenzario.csprojAssemblyReference.cache
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\obj\Debug\net5.0\Scadenzario.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\obj\Debug\net5.0\Scadenzario.AssemblyInfoInputs.cache
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\obj\Debug\net5.0\Scadenzario.AssemblyInfo.cs
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\obj\Debug\net5.0\Scadenzario.csproj.CoreCompileInputs.cache
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\obj\Debug\net5.0\Scadenzario.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\obj\Debug\net5.0\Scadenzario.RazorAssemblyInfo.cache
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\obj\Debug\net5.0\Scadenzario.RazorAssemblyInfo.cs
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\obj\Debug\net5.0\staticwebassets\Scadenzario.StaticWebAssets.Manifest.cache
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\obj\Debug\net5.0\staticwebassets\Scadenzario.StaticWebAssets.xml
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\obj\Debug\net5.0\scopedcss\bundle\Scadenzario.styles.css
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\obj\Debug\net5.0\Scadenzario.TagHelpers.input.cache
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\obj\Debug\net5.0\Scadenzario.TagHelpers.output.cache
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\obj\Debug\net5.0\Scadenzario.RazorCoreGenerate.cache
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\obj\Debug\net5.0\Razor\Views\Scadenze\Detail.cshtml.g.cs
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\obj\Debug\net5.0\Razor\Views\Scadenze\Index.cshtml.g.cs
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\obj\Debug\net5.0\Scadenzario.RazorTargetAssemblyInfo.cache
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\obj\Debug\net5.0\Scadenzario.RazorTargetAssemblyInfo.cs
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\obj\Debug\net5.0\Scadenzario.Views.pdb
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\obj\Debug\net5.0\Scadenzario.dll
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\obj\Debug\net5.0\ref\Scadenzario.dll
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\obj\Debug\net5.0\Scadenzario.pdb
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\obj\Debug\net5.0\Scadenzario.genruntimeconfig.cache
+C:\Users\marco\OneDrive\Documenti\GitHub\Scadenzario\obj\Debug\net5.0\Scadenzario.csproj.CopyComplete
