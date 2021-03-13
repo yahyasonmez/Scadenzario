@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Blog\\Post\\ASP NET CORE\\Scadenzario\\Scadenzario.csproj",
+  "FilePath": "c:\\Blog\\Scadenzario\\Scadenzario.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "5.0",
@@ -15603,33 +15603,33 @@
   "RootNamespace": "Scadenzario",
   "Documents": [
     {
-      "FilePath": "c:\\Blog\\Post\\ASP NET CORE\\Scadenzario\\Views\\Home\\Index.cshtml",
-      "TargetPath": "Views\\Home\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Blog\\Post\\ASP NET CORE\\Scadenzario\\Views\\_ViewStart.cshtml",
+      "FilePath": "c:\\Blog\\Scadenzario\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Blog\\Post\\ASP NET CORE\\Scadenzario\\Views\\Shared\\_Layout.cshtml",
-      "TargetPath": "Views\\Shared\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Blog\\Post\\ASP NET CORE\\Scadenzario\\Views\\Scadenze\\Index.cshtml",
-      "TargetPath": "Views\\Scadenze\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Blog\\Post\\ASP NET CORE\\Scadenzario\\Views\\_ViewImports.cshtml",
+      "FilePath": "c:\\Blog\\Scadenzario\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Blog\\Post\\ASP NET CORE\\Scadenzario\\Views\\Scadenze\\Detail.cshtml",
+      "FilePath": "c:\\Blog\\Scadenzario\\Views\\Scadenze\\Detail.cshtml",
       "TargetPath": "Views\\Scadenze\\Detail.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Blog\\Scadenzario\\Views\\Scadenze\\Index.cshtml",
+      "TargetPath": "Views\\Scadenze\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Blog\\Scadenzario\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Blog\\Scadenzario\\Views\\Shared\\_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
     }
   ],
