@@ -1,1 +1,74 @@
-<h1>Sono la View Detail per il Controller Scadenze.</h1>
+@model ScadenzeViewModel;
+<br>
+<h1>@ViewData["Title"]</h1>
+<br>
+<br>
+<br>
+<div class="container" style="align-content: center;border:1px solid;">
+    <div class="row">
+        <div class="col-md-3">
+            <b>Beneficiario</b>
+        </div>
+        <div class="col-md-3">
+            @Model.Beneficiario
+        </div>
+        <div class="col-md-6">
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <b>Data Scadenza</b>
+        </div>
+        <div class="col-md-3">
+            @Model.DataScadenza
+        </div>
+        <div class="col-md-6">
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <b>Importo</b>
+        </div>
+        <div class="col-md-3">
+            @Model.Importo
+        </div>
+        <div class="col-md-6">
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <b>Giorni Ritardo</b>
+        </div>
+        <div class="col-md-3">
+            @Model.GiorniRitardo
+        </div>
+        <div class="col-md-6">
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <b>Sollecito</b>
+        </div>
+        <div class="col-md-3">
+            @Model.Sollecito
+        </div>
+        <div class="col-md-6">
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <b>Data Pagamento</b>
+        </div>
+        <div class="col-md-3">
+            @Model.DataPagamento
+        </div>
+        <div class="col-md-6">
+            
+        </div>
+    </div>
+</div>

@@ -1,38 +1,52 @@
 @model List<ScadenzeViewModel>
-<h1>Lista Scadenze</h1>
+<h1>@ViewData["Title"]</h1>
 <br>
-@foreach (var scadenza in Model)
-{
-    <hr>
-    <div class="row scadenze">
-        <div class="col-0" style="width:0px;visibility:hidden;">
-            IDScadenza 
-        </div>
-        <div class="col-0" style="width:0px;visibility:hidden;">
-            IDUser
-        </div>
-        <div class="col-md-2">
-            Beneficiario
-        </div>
-        <div class="col-md-2">
-            Data Scadenza
-        </div>
-        <div class="col-md-1">
-            Importo
-        </div>
-        <div class="col-md-1">
-            Sollecito
-        </div>
-        <div class="col-md-2">
-            Giorni Ritardo
-        </div>
-        <div class="col-md-2">
-            Data Pagamento
-        </div>
-        <div class="col-md-2 d-flex align-items-center">
-            <a class="btn btn-outline-primary" asp-action="Detail" asp-controller="Scadenze">Dettaglio</a>
-        </div>
+    <div class="table-responsive-md">
+        <table class="table table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Beneficiario</th>
+                    <th scope="col">Data Scadenza</th>
+                    <th scope="col">Importo</th>
+                    <th scope="col">Sollecito</th>
+                    <th scope="col">Giorni Ritardo</th>
+                    <th scope="col">Data Pagamento</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var scadenza in Model)
+                {
+                    <tr>
+                        <td>
+                            @scadenza.Beneficiario
+                        </td>
+                        <td>
+                            @scadenza.DataScadenza
+                        </td>
+                        <td>
+                            @scadenza.Importo
+                        </td>
+                        <td>
+                            @scadenza.Sollecito
+                        </td>
+                        <td>
+                            @scadenza.GiorniRitardo
+                        </td>
+                        <td>
+                            @scadenza.DataPagamento
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <a class="btn btn-outline-primary" asp-action="Detail" asp-controller="Scadenze" asp-route-id = "@scadenza.IDScadenza">Dettaglio</a>
+                            </div>
+                        </td>
+                    </tr>
+               }
+            </tbody>
+        </table>
     </div>
-    
-}
+            
+                
+            
 
