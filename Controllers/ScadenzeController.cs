@@ -5,22 +5,25 @@ using Scadenzario.Models.ViewModels;
 
 namespace Scadenzario.Controllers
 {
-    public class ScadenzeController:Controller
+    public class ScadenzeController : Controller
     {
+        private readonly IScadenzeService service;
+        public ScadenzeController(IScadenzeService service)
+        {
+            this.service = service;
+        }
         public IActionResult Index()
         {
-            var scadenzeService = new ScadenzeService();
             List<ScadenzeViewModel> scadenze = new();
-            scadenze = scadenzeService.GetScadenze();
-            ViewData["Title"]="Lista Scadenze";
+            scadenze = service.GetScadenze();
+            ViewData["Title"] = "Lista Scadenze";
             return View(scadenze);
         }
         public IActionResult Detail(int id)
         {
-            var scadenzeService = new ScadenzeService();
             ScadenzeViewModel scadenze;
-            scadenze = scadenzeService.GetScadenza(id);
-            ViewData["Title"]="Dettaglio Scadenza "+ id.ToString();
+            scadenze = service.GetScadenza(id);
+            ViewData["Title"] = "Dettaglio Scadenza " + id.ToString();
             return View(scadenze);
         }
     }

@@ -4,7 +4,7 @@ using Scadenzario.Models.ViewModels;
 
 namespace Scadenzario.Models.Services.Application
 {
-    public class ScadenzeService
+    public class ScadenzeService:IScadenzeService
     {
         public List<ScadenzeViewModel> GetScadenze()
         {
