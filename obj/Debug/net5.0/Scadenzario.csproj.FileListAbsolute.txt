@@ -37,3 +37,42 @@ C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\ref\Scadenzario.dll
 C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Scadenzario.pdb
 C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Scadenzario.genruntimeconfig.cache
 C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Scadenzario.csproj.CopyComplete
+C:\Blog\Scadenzario\bin\Debug\net5.0\appsettings.Development.json
+C:\Blog\Scadenzario\bin\Debug\net5.0\appsettings.json
+C:\Blog\Scadenzario\bin\Debug\net5.0\Scadenzario.exe
+C:\Blog\Scadenzario\bin\Debug\net5.0\Scadenzario.deps.json
+C:\Blog\Scadenzario\bin\Debug\net5.0\Scadenzario.runtimeconfig.json
+C:\Blog\Scadenzario\bin\Debug\net5.0\Scadenzario.runtimeconfig.dev.json
+C:\Blog\Scadenzario\bin\Debug\net5.0\Scadenzario.dll
+C:\Blog\Scadenzario\bin\Debug\net5.0\ref\Scadenzario.dll
+C:\Blog\Scadenzario\bin\Debug\net5.0\Scadenzario.pdb
+C:\Blog\Scadenzario\bin\Debug\net5.0\Scadenzario.Views.dll
+C:\Blog\Scadenzario\bin\Debug\net5.0\Scadenzario.Views.pdb
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.csprojAssemblyReference.cache
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.GeneratedMSBuildEditorConfig.editorconfig
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.AssemblyInfoInputs.cache
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.AssemblyInfo.cs
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.csproj.CoreCompileInputs.cache
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.MvcApplicationPartsAssemblyInfo.cache
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.RazorAssemblyInfo.cache
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.RazorAssemblyInfo.cs
+C:\Blog\Scadenzario\obj\Debug\net5.0\staticwebassets\Scadenzario.StaticWebAssets.Manifest.cache
+C:\Blog\Scadenzario\obj\Debug\net5.0\staticwebassets\Scadenzario.StaticWebAssets.xml
+C:\Blog\Scadenzario\obj\Debug\net5.0\scopedcss\bundle\Scadenzario.styles.css
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.TagHelpers.input.cache
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.TagHelpers.output.cache
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.RazorCoreGenerate.cache
+C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
+C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Scadenze\Detail.cshtml.g.cs
+C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Scadenze\Index.cshtml.g.cs
+C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.RazorTargetAssemblyInfo.cache
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.RazorTargetAssemblyInfo.cs
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.Views.pdb
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.dll
+C:\Blog\Scadenzario\obj\Debug\net5.0\ref\Scadenzario.dll
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.pdb
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.genruntimeconfig.cache
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.csproj.CopyComplete

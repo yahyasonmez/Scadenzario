@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Blog\\Post\\ASP NET CORE\\Scadenzario\\Scadenzario.csproj",
+      "projectUniqueName": "C:\\Blog\\Scadenzario\\Scadenzario.csproj",
       "projectName": "Scadenzario",
-      "projectPath": "C:\\Blog\\Post\\ASP NET CORE\\Scadenzario\\Scadenzario.csproj",
+      "projectPath": "C:\\Blog\\Scadenzario\\Scadenzario.csproj",
       "packagesPath": "C:\\Users\\marco\\.nuget\\packages\\",
-      "outputPath": "C:\\Blog\\Post\\ASP NET CORE\\Scadenzario\\obj\\",
+      "outputPath": "C:\\Blog\\Scadenzario\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

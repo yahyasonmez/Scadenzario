@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aZ21vB396IQ1FQelNURAXv/tifjbKDi5xAximctVHYi50Id8CcrJvD7x6/Np73BISK1624Wtxh81r94OGv6/UQ==",
+  "dgSpecHash": "O7BpENkqS61/B66Q6qr3y+YUAgRiL1TWo4Hzdtz+oEZoWiDBll06Y8F3jS+O03dGoGeuOZAraDwnrpNGWzUOew==",
   "success": true,
-  "projectFilePath": "C:\\Blog\\Post\\ASP NET CORE\\Scadenzario\\Scadenzario.csproj",
+  "projectFilePath": "C:\\Blog\\Scadenzario\\Scadenzario.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
