@@ -1,15 +1,24 @@
-using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
 
-namespace Models.Entities
+#nullable disable
+
+namespace Scadenzario.Models.Entities
 {
-    public class Beneficiari
-	{
-		public int IDBeneficiario { get; set; }
-		public String Beneficiario { get; set; }
-		public String Descrizione { get; set; }
-        public String Email { get; set; }
-        public String Telefono { get; set; }
-        public String SitoWeb { get; set; }
-	}
+    public partial class Beneficiari
+    {
+        public Beneficiari()
+        {
+            Scadenze = new HashSet<Scadenze>();
+        }
+
+        public int Idbeneficiario { get; set; }
+        public string Beneficiario { get; set; }
+        public string Descrizione { get; set; }
+        public string Email { get; set; }
+        public string Telefono { get; set; }
+        public string SitoWeb { get; set; }
+
+        public virtual ICollection<Scadenze> Scadenze { get; set; }
+    }
 }

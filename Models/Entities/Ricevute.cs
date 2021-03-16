@@ -1,16 +1,19 @@
-using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
 
-namespace Models.Entities
+#nullable disable
+
+namespace Scadenzario.Models.Entities
 {
-    public class Ricevute
-	{
-		public int Id { get; set; }
-		public int IDScadenza { get; set; }
-		public string FileName { get; set; }
-		public string FileType { get; set; }
-		public byte[] FileContent { get; set; }
-		public String Beneficiario { get; set; }
+    public partial class Ricevute
+    {
+        public int Id { get; set; }
+        public int Idscadenza { get; set; }
+        public string FileName { get; set; }
+        public string FileType { get; set; }
+        public byte[] FileContent { get; set; }
+        public string Beneficiario { get; set; }
 
-	}
+        public virtual Scadenze Idscadenze { get; set; }
+    }
 }
