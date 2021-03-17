@@ -5,15 +5,15 @@ using System.Collections.Generic;
 
 namespace Scadenzario.Models.Entities
 {
-    public partial class Ricevute
+    public partial class Ricevuta
     {
         public int Id { get; set; }
-        public int Idscadenza { get; set; }
+        public int IDScadenza { get; set; }
         public string FileName { get; set; }
         public string FileType { get; set; }
         public byte[] FileContent { get; set; }
         public string Beneficiario { get; set; }
 
-        public virtual Scadenze Idscadenze { get; set; }
+        public virtual Scadenza Scadenza { get; set; }
     }
 }

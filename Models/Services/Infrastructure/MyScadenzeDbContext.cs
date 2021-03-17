@@ -18,16 +18,16 @@ namespace Scadenzario.Models.Services.Infrastructure
         {
         }
 
-        public virtual DbSet<Beneficiari> Beneficiaris { get; set; }
-        public virtual DbSet<Ricevute> Ricevutes { get; set; }
-        public virtual DbSet<Scadenze> Scadenzes { get; set; }
+        public virtual DbSet<Beneficiario> Beneficiari { get; set; }
+        public virtual DbSet<Ricevuta> Ricevute { get; set; }
+        public virtual DbSet<Scadenza> Scadenze { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=LAPTOP-SMBSSRS2\\SQLEXPRESS;Database=Scadenzario;Trusted_Connection=True;User ID=LAPTOP-SMBSSRS2\\\\\\\\marco;");
+                #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseSqlServer("Server=LAPTOP-SMBSSRS2\\SQLEXPRESS;Database=Scadenzario;Trusted_Connection=True;User ID=LAPTOP-SMBSSRS2\\marco;");
             }
         }
 
@@ -35,81 +35,51 @@ namespace Scadenzario.Models.Services.Infrastructure
         {
             modelBuilder.HasAnnotation("Relational:Collation", "Latin1_General_CI_AS");
 
-            modelBuilder.Entity<Beneficiari>(entity =>
+            modelBuilder.Entity<Beneficiario>(entity =>
             {
-                entity.HasKey(e => e.Idbeneficiario);
+                entity.HasKey(e => e.IDBeneficiario);
 
-                entity.ToTable("Beneficiari");
-
-                entity.Property(e => e.Idbeneficiario).HasColumnName("IDBeneficiario");
-
-                entity.Property(e => e.Beneficiario)
+                entity.ToTable("Beneficiari");//Superfluo se la tabella ha lo stesso nome della proprietà che espone il DbSet
+                
+                /*--Finchè la proprietà ha lo stesso nome della colonna del database è superfluo fare il mapping*/
+                entity.Property(e => e.Sbeneficiario)
                     .IsRequired()
-                    .HasMaxLength(150);
+                    .HasMaxLength(150)
+                    .HasColumnName("Beneficiario");
 
-                entity.Property(e => e.Descrizione).IsRequired();
-
-                entity.Property(e => e.Email).HasMaxLength(50);
-
-                entity.Property(e => e.SitoWeb).HasMaxLength(80);
-
-                entity.Property(e => e.Telefono).HasMaxLength(20);
-            });
-
-            modelBuilder.Entity<Ricevute>(entity =>
-            {
-                entity.ToTable("Ricevute");
-
-                entity.Property(e => e.Beneficiario)
-                    .IsRequired()
-                    .HasMaxLength(150);
-
-                entity.Property(e => e.FileContent)
-                    .IsRequired()
-                    .HasColumnType("image");
-
-                entity.Property(e => e.FileName)
-                    .IsRequired()
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.FileType)
-                    .IsRequired()
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.Idscadenza).HasColumnName("IDScadenza");
-
-                entity.HasOne(d => d.Idscadenze)
-                    .WithMany(p => p.Ricevutes)
-                    .HasForeignKey(d => d.Idscadenza)
-                    .HasConstraintName("FK_Scadenze_Ricevute");
-            });
-
-            modelBuilder.Entity<Scadenze>(entity =>
-            {
-                entity.HasKey(e => e.Idscadenza);
-
-                entity.ToTable("Scadenze");
-
-                entity.Property(e => e.Idscadenza).HasColumnName("IDScadenza");
-
-                entity.Property(e => e.Beneficiario)
-                    .IsRequired()
-                    .HasMaxLength(150);
-
-                entity.Property(e => e.DataPagamento).HasColumnType("datetime");
-
-                entity.Property(e => e.DataScadenza).HasColumnType("datetime");
-
-                entity.Property(e => e.Idbeneficiario).HasColumnName("IDBeneficiario");
-
-                entity.Property(e => e.Iduser).HasColumnName("IDUser");
-
-                entity.Property(e => e.Importo).HasColumnType("decimal(18, 2)");
-
-                entity.HasOne(d => d.IdbeneficiarioNavigation)
-                    .WithMany(p => p.Scadenze)
-                    .HasForeignKey(d => d.Idbeneficiario)
+                entity.HasMany(d => d.Scadenze)
+                    .WithOne(p => p.beneficiario)
+                    .HasForeignKey(d => d.IDScadenza)
                     .HasConstraintName("FK_Scadenze_Beneficiario");
+            });
+
+            modelBuilder.Entity<Ricevuta>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+
+                entity.ToTable("Ricevute");//Superfluo se la tabella ha lo stesso nome della proprietà che espone il DbSet.
+
+            });
+            modelBuilder.Entity<Scadenza>(entity =>
+            {
+                entity.HasKey(e => e.IDScadenza);
+
+                entity.ToTable("Scadenze");//Superfluo se la tabella ha lo stesso nome della proprietà che espone il DbSet.
+               
+               //MAPPING DELLE RELAZIONI
+
+               /*--mappare le relazioni. Le relazioni ci consentono di usare le proprietà di
+               navigazione Ricevute è una proprietà di navigazione e ci permette di
+               passare da un'entità all'altra senza join che tipicamente si fanno nel mondo
+               relazionale. HasMany ci permette di dire che dal punto di vista dell'entità
+               Scadenza una Scadenza ha molte ricevute, poi con WithOne ci mettiamo dal
+               punto di vista della ricevuta che ha una sola Scadenza, infine si
+               mappa la chiave esterna.--*/
+
+               entity.HasMany(scadenza => scadenza.Ricevute)
+                    .WithOne(ricevuta => ricevuta.Scadenza)
+                    .HasForeignKey(ricevuta => ricevuta.IDScadenza)
+                    .HasConstraintName("FK_Scadenze_Ricevute");
             });
 
             OnModelCreatingPartial(modelBuilder);

@@ -5,20 +5,20 @@ using System.Collections.Generic;
 
 namespace Scadenzario.Models.Entities
 {
-    public partial class Beneficiari
+    public partial class Beneficiario
     {
-        public Beneficiari()
+        public Beneficiario()
         {
-            Scadenze = new HashSet<Scadenze>();
+            Scadenze = new HashSet<Scadenza>();
         }
 
-        public int Idbeneficiario { get; set; }
-        public string Beneficiario { get; set; }
+        public int IDBeneficiario { get; set; }
+        public string Sbeneficiario { get; set; }
         public string Descrizione { get; set; }
         public string Email { get; set; }
         public string Telefono { get; set; }
         public string SitoWeb { get; set; }
 
-        public virtual ICollection<Scadenze> Scadenze { get; set; }
+        public virtual ICollection<Scadenza> Scadenze { get; set; }
     }
 }

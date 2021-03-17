@@ -5,16 +5,16 @@ using System.Collections.Generic;
 
 namespace Scadenzario.Models.Entities
 {
-    public partial class Scadenze
+    public partial class Scadenza
     {
-        public Scadenze()
+        public Scadenza()
         {
-            Ricevutes = new HashSet<Ricevute>();
+            Ricevute = new HashSet<Ricevuta>();
         }
 
-        public int Idscadenza { get; set; }
-        public int Iduser { get; set; }
-        public int Idbeneficiario { get; set; }
+        public int IDScadenza { get; set; }
+        public int IDUser { get; set; }
+        public int IDBeneficiario { get; set; }
         public string Beneficiario { get; set; }
         public DateTime DataScadenza { get; set; }
         public decimal Importo { get; set; }
@@ -22,7 +22,7 @@ namespace Scadenzario.Models.Entities
         public short? GiorniRitardo { get; set; }
         public DateTime? DataPagamento { get; set; }
 
-        public virtual Beneficiari IdbeneficiarioNavigation { get; set; }
-        public virtual ICollection<Ricevute> Ricevutes { get; set; }
+        public virtual Beneficiario beneficiario { get; set; }
+        public virtual ICollection<Ricevuta> Ricevute { get; set; }
     }
 }
