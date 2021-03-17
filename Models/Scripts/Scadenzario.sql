@@ -77,9 +77,6 @@ ALTER DATABASE [Scadenzario] SET QUERY_STORE = OFF
 GO
 USE [Scadenzario]
 GO
-/****** Object:  User [LAPTOP-SMBSSRS2\marco]    Script Date: 16/03/2021 05:38:04 ******/
-CREATE USER [LAPTOP-SMBSSRS2\marco] FOR LOGIN [LAPTOP-SMBSSRS2\marco] WITH DEFAULT_SCHEMA=[dbo]
-GO
 /****** Object:  Table [dbo].[Beneficiari]    Script Date: 16/03/2021 05:38:04 ******/
 SET ANSI_NULLS ON
 GO
