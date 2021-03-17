@@ -6,10 +6,12 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Scadenzario.Models.Services.Application;
+using Scadenzario.Models.Services.Infrastructure;
 
 namespace Scadenzario
 {
@@ -28,6 +30,9 @@ namespace Scadenzario
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddTransient<IScadenzeService,ScadenzeService>();
+            services.AddDbContextPool<MyScadenzaDbContext>(optionsBuilder=>{
+                 optionsBuilder.UseSqlServer("Server=LAPTOP-SMBSSRS2\\SQLEXPRESS;Database=Scadenzario;Trusted_Connection=True;User ID=LAPTOP-SMBSSRS2\\marco;");
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -7,12 +7,12 @@ using Scadenzario.Models.Entities;
 
 namespace Scadenzario.Models.Services.Infrastructure
 {
-    public partial class MyScadenzeDbContext : DbContext
+    public partial class MyScadenzaDbContext : DbContext
     {
-        public MyScadenzeDbContext()
+        public MyScadenzaDbContext()
         {
         }
-        public MyScadenzeDbContext(DbContextOptions<MyScadenzeDbContext> options)
+        public MyScadenzaDbContext(DbContextOptions<MyScadenzaDbContext> options)
             : base(options)
         {
         }
