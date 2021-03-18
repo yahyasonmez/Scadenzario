@@ -15628,6 +15628,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Blog\\Scadenzario\\Views\\Shared\\_LoginPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_LoginPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Blog\\Scadenzario\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
