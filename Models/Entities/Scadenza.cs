@@ -28,8 +28,5 @@ namespace Scadenzario.Models.Entities
 
         public virtual ApplicationUser ApplicationUser { get; set; }
     }
-    public class ApplicationUser : IdentityUser
-    {
-       public virtual ICollection<Scadenza> Scadenze { get; set; }
-    }
+    
 }

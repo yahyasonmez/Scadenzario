@@ -73,7 +73,8 @@ namespace Scadenzario.Models.Services.Infrastructure
                 entity.HasKey(e => e.IDScadenza);
 
                 entity.ToTable("Scadenze");//Superfluo se la tabella ha lo stesso nome della proprietà che espone il DbSet.
-               
+                entity.Property(z=>z.Importo).HasPrecision(18,2);
+                
                //MAPPING DELLE RELAZIONI
 
                /*--mappare le relazioni. Le relazioni ci consentono di usare le proprietà di
