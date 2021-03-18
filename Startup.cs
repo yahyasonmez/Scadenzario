@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -33,6 +34,8 @@ namespace Scadenzario
             services.AddDbContextPool<MyScadenzaDbContext>(optionsBuilder=>{
                  optionsBuilder.UseSqlServer("Server=LAPTOP-SMBSSRS2\\SQLEXPRESS;Database=Scadenzario;Trusted_Connection=True;User ID=LAPTOP-SMBSSRS2\\marco;");
             });
+            services.AddDefaultIdentity<IdentityUser>()
+                 .AddEntityFrameworkStores<MyScadenzaDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,7 +48,8 @@ namespace Scadenzario
             app.UseStaticFiles();
             //Endpoint routing Middleware
             app.UseRouting();
-
+            app.UseAuthentication();
+            app.UseAuthorization();
             //EndpointMiddleware
 
             /*--Una route viene identificata da un nome, in questo caso default

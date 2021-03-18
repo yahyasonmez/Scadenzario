@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity;
 
 #nullable disable
 
@@ -13,7 +14,7 @@ namespace Scadenzario.Models.Entities
         }
 
         public int IDScadenza { get; set; }
-        public int IDUser { get; set; }
+        public String IDUser { get; set; }
         public int IDBeneficiario { get; set; }
         public string Beneficiario { get; set; }
         public DateTime DataScadenza { get; set; }
@@ -24,5 +25,11 @@ namespace Scadenzario.Models.Entities
 
         public virtual Beneficiario beneficiario { get; set; }
         public virtual ICollection<Ricevuta> Ricevute { get; set; }
+
+        public virtual ApplicationUser ApplicationUser { get; set; }
+    }
+    public class ApplicationUser : IdentityUser
+    {
+       public virtual ICollection<Scadenza> Scadenze { get; set; }
     }
 }
