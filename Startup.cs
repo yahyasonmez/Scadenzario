@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MyCourse.Customizations.Identity;
 using Scadenzario.Models.Services.Application;
 using Scadenzario.Models.Services.Infrastructure;
 
@@ -34,8 +35,15 @@ namespace Scadenzario
             services.AddDbContextPool<MyScadenzaDbContext>(optionsBuilder=>{
                  optionsBuilder.UseSqlServer("Server=LAPTOP-SMBSSRS2\\SQLEXPRESS;Database=Scadenzario;Trusted_Connection=True;User ID=LAPTOP-SMBSSRS2\\marco;");
             });
-            services.AddDefaultIdentity<IdentityUser>()
-                 .AddEntityFrameworkStores<MyScadenzaDbContext>();
+            services.AddDefaultIdentity<IdentityUser>(options=>{
+                                 options.Password.RequireDigit=true;
+                                 options.Password.RequiredLength=8;
+                                 options.Password.RequireUppercase=true;
+                                 options.Password.RequireLowercase=true;
+                                 options.Password.RequiredUniqueChars=3;
+            })
+            .AddEntityFrameworkStores<MyScadenzaDbContext>()
+            .AddPasswordValidator<CommonPasswordValidator<IdentityUser>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
