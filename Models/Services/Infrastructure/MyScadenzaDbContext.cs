@@ -9,9 +9,6 @@ namespace Scadenzario.Models.Services.Infrastructure
 {
     public partial class MyScadenzaDbContext : DbContext
     {
-        public MyScadenzaDbContext()
-        {
-        }
         public MyScadenzaDbContext(DbContextOptions<MyScadenzaDbContext> options)
             : base(options)
         {
