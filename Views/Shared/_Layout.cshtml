@@ -31,12 +31,20 @@
                         <a class="nav-link" asp-action="Index" asp-controller="Scadenze">Lista Scadenze</a>
                     </li>
                 </ul>
+                 <partial name="_LoginPartial"></partial>
             </div>
         </nav>
+
+        
+
+
     </header>
     <div class="container">
         <div class="container">
              @RenderBody()
+             <environment names="Development">
+                @RenderSection("scripts", required: false)
+            </environment>
         </div>
     </div>
 </body>

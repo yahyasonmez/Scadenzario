@@ -15608,6 +15608,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Blog\\Scadenzario\\Area\\Identity\\Pages\\_ViewStart.cshtml",
+      "TargetPath": "Area\\Identity\\Pages\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Blog\\Scadenzario\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
