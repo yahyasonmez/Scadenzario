@@ -94,7 +94,6 @@ namespace Scadenzario.Models.Services.Infrastructure
             });
 
             modelBuilder.Entity<ApplicationUser>(entity => {
-                    entity.HasKey(key=>key.Id);
             //Mapping delle relazioni        
                     entity.HasMany(user=>user.Scadenze) 
                           .WithOne(Scadenza=>Scadenza.ApplicationUser)
