@@ -25,8 +25,15 @@ using Scadenzario.Models.ViewModels;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Blog\Scadenzario\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4aa201f6205e360b322db23088c64eb27fcea52b", @"/Views/Scadenze/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8968d365254eb87323528d72365382337898ad61", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"53ab34b99daecd5f269b3226df19e0fbe48ff457", @"/Views/_ViewImports.cshtml")]
     public class Views_Scadenze_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<ScadenzeViewModel>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("btn btn-outline-primary"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -138,7 +145,7 @@ Write(ViewData["Title"]);
 #line hidden
 #nullable disable
             WriteLiteral("\r\n                        </td>\r\n                        <td>\r\n                            <div class=\"d-flex align-items-center\">\r\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4aa201f6205e360b322db23088c64eb27fcea52b7023", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4aa201f6205e360b322db23088c64eb27fcea52b7187", async() => {
                 WriteLiteral("Dettaglio");
             }
             );
