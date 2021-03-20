@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
@@ -8,8 +9,9 @@ using Scadenzario.Models.Entities;
 
 namespace Scadenzario.Models.Services.Infrastructure
 {
-    public partial class MyScadenzaDbContext : IdentityDbContext
+    public partial class MyScadenzaDbContext:IdentityDbContext
     {
+       
         public MyScadenzaDbContext(DbContextOptions<MyScadenzaDbContext> options)
             : base(options)
         {

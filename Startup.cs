@@ -7,11 +7,14 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MyCourse.Customizations.Identity;
+using Scadenzario.Models.Entities;
+using Scadenzario.Models.Options;
 using Scadenzario.Models.Services.Application;
 using Scadenzario.Models.Services.Infrastructure;
 
@@ -41,9 +44,14 @@ namespace Scadenzario
                                  options.Password.RequireUppercase=true;
                                  options.Password.RequireLowercase=true;
                                  options.Password.RequiredUniqueChars=3;
+                                 //Conferma Account
+                                 options.SignIn.RequireConfirmedAccount=true;
             })
             .AddEntityFrameworkStores<MyScadenzaDbContext>()
             .AddPasswordValidator<CommonPasswordValidator<IdentityUser>>();
+            services.AddSingleton<IEmailSender,MailKitEmailSender>();
+            //Options
+            services.Configure<SmtpOptions>(Configuration.GetSection("Smtp"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
