@@ -236,3 +236,5 @@ C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\_ViewImp
 C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Error.cshtml.g.cs
 C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
+C:\Blog\Scadenzario\bin\Debug\net5.0\SendGrid.dll
+C:\Blog\Scadenzario\bin\Debug\net5.0\StarkbankEcdsa.dll

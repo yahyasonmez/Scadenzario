@@ -27,7 +27,7 @@ namespace Scadenzario.Models.Services.Infrastructure
                 await client.ConnectAsync(options.Host, options.Port, options.Security);
                 if (!string.IsNullOrEmpty(options.Username))
                 {
-                    await client.AuthenticateAsync(smtpOptionsMonitor.CurrentValue.Username, smtpOptionsMonitor.CurrentValue.Password);
+                    await client.AuthenticateAsync(options.Username, options.Password);
                 }
                 MimeMessage message = new();
                 message.From.Add(MailboxAddress.Parse(options.Sender));
@@ -40,9 +40,9 @@ namespace Scadenzario.Models.Services.Infrastructure
                 await client.SendAsync(message);
                 await client.DisconnectAsync(true);
             }
-            catch (Exception ex)
+            catch (Exception exc)
             {
-                logger.LogError(ex, "Non è stato possibile inviare l'email a {email} con il messaggio {message}", email, htmlMessage);
+                logger.LogError(exc, "Couldn't send email to {email} with message {message}", email, htmlMessage);
             }
         }
     }

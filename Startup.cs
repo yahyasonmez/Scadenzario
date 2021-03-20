@@ -49,7 +49,7 @@ namespace Scadenzario
             })
             .AddEntityFrameworkStores<MyScadenzaDbContext>()
             .AddPasswordValidator<CommonPasswordValidator<IdentityUser>>();
-            services.AddSingleton<IEmailSender,MailKitEmailSender>();
+            services.AddSingleton<IEmailSender,MailKitEmailSender();
             //Options
             services.Configure<SmtpOptions>(Configuration.GetSection("Smtp"));
         }
