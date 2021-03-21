@@ -46,10 +46,14 @@ namespace Scadenzario
                                  options.Password.RequiredUniqueChars=3;
                                  //Conferma Account
                                  options.SignIn.RequireConfirmedAccount=true;
+                                 //Blocco dell'account
+                                 options.Lockout.AllowedForNewUsers=true;
+                                 options.Lockout.MaxFailedAccessAttempts=5;
+                                 options.Lockout.DefaultLockoutTimeSpan=TimeSpan.FromMinutes(5);
             })
             .AddEntityFrameworkStores<MyScadenzaDbContext>()
             .AddPasswordValidator<CommonPasswordValidator<IdentityUser>>();
-            services.AddSingleton<IEmailSender,MailKitEmailSender();
+            services.AddSingleton<IEmailSender, MailKitEmailSender>();
             //Options
             services.Configure<SmtpOptions>(Configuration.GetSection("Smtp"));
         }
