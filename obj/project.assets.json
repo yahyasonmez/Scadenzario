@@ -7745,11 +7745,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Blog\\Scadenzario\\Scadenzario.csproj",
+      "projectUniqueName": "c:\\Blog\\Scadenzario\\Scadenzario.csproj",
       "projectName": "Scadenzario",
-      "projectPath": "C:\\Blog\\Scadenzario\\Scadenzario.csproj",
+      "projectPath": "c:\\Blog\\Scadenzario\\Scadenzario.csproj",
       "packagesPath": "C:\\Users\\marco\\.nuget\\packages\\",
-      "outputPath": "C:\\Blog\\Scadenzario\\obj\\",
+      "outputPath": "c:\\Blog\\Scadenzario\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
