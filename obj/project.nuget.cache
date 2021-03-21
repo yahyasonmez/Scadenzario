@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FNf/m8vfNmwZ+78vrEsShLPXEYlv1osRZ0PuZmC/Dn97CFbYBa89N4V3yUCDMeyStEcxqMw6NvdVUn6zIx4Qhg==",
+  "dgSpecHash": "ljwu1VmaFAu4svq/qZAEJu9U9c2LicdyfqWV0WYF5OsGCSKxef69/PVTPuHbpWx0V75DORfuGNrEeZvxq33lZg==",
   "success": true,
-  "projectFilePath": "C:\\Blog\\Scadenzario\\Scadenzario.csproj",
+  "projectFilePath": "c:\\Blog\\Scadenzario\\Scadenzario.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\marco\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\marco\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.4\\microsoft.aspnetcore.cryptography.internal.5.0.4.nupkg.sha512",
