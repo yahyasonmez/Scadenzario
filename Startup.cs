@@ -6,10 +6,15 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MyCourse.Customizations.Identity;
+using Scadenzario.Models.Entities;
+using Scadenzario.Models.Options;
 using Scadenzario.Models.Services.Application;
 using Scadenzario.Models.Services.Infrastructure;
 
@@ -33,6 +38,24 @@ namespace Scadenzario
             services.AddDbContextPool<MyScadenzaDbContext>(optionsBuilder=>{
                  optionsBuilder.UseSqlServer("Server=LAPTOP-SMBSSRS2\\SQLEXPRESS;Database=Scadenzario;Trusted_Connection=True;User ID=LAPTOP-SMBSSRS2\\marco;");
             });
+            services.AddDefaultIdentity<IdentityUser>(options=>{
+                                 options.Password.RequireDigit=true;
+                                 options.Password.RequiredLength=8;
+                                 options.Password.RequireUppercase=true;
+                                 options.Password.RequireLowercase=true;
+                                 options.Password.RequiredUniqueChars=3;
+                                 //Conferma Account
+                                 options.SignIn.RequireConfirmedAccount=true;
+                                 //Blocco dell'account
+                                 options.Lockout.AllowedForNewUsers=true;
+                                 options.Lockout.MaxFailedAccessAttempts=5;
+                                 options.Lockout.DefaultLockoutTimeSpan=TimeSpan.FromMinutes(5);
+            })
+            .AddEntityFrameworkStores<MyScadenzaDbContext>()
+            .AddPasswordValidator<CommonPasswordValidator<IdentityUser>>();
+            services.AddSingleton<IEmailSender, MailKitEmailSender>();
+            //Options
+            services.Configure<SmtpOptions>(Configuration.GetSection("Smtp"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,7 +68,8 @@ namespace Scadenzario
             app.UseStaticFiles();
             //Endpoint routing Middleware
             app.UseRouting();
-
+            app.UseAuthentication();
+            app.UseAuthorization();
             //EndpointMiddleware
 
             /*--Una route viene identificata da un nome, in questo caso default

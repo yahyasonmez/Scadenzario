@@ -25,8 +25,22 @@ using Scadenzario.Models.ViewModels;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Blog\Scadenzario\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Blog\Scadenzario\Views\_ViewImports.cshtml"
+using Scadenzario.Models.Entities;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5d35b16da9588f40999174338879d4a6449c4bf6", @"/Views/Scadenze/Detail.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8968d365254eb87323528d72365382337898ad61", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d9d8f078d45512a566653dd130aaca493bb3974d", @"/Views/_ViewImports.cshtml")]
     public class Views_Scadenze_Detail : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ScadenzeViewModel>
     {
         #pragma warning disable 1998

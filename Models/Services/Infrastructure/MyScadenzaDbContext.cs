@@ -1,4 +1,6 @@
 ﻿using System;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Scadenzario.Models.Entities;
@@ -7,11 +9,9 @@ using Scadenzario.Models.Entities;
 
 namespace Scadenzario.Models.Services.Infrastructure
 {
-    public partial class MyScadenzaDbContext : DbContext
+    public partial class MyScadenzaDbContext:IdentityDbContext
     {
-        public MyScadenzaDbContext()
-        {
-        }
+       
         public MyScadenzaDbContext(DbContextOptions<MyScadenzaDbContext> options)
             : base(options)
         {
@@ -32,8 +32,8 @@ namespace Scadenzario.Models.Services.Infrastructure
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.HasAnnotation("Relational:Collation", "Latin1_General_CI_AS");
-
             modelBuilder.Entity<Beneficiario>(entity =>
             {
                 entity.HasKey(e => e.IDBeneficiario);
@@ -56,12 +56,11 @@ namespace Scadenzario.Models.Services.Infrastructure
                 punto di vista della Scadenza che ha una solo beneficiario, infine si
                 mappa la chiave esterna.--*/
 
-
-
                 entity.HasMany(beneficiario => beneficiario.Scadenze)
                     .WithOne(scadenza => scadenza.beneficiario)
                     .HasForeignKey(scadenza => scadenza.IDScadenza)
-                    .HasConstraintName("FK_Scadenze_Beneficiario");
+                    .HasConstraintName("FK_Scadenze_Beneficiario")
+                    .OnDelete(DeleteBehavior.Cascade);
             });
 
             modelBuilder.Entity<Ricevuta>(entity =>
@@ -76,7 +75,8 @@ namespace Scadenzario.Models.Services.Infrastructure
                 entity.HasKey(e => e.IDScadenza);
 
                 entity.ToTable("Scadenze");//Superfluo se la tabella ha lo stesso nome della proprietà che espone il DbSet.
-               
+                entity.Property(z=>z.Importo).HasPrecision(18,2);
+                
                //MAPPING DELLE RELAZIONI
 
                /*--mappare le relazioni. Le relazioni ci consentono di usare le proprietà di
@@ -90,7 +90,17 @@ namespace Scadenzario.Models.Services.Infrastructure
                entity.HasMany(scadenza => scadenza.Ricevute)
                     .WithOne(ricevuta => ricevuta.Scadenza)
                     .HasForeignKey(ricevuta => ricevuta.IDScadenza)
-                    .HasConstraintName("FK_Scadenze_Ricevute");
+                    .HasConstraintName("FK_Scadenze_Ricevute")
+                    .OnDelete(DeleteBehavior.Cascade);
+                 
+            });
+
+            modelBuilder.Entity<ApplicationUser>(entity => {
+            //Mapping delle relazioni        
+                    entity.HasMany(user=>user.Scadenze) 
+                          .WithOne(Scadenza=>Scadenza.ApplicationUser)
+                          .HasForeignKey(Scadenza=>Scadenza.IDUser)
+                          .OnDelete(DeleteBehavior.Cascade);
             });
 
             OnModelCreatingPartial(modelBuilder);
