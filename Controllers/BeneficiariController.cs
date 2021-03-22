@@ -25,7 +25,7 @@ namespace Scadenzario.Controllers
 
         public IActionResult Create()
         {
-            ViewData["Title"] = "Nuovo beneficiario";
+            TempData["Title"] = "Nuovo beneficiario".ToUpper();
             BeneficiarioCreateInputModel inputModel = new();
             return View();
         }
@@ -33,8 +33,17 @@ namespace Scadenzario.Controllers
         public async Task<IActionResult> Create(BeneficiarioCreateInputModel inputModel)
         {
             inputModel = inputModel.Input;
-            await service.CreateBeneficiarioAsync(inputModel);
-            return RedirectToAction("Index");
+            if(ModelState.IsValid)
+            {
+                await service.CreateBeneficiarioAsync(inputModel);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                TempData["Title"] = "Nuovo beneficiario".ToUpper();
+                return View(inputModel); 
+            }
+              
         }
     }
 }

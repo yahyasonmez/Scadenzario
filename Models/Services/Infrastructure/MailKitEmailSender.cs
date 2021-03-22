@@ -23,11 +23,16 @@ namespace Scadenzario.Models.Services.Infrastructure
             try
             {
                 var options = this.smtpOptionsMonitor.CurrentValue;
+                
+                String Host = Environment.GetEnvironmentVariable("Host");
+                String Username = Environment.GetEnvironmentVariable("User");
+                String Password = Environment.GetEnvironmentVariable("Password");
+
                 using SmtpClient client = new();
-                await client.ConnectAsync(options.Host, options.Port, options.Security);
-                if (!string.IsNullOrEmpty(options.Username))
+                await client.ConnectAsync(Host, options.Port, options.Security);
+                if (!string.IsNullOrEmpty(Username))
                 {
-                    await client.AuthenticateAsync(options.Username, options.Password);
+                    await client.AuthenticateAsync(Username, Password);
                 }
                 MimeMessage message = new();
                 message.From.Add(MailboxAddress.Parse(options.Sender));
