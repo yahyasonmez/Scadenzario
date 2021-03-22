@@ -15623,6 +15623,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Blog\\Scadenzario\\Views\\Beneficiari\\Edit.cshtml",
+      "TargetPath": "Views\\Beneficiari\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Blog\\Scadenzario\\Areas\\Identity\\Pages\\Account\\Manage\\GenerateRecoveryCodes.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\GenerateRecoveryCodes.cshtml",
       "FileKind": "mvc"
@@ -15783,6 +15788,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Blog\\Scadenzario\\Views\\Beneficiari\\Create.cshtml",
+      "TargetPath": "Views\\Beneficiari\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Blog\\Scadenzario\\Areas\\Identity\\Pages\\Account\\Manage\\_ViewImports.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\_ViewImports.cshtml",
       "FileKind": "mvc"
@@ -15828,6 +15838,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Blog\\Scadenzario\\Views\\Beneficiari\\Delete.cshtml",
+      "TargetPath": "Views\\Beneficiari\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Blog\\Scadenzario\\Views\\Beneficiari\\Index.cshtml",
+      "TargetPath": "Views\\Beneficiari\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Blog\\Scadenzario\\Areas\\Identity\\Pages\\Account\\ConfirmEmailChange.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\ConfirmEmailChange.cshtml",
       "FileKind": "mvc"
@@ -15835,6 +15855,11 @@
     {
       "FilePath": "c:\\Blog\\Scadenzario\\Areas\\Identity\\Pages\\Account\\LoginWithRecoveryCode.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\LoginWithRecoveryCode.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Blog\\Scadenzario\\Views\\Beneficiari\\Detail.cshtml",
+      "TargetPath": "Views\\Beneficiari\\Detail.cshtml",
       "FileKind": "mvc"
     }
   ],
