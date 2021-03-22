@@ -44,7 +44,32 @@ namespace Scadenzario.Models.Services.Infrastructure
                 entity.Property(e => e.Sbeneficiario)
                     .IsRequired()
                     .HasMaxLength(150)
-                    .HasColumnName("Beneficiario");
+                    .HasColumnName("Beneficiario")
+                    .HasColumnType("nvarchar");  
+
+
+                entity.Property(e => e.Descrizione)
+                    .IsRequired()
+                    .HasColumnName("Descrizione")
+                    .HasColumnType("nvarchar(MAX)");  
+
+                entity.Property(e => e.SitoWeb)
+                    .IsRequired(false)
+                    .HasColumnName("SitoWeb")
+                    .HasMaxLength(150)
+                    .HasColumnType("nvarchar"); 
+
+                entity.Property(e => e.Email)
+                    .IsRequired(false)
+                    .HasColumnName("Email")
+                    .HasMaxLength(150)
+                    .HasColumnType("nvarchar"); 
+
+                entity.Property(e => e.Telefono)
+                    .IsRequired(false)
+                    .HasColumnName("Telefono")
+                    .HasMaxLength(50)
+                    .HasColumnType("nvarchar");                  
                 
                 //MAPPING DELLE RELAZIONI
 
@@ -68,6 +93,29 @@ namespace Scadenzario.Models.Services.Infrastructure
                 entity.HasKey(e => e.Id);
 
                 entity.ToTable("Ricevute");//Superfluo se la tabella ha lo stesso nome della proprietà che espone il DbSet.
+                
+                entity.Property(e => e.FileName)
+                    .IsRequired()
+                    .HasMaxLength(150)
+                    .HasColumnName("FileName")
+                    .HasColumnType("nvarchar");
+
+                entity.Property(e => e.FileType)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnName("FileType")
+                    .HasColumnType("nvarchar");  
+
+                 entity.Property(e => e.FileContent)
+                    .IsRequired()
+                    .HasColumnName("FileContent")
+                    .HasColumnType("image");  
+
+                entity.Property(e => e.Beneficiario)
+                    .IsRequired()
+                    .HasMaxLength(150)
+                    .HasColumnName("Beneficiario")
+                    .HasColumnType("nvarchar");          
 
             });
             modelBuilder.Entity<Scadenza>(entity =>
@@ -75,8 +123,41 @@ namespace Scadenzario.Models.Services.Infrastructure
                 entity.HasKey(e => e.IDScadenza);
 
                 entity.ToTable("Scadenze");//Superfluo se la tabella ha lo stesso nome della proprietà che espone il DbSet.
-                entity.Property(z=>z.Importo).HasPrecision(18,2);
                 
+                entity.Property(z=>z.Importo)
+                    .HasPrecision(18,2)
+                    .HasColumnType("decimal")
+                    .IsRequired();
+
+                entity.Property(e => e.Beneficiario)
+                    .IsRequired()
+                    .HasMaxLength(150)
+                    .HasColumnName("Beneficiario")
+                    .HasColumnType("nvarchar");
+
+                entity.Property(e => e.DataScadenza)
+                    .IsRequired()
+                    .HasColumnName("DataScadenza")
+                    .HasColumnType("datetime");
+                
+                
+                entity.Property(e => e.DataPagamento)
+                    .HasColumnName("DataPagamento")
+                    .HasColumnType("datetime")
+                    .IsRequired(false);
+                
+                entity.Property(e => e.Sollecito)
+                    .HasColumnName("Sollecito")
+                    .HasColumnType("bit")
+                    .IsRequired(true) 
+                    .HasDefaultValue(0);
+                    
+                 entity.Property(e => e.GiorniRitardo)
+                    .HasColumnName("GiorniRitardo")
+                    .HasColumnType("smallint")
+                    .IsRequired(false);
+
+               
                //MAPPING DELLE RELAZIONI
 
                /*--mappare le relazioni. Le relazioni ci consentono di usare le proprietà di

@@ -54,10 +54,10 @@ namespace Scadenzario.Migrations
                     IDBeneficiario = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Beneficiario = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
-                    Descrizione = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Telefono = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SitoWeb = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Descrizione = table.Column<string>(type: "nvarchar(MAX)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: true),
+                    Telefono = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    SitoWeb = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -177,12 +177,12 @@ namespace Scadenzario.Migrations
                     IDScadenza = table.Column<int>(type: "int", nullable: false),
                     IDUser = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     IDBeneficiario = table.Column<int>(type: "int", nullable: false),
-                    Beneficiario = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DataScadenza = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Beneficiario = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
+                    DataScadenza = table.Column<DateTime>(type: "datetime", nullable: false),
                     Importo = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
-                    Sollecito = table.Column<bool>(type: "bit", nullable: false),
+                    Sollecito = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
                     GiorniRitardo = table.Column<short>(type: "smallint", nullable: true),
-                    DataPagamento = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    DataPagamento = table.Column<DateTime>(type: "datetime", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -208,10 +208,10 @@ namespace Scadenzario.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     IDScadenza = table.Column<int>(type: "int", nullable: false),
-                    FileName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FileType = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FileContent = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
-                    Beneficiario = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    FileName = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
+                    FileType = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    FileContent = table.Column<byte[]>(type: "image", nullable: false),
+                    Beneficiario = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false)
                 },
                 constraints: table =>
                 {
