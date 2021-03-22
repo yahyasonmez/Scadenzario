@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KaVUp3d6LvYddTFjX3jJveoIhW5gRD/SVNHZFCcKIlt1RVCGP+ZKss4nB5c3AkWj9lgtTOqSL5kldTMZmSJcow==",
+  "dgSpecHash": "zUToEPqchxsDPpIirgVDbjDb6/VhQh0Ek86/jdbLcUcYpFa5qmHVmuXcF9smOGYhL52bUmXWp/vFu0vjN1DIWA==",
   "success": true,
-  "projectFilePath": "c:\\Blog\\Scadenzario\\Scadenzario.csproj",
+  "projectFilePath": "C:\\Blog\\Scadenzario\\Scadenzario.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\marco\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\marco\\.nuget\\packages\\mailkit\\2.11.1\\mailkit.2.11.1.nupkg.sha512",
