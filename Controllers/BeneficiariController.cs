@@ -14,25 +14,30 @@ namespace Scadenzario.Controllers
         {
             this.service = service;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            ViewData["Title"] = "Lista Beneficiari".ToUpper();
+            List<BeneficiarioViewModel> viewModel = new();
+            viewModel = await service.GetBeneficiariAsync();
+            return View(viewModel);
         }
-        public IActionResult Detail(int id)
+        public async Task<IActionResult> Detail(int id)
         {
-            return View();
+            ViewData["Title"] = "Dettaglio Beneficiario".ToUpper();
+            BeneficiarioViewModel viewModel;
+            viewModel = await service.GetBeneficiarioAsync(id);
+            return View(viewModel);
         }
 
         public IActionResult Create()
         {
-            TempData["Title"] = "Nuovo beneficiario".ToUpper();
+            ViewData["Title"] = "Nuovo beneficiario".ToUpper();
             BeneficiarioCreateInputModel inputModel = new();
             return View();
         }
         [HttpPost]
         public async Task<IActionResult> Create(BeneficiarioCreateInputModel inputModel)
         {
-            inputModel = inputModel.Input;
             if(ModelState.IsValid)
             {
                 await service.CreateBeneficiarioAsync(inputModel);
@@ -40,7 +45,7 @@ namespace Scadenzario.Controllers
             }
             else
             {
-                TempData["Title"] = "Nuovo beneficiario".ToUpper();
+                ViewData["Title"] = "Nuovo beneficiario".ToUpper();
                 return View(inputModel); 
             }
               

@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Scadenzario.Models.Entities;
 using Scadenzario.Models.InputModels;
@@ -20,22 +22,40 @@ namespace Scadenzario.Models.Services.Application
             this.logger = logger;
 
         }
-        public async Task<BeneficiarioDetailViewModel> CreateBeneficiarioAsync(BeneficiarioCreateInputModel inputModel)
+        public async Task<BeneficiarioViewModel> CreateBeneficiarioAsync(BeneficiarioCreateInputModel inputModel)
         {
             Beneficiario beneficiario = new Beneficiario();
             beneficiario.Sbeneficiario = inputModel.Beneficiario;
             beneficiario.Descrizione = inputModel.Descrizione;
-            beneficiario.Email = inputModel.Email;
-            beneficiario.Telefono = inputModel.Telefono;
-            beneficiario.SitoWeb = inputModel.SitoWeb;
             await dbContext.AddAsync(beneficiario);
             await dbContext.SaveChangesAsync();
-            return BeneficiarioDetailViewModel.FromEntity(beneficiario);
+            return BeneficiarioViewModel.FromEntity(beneficiario);
         }
 
-        public List<BeneficiarioDetailViewModel> GetBeneficiari()
+        public async Task<List<BeneficiarioViewModel>> GetBeneficiariAsync()
         {
-            throw new NotImplementedException();
+            IQueryable<BeneficiarioViewModel> queryLinq = dbContext.Beneficiari
+                .AsNoTracking()
+                .Select(beneficiari => BeneficiarioViewModel.FromEntity(beneficiari)); //Usando metodi statici come FromEntity, la query potrebbe essere inefficiente. Mantenere il mapping nella lambda oppure usare un extension method personalizzato
+
+            List<BeneficiarioViewModel> beneficiari = await queryLinq.ToListAsync(); //La query al database viene inviata qui, quando manifestiamo l'intenzione di voler leggere i risultati
+
+            return beneficiari;
+        }
+
+        public async Task<BeneficiarioViewModel> GetBeneficiarioAsync(int id)
+        {
+            IQueryable<BeneficiarioViewModel> queryLinq = dbContext.Beneficiari
+                .AsNoTracking()
+                .Where(beneficiario => beneficiario.IDBeneficiario == id)
+                .Select(beneficiario => BeneficiarioViewModel.FromEntity(beneficiario)); //Usando metodi statici come FromEntity, la query potrebbe essere inefficiente. Mantenere il mapping nella lambda oppure usare un extension method personalizzato
+            
+            BeneficiarioViewModel viewModel = await queryLinq.SingleAsync();
+                                                           //.FirstOrDefaultAsync(); //Restituisce null se l'elenco è vuoto e non solleva mai un'eccezione
+                                                           //.SingleOrDefaultAsync(); //Tollera il fatto che l'elenco sia vuoto e in quel caso restituisce null, oppure se l'elenco contiene più di 1 elemento, solleva un'eccezione
+                                                           //.FirstAsync(); //Restituisce il primo elemento, ma se l'elenco è vuoto solleva un'eccezione
+                
+            return viewModel;
         }
     }
 }
