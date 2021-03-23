@@ -15838,11 +15838,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Blog\\Scadenzario\\Views\\Beneficiari\\Delete.cshtml",
-      "TargetPath": "Views\\Beneficiari\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Blog\\Scadenzario\\Views\\Beneficiari\\Index.cshtml",
       "TargetPath": "Views\\Beneficiari\\Index.cshtml",
       "FileKind": "mvc"

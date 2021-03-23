@@ -1,0 +1,49 @@
+@model BeneficiarioViewModel
+<br>
+<br>
+<div class="alert alert-success">
+    <h2><b>@ViewData["Title"]</b></h2>
+</div>
+<br>
+<section class="course-info">
+    <div class="row">
+        <input type="hidden" name="id" asp-for="IDBeneficiario">
+        <div class="col-md-6">
+            <a class="btn btn-outline-primary btn-sm" asp-action="Edit" asp-route-id="@Model.IDBeneficiario"><i class="fas fa-pencil-alt"></i> Modifica</a>
+        </div>
+        <div class="col-md-6">
+          
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-md-9">
+                <div class="form-group">
+                    <label asp-for="Beneficiario"></label>
+                    <input type="text" class="form-control form-control-lg" asp-for="Beneficiario" readonly="true">
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Descrizione"></label>
+                    <input asp-for="Descrizione" class="form-control" readonly="true">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <aside>
+                    <div class="form-group">
+                        <label asp-for="Email"></label>
+                        <input type="email" asp-for="Email" class="form-control" readonly="true">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Telefono"></label>
+                        <input type="text" asp-for="Telefono" class="form-control" readonly="true">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SitoWeb"></label>
+                        <input type="text" asp-for="SitoWeb" class="form-control" readonly="true">
+                    </div>
+                </aside>
+            </div>
+    </div>
+</section>

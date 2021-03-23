@@ -237,7 +237,6 @@ C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Error.cshtml.g.c
 C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Beneficiari\Create.cshtml.g.cs
-C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Beneficiari\Delete.cshtml.g.cs
 C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Beneficiari\Detail.cshtml.g.cs
 C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Beneficiari\Edit.cshtml.g.cs
 C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Beneficiari\Index.cshtml.g.cs
