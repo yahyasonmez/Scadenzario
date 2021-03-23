@@ -52,7 +52,7 @@ namespace Scadenzario.Controllers
         }
         public async Task<IActionResult> Edit(int id)
         {
-            ViewData["Title"] = "Aggiorna beneficiario".ToUpper();
+            ViewData["Title"] = "Aggiorna Beneficiario".ToUpper();
             BeneficiarioEditInputModel inputModel = new();
             inputModel = await service.GetBeneficiarioForEditingAsync(id);
             return View(inputModel);
@@ -73,8 +73,11 @@ namespace Scadenzario.Controllers
               
         }
         [HttpPost]
-        public async Task<IActionResult> Delete(BeneficiarioDeleteInputModel inputModel)
+        public async Task<IActionResult> Delete(int id)
         {
+            BeneficiarioDeleteInputModel inputModel = new BeneficiarioDeleteInputModel();
+            inputModel.IDBeneficiario=id;
+            
             if(ModelState.IsValid)
             {
                 await service.DeleteBeneficiarioAsync(inputModel);

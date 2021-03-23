@@ -95,7 +95,16 @@ namespace Scadenzario.Models.Services.Application
                 throw new BeneficiarioNotFoundException(inputModel.IDBeneficiario);
             }
             try
-            {
+            {   
+                //Mapping
+                beneficiario.Sbeneficiario=inputModel.Beneficiario;
+                beneficiario.Descrizione=inputModel.Descrizione;
+                beneficiario.Email=inputModel.Email;
+                beneficiario.Telefono=inputModel.Telefono;
+                beneficiario.SitoWeb=inputModel.SitoWeb;
+
+
+                dbContext.Update(beneficiario);
                 await dbContext.SaveChangesAsync();
             }
             catch (Exception ex)
