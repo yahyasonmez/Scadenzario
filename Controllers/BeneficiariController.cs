@@ -50,5 +50,42 @@ namespace Scadenzario.Controllers
             }
               
         }
+        public async Task<IActionResult> Edit(int id)
+        {
+            ViewData["Title"] = "Aggiorna beneficiario".ToUpper();
+            BeneficiarioEditInputModel inputModel = new();
+            inputModel = await service.GetBeneficiarioForEditingAsync(id);
+            return View(inputModel);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Edit(BeneficiarioEditInputModel inputModel)
+        {
+            if(ModelState.IsValid)
+            {
+                await service.EditBeneficiarioAsync(inputModel);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                ViewData["Title"] = "Aggiorna beneficiario".ToUpper();
+                return View(inputModel); 
+            }
+              
+        }
+        [HttpPost]
+        public async Task<IActionResult> Delete(BeneficiarioDeleteInputModel inputModel)
+        {
+            if(ModelState.IsValid)
+            {
+                await service.DeleteBeneficiarioAsync(inputModel);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                ViewData["Title"] = "Elimina beneficiario".ToUpper();
+                return View(inputModel); 
+            }
+              
+        }
     }
 }

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Scadenzario.Models.Entities;
+using Scadenzario.Models.Exceptions.Application;
 using Scadenzario.Models.InputModels;
 using Scadenzario.Models.Services.Application;
 using Scadenzario.Models.Services.Infrastructure;
@@ -56,6 +57,52 @@ namespace Scadenzario.Models.Services.Application
                                                            //.FirstAsync(); //Restituisce il primo elemento, ma se l'elenco è vuoto solleva un'eccezione
                 
             return viewModel;
+        }
+        public async Task<BeneficiarioEditInputModel> GetBeneficiarioForEditingAsync(int id)
+        {
+            IQueryable<BeneficiarioEditInputModel> queryLinq = dbContext.Beneficiari
+                .AsNoTracking()
+                .Where(beneficiario => beneficiario.IDBeneficiario == id)
+                .Select(beneficiario => BeneficiarioEditInputModel.FromEntity(beneficiario)); //Usando metodi statici come FromEntity, la query potrebbe essere inefficiente. Mantenere il mapping nella lambda oppure usare un extension method personalizzato
+
+            BeneficiarioEditInputModel viewModel = await queryLinq.FirstOrDefaultAsync();
+
+            if (viewModel == null)
+            {
+                logger.LogWarning("Beneficiario {id} not found", id);
+                throw new BeneficiarioNotFoundException(id);
+            }
+
+            return viewModel;
+        }
+
+        public async Task DeleteBeneficiarioAsync(BeneficiarioDeleteInputModel inputModel)
+        {
+            Beneficiario beneficiario = await dbContext.Beneficiari.FindAsync(inputModel.IDBeneficiario);
+            if (beneficiario == null)
+            {
+                throw new BeneficiarioNotFoundException(inputModel.IDBeneficiario);
+            }
+            dbContext.Remove(beneficiario);
+            await dbContext.SaveChangesAsync();
+        }
+        public async Task<BeneficiarioViewModel> EditBeneficiarioAsync(BeneficiarioEditInputModel inputModel)
+        {
+            Beneficiario beneficiario = await dbContext.Beneficiari.FindAsync(inputModel.IDBeneficiario);
+
+            if (beneficiario == null)
+            {
+                throw new BeneficiarioNotFoundException(inputModel.IDBeneficiario);
+            }
+            try
+            {
+                await dbContext.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return BeneficiarioViewModel.FromEntity(beneficiario);
         }
     }
 }

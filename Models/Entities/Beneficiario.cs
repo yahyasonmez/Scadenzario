@@ -20,5 +20,6 @@ namespace Scadenzario.Models.Entities
         public string SitoWeb { get; set; }
 
         public virtual ICollection<Scadenza> Scadenze { get; set; }
+
     }
 }
