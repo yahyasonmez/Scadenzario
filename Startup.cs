@@ -34,7 +34,7 @@ namespace Scadenzario
         {
             services.AddControllersWithViews();
             services.AddRazorPages();
-            services.AddTransient<IScadenzeService,ScadenzeService>();
+            services.AddTransient<IScadenzeService,EFCoreScadenzaService>();
             services.AddTransient<IBeneficiariService,EFCoreBeneficiarioService>();
             services.AddDbContextPool<MyScadenzaDbContext>(optionsBuilder=>{
                  optionsBuilder.UseSqlServer("Server=LAPTOP-SMBSSRS2\\SQLEXPRESS;Database=Scadenzario;Trusted_Connection=True;User ID=LAPTOP-SMBSSRS2\\marco;");
