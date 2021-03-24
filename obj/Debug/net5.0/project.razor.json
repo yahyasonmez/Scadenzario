@@ -15608,8 +15608,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Blog\\Scadenzario\\Views\\Scadenze\\Edit.cshtml",
+      "TargetPath": "Views\\Scadenze\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Blog\\Scadenzario\\Areas\\Identity\\Pages\\Account\\Manage\\PersonalData.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\PersonalData.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Blog\\Scadenzario\\Views\\Scadenze\\Create.cshtml",
+      "TargetPath": "Views\\Scadenze\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
