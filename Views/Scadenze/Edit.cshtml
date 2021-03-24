@@ -1,0 +1,85 @@
+@model ScadenzaEditInputModel
+<br>
+<br>
+<div class="alert alert-success">
+    <h2><b>@ViewData["Title"]</b></h2>
+</div>
+<br>
+<section class="course-info">
+    <form method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-9">
+            </div>
+            <div class="col-md-3 d-flex align-items-center">
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Salva</button>
+                <button class="btn btn-danger btn-lg ml-3" type="button" data-toggle="modal" data-target="#delete-modal"><i class="fas fa-trash-alt"></i></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12" asp-validation-summary="All"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-9">
+                <div class="form-group">
+                    <label asp-for="Beneficiario"></label>
+                    <select asp-for="Beneficiario" asp-items="@Model.Beneficiari" class="form-control"></select>
+                    <span asp-validation-for="Beneficiario"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DataScadenza"></label>
+                    <input type="datetime" asp-for="DataScadenza" class="form-control">
+                    <span asp-validation-for="DataScadenza"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Importo"></label>
+                    <input asp-for="Importo" class="form-control">
+                    <span asp-validation-for="Importo"></span>
+                </div>
+                <div class="form-group">
+                    <input asp-for="IDScadenza" class="form-control" style="visibility: hidden;">
+                    <span asp-validation-for="IDScadenza"></span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <aside>
+                    <div class="form-group">
+                        <label asp-for="GiorniRitardo"></label>
+                        <input type="number" asp-for="GiorniRitardo" class="form-control" readonly="true">
+                        <span asp-validation-for="GiorniRitardo"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Sollecito"></label>
+                        <input type="checkbox" asp-for="Sollecito" class="form-control" readonly="true">
+                        <span asp-validation-for="Sollecito"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DataPagamento"></label>
+                        <input type="datetime" asp-for="DataPagamento" class="form-control">
+                        <span asp-validation-for="DataPagamento"></span>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </form>
+    <form method="post" asp-action="Delete" asp-route-id="@Model.IDScadenza">
+        <div id="delete-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="delete-modal-title" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="delete-modal-title">Conferma eliminazione</h5>
+                        <button class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Stai per eliminare la scadenza e tutte le sue ricevute e non potrai recuperarla. Confermi l'eliminazione?</p>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button class="btn btn-light" type="button" data-dismiss="modal">Annulla</button>
+                        <button type="submit" class="btn btn-danger">Conferma</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>

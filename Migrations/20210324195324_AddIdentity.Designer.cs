@@ -10,8 +10,8 @@ using Scadenzario.Models.Services.Infrastructure;
 namespace Scadenzario.Migrations
 {
     [DbContext(typeof(MyScadenzaDbContext))]
-    [Migration("20210324022247_ChangeField")]
-    partial class ChangeField
+    [Migration("20210324195324_AddIdentity")]
+    partial class AddIdentity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -309,7 +309,9 @@ namespace Scadenzario.Migrations
             modelBuilder.Entity("Scadenzario.Models.Entities.Scadenza", b =>
                 {
                     b.Property<int>("IDScadenza")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Beneficiario")
                         .IsRequired()
@@ -345,9 +347,14 @@ namespace Scadenzario.Migrations
                         .HasDefaultValue(false)
                         .HasColumnName("Sollecito");
 
+                    b.Property<int?>("beneficiarioIDBeneficiario")
+                        .HasColumnType("int");
+
                     b.HasKey("IDScadenza");
 
                     b.HasIndex("IDUser");
+
+                    b.HasIndex("beneficiarioIDBeneficiario");
 
                     b.ToTable("Scadenze");
                 });
@@ -424,17 +431,14 @@ namespace Scadenzario.Migrations
 
             modelBuilder.Entity("Scadenzario.Models.Entities.Scadenza", b =>
                 {
-                    b.HasOne("Scadenzario.Models.Entities.Beneficiario", "beneficiario")
-                        .WithMany("Scadenze")
-                        .HasForeignKey("IDScadenza")
-                        .HasConstraintName("FK_Scadenze_Beneficiario")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Scadenzario.Models.Entities.ApplicationUser", "ApplicationUser")
                         .WithMany("Scadenze")
                         .HasForeignKey("IDUser")
                         .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Scadenzario.Models.Entities.Beneficiario", "beneficiario")
+                        .WithMany("Scadenze")
+                        .HasForeignKey("beneficiarioIDBeneficiario");
 
                     b.Navigation("ApplicationUser");
 

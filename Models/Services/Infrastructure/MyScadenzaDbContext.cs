@@ -37,7 +37,8 @@ namespace Scadenzario.Models.Services.Infrastructure
             modelBuilder.Entity<Beneficiario>(entity =>
             {
                 entity.HasKey(e => e.IDBeneficiario);
-
+                entity.Property(z=>z.IDBeneficiario).ValueGeneratedOnAdd();
+                
                 entity.ToTable("Beneficiari");//Superfluo se la tabella ha lo stesso nome della proprietà che espone il DbSet
 
                 /*--Finchè la proprietà ha lo stesso nome della colonna del database è superfluo fare il mapping*/
@@ -70,27 +71,12 @@ namespace Scadenzario.Models.Services.Infrastructure
                     .HasColumnName("Telefono")
                     .HasMaxLength(50)
                     .HasColumnType("nvarchar");                  
-                
-                //MAPPING DELLE RELAZIONI
-
-                /*--mappare le relazioni. Le relazioni ci consentono di usare le proprietà di
-                navigazione Scadenze è una proprietà di navigazione e ci permette di
-                passare da un'entità all'altra senza join che tipicamente si fanno nel mondo
-                relazionale. HasMany ci permette di dire che dal punto di vista dell'entità
-                Beneficiario un Beneficiario ha molte Scadenze, poi con WithOne ci mettiamo dal
-                punto di vista della Scadenza che ha una solo beneficiario, infine si
-                mappa la chiave esterna.--*/
-
-                entity.HasMany(beneficiario => beneficiario.Scadenze)
-                    .WithOne(scadenza => scadenza.beneficiario)
-                    .HasForeignKey(scadenza => scadenza.IDScadenza)
-                    .HasConstraintName("FK_Scadenze_Beneficiario")
-                    .OnDelete(DeleteBehavior.Cascade);
             });
 
             modelBuilder.Entity<Ricevuta>(entity =>
             {
                 entity.HasKey(e => e.Id);
+                entity.Property(z=>z.Id).ValueGeneratedOnAdd();
 
                 entity.ToTable("Ricevute");//Superfluo se la tabella ha lo stesso nome della proprietà che espone il DbSet.
                 
@@ -120,8 +106,9 @@ namespace Scadenzario.Models.Services.Infrastructure
             });
             modelBuilder.Entity<Scadenza>(entity =>
             {
-                entity.HasKey(e => e.IDScadenza);
-
+                entity.HasKey(z=>z.IDScadenza);
+                entity.Property(z=>z.IDScadenza).ValueGeneratedOnAdd();
+                
                 entity.ToTable("Scadenze");//Superfluo se la tabella ha lo stesso nome della proprietà che espone il DbSet.
                 
                 entity.Property(z=>z.Importo)

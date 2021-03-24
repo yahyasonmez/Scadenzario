@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 #nullable disable
 
@@ -11,7 +12,6 @@ namespace Scadenzario.Models.Entities
         {
             Scadenze = new HashSet<Scadenza>();
         }
-
         public int IDBeneficiario { get; set; }
         public string Sbeneficiario { get; set; }
         public string Descrizione { get; set; }

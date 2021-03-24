@@ -1,6 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Scadenzario.Models.Entities;
 using Scadenzario.Models.InputModels;
 using Scadenzario.Models.Services.Application;
 using Scadenzario.Models.ViewModels;
@@ -33,12 +36,14 @@ namespace Scadenzario.Controllers
         {
             ViewData["Title"] = "Nuova Scadenza".ToUpper();
             ScadenzaCreateInputModel inputModel = new();
-            return View();
+            inputModel.DataScadenza= DateTime.Now;
+            inputModel.Beneficiari=service.GetBeneficiari;
+            return View(inputModel);
         }
         [HttpPost]
         public async Task<IActionResult> Create(ScadenzaCreateInputModel inputModel)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 await service.CreateScadenzaAsync(inputModel);
                 return RedirectToAction("Index");
@@ -46,21 +51,23 @@ namespace Scadenzario.Controllers
             else
             {
                 ViewData["Title"] = "Nuova Scadenza".ToUpper();
-                return View(inputModel); 
+                inputModel.Beneficiari=service.GetBeneficiari;
+                return View(inputModel);
             }
-              
+
         }
         public async Task<IActionResult> Edit(int id)
         {
             ViewData["Title"] = "Aggiorna Scadenza".ToUpper();
             ScadenzaEditInputModel inputModel = new();
+            inputModel.Beneficiari=service.GetBeneficiari;
             inputModel = await service.GetScadenzaForEditingAsync(id);
             return View(inputModel);
         }
         [HttpPost]
         public async Task<IActionResult> Edit(ScadenzaEditInputModel inputModel)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 await service.EditScadenzaAsync(inputModel);
                 return RedirectToAction("Index");
@@ -68,17 +75,17 @@ namespace Scadenzario.Controllers
             else
             {
                 ViewData["Title"] = "Aggiorna Scadenza".ToUpper();
-                return View(inputModel); 
+                return View(inputModel);
             }
-              
+
         }
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {
             ScadenzaDeleteInputModel inputModel = new();
-            inputModel.IDScadenza=id;
-            
-            if(ModelState.IsValid)
+            inputModel.IDScadenza = id;
+
+            if (ModelState.IsValid)
             {
                 await service.DeleteScadenzaAsync(inputModel);
                 return RedirectToAction("Index");
@@ -86,9 +93,9 @@ namespace Scadenzario.Controllers
             else
             {
                 ViewData["Title"] = "Elimina Scadenza".ToUpper();
-                return View(inputModel); 
+                return View(inputModel);
             }
-              
+
         }
     }
 }

@@ -1,0 +1,42 @@
+@model ScadenzaCreateInputModel
+<br>
+<br>
+<div class="alert alert-success">
+    <h2><b>@ViewData["Title"]</b></h2>
+</div>
+<br>
+<form method="post">
+    <div class="row">
+                <div class="col-md-3">
+                    <label asp-for="Beneficiario"></label>
+                    <select asp-for="Beneficiario" asp-items="@Model.Beneficiari" class="form-control"></select>
+                    <span asp-validation-for="Beneficiario" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <label asp-for="DataScadenza"></label>
+                    <input asp-for="DataScadenza" class="form-control" placeholder="Inserisci una scadenza...."/>
+                    <span asp-validation-for="DataScadenza" class="text-danger"></span>
+                </div>
+                 <div class="col-md-3">
+                    <label asp-for="Importo"></label>
+                    <input asp-for="Importo" class="form-control" placeholder="Inserisci un importo...."/>
+                    <span asp-validation-for="Importo" class="text-danger"></span>
+                </div>
+                <div class="col-md-3"></div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-md-4">
+           
+        </div> 
+        <div class="col-md-4">
+            <button type="submit" class="btn btn-primary btn-lg btn-block"><i class="fas fa-plus-circle"></i> Crea Scadenza</button>
+        </div> 
+         <div class="col-md-4">
+           
+        </div>    
+    </div> 
+                 
+    
+</form>

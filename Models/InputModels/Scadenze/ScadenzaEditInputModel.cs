@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Scadenzario.Models.Entities;
 
 namespace Scadenzario.Models.ViewModels
@@ -24,6 +26,7 @@ namespace Scadenzario.Models.ViewModels
 		public short? GiorniRitardo { get; set; }
         [DataType(DataType.DateTime)]
         public DateTime? DataPagamento { get; set; }
+        public List<SelectListItem> Beneficiari{get;set;}
         public static ScadenzaEditInputModel FromEntity(Scadenza scadenza)
         {
             return new ScadenzaEditInputModel {

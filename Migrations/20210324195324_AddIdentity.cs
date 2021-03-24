@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Scadenzario.Migrations
 {
-    public partial class IdentityModel : Migration
+    public partial class AddIdentity : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -174,7 +174,8 @@ namespace Scadenzario.Migrations
                 name: "Scadenze",
                 columns: table => new
                 {
-                    IDScadenza = table.Column<int>(type: "int", nullable: false),
+                    IDScadenza = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     IDUser = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     IDBeneficiario = table.Column<int>(type: "int", nullable: false),
                     Beneficiario = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
@@ -182,7 +183,8 @@ namespace Scadenzario.Migrations
                     Importo = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
                     Sollecito = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
                     GiorniRitardo = table.Column<short>(type: "smallint", nullable: true),
-                    DataPagamento = table.Column<DateTime>(type: "datetime", nullable: true)
+                    DataPagamento = table.Column<DateTime>(type: "datetime", nullable: true),
+                    beneficiarioIDBeneficiario = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -194,11 +196,11 @@ namespace Scadenzario.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Scadenze_Beneficiario",
-                        column: x => x.IDScadenza,
+                        name: "FK_Scadenze_Beneficiari_beneficiarioIDBeneficiario",
+                        column: x => x.beneficiarioIDBeneficiario,
                         principalTable: "Beneficiari",
                         principalColumn: "IDBeneficiario",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -267,6 +269,11 @@ namespace Scadenzario.Migrations
                 name: "IX_Ricevute_IDScadenza",
                 table: "Ricevute",
                 column: "IDScadenza");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Scadenze_beneficiarioIDBeneficiario",
+                table: "Scadenze",
+                column: "beneficiarioIDBeneficiario");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Scadenze_IDUser",

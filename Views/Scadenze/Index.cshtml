@@ -1,6 +1,20 @@
 @model List<ScadenzaViewModel>
-<h1>@ViewData["Title"]</h1>
 <br>
+    <br>
+    <div class="alert alert-success">
+        <h2><b>@ViewData["Title"]</b></h2>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-3">
+             <a class="btn btn-primary btn-lg btn-block" asp-action="Create" asp-controller="Scadenze"><i class="fas fa-plus-circle"></i>Nuova Scadenza</a>
+        </div>
+        <div class="col-md-9">
+            
+        </div>
+    </div>
+    <br>
+    <br>
     <div class="table-responsive-md">
         <table class="table table-striped table-hover">
             <thead class="thead-dark">
