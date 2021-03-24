@@ -4,16 +4,17 @@ using Scadenzario.Models.ViewModels;
 
 namespace Scadenzario.Models.Services.Application
 {
+    /*
     public class ScadenzeService:IScadenzeService
     {
-        public List<ScadenzeViewModel> GetScadenze()
+        public List<ScadenzaViewModel> GetScadenze()
         {
-            List<ScadenzeViewModel> lista = new();
+            List<ScadenzaViewModel> lista = new();
             var rnd = new Random();
             for(int i=1; i<=20; i++)
             {
                 var importo = Convert.ToDecimal(rnd.NextDouble() * 10 + 10);
-                var scadenza = new ScadenzeViewModel();
+                var scadenza = new ScadenzaViewModel();
                 scadenza.IDScadenza=i;
                 scadenza.Beneficiario="Enel";
                 scadenza.DataPagamento = new DateTime(2021, 04, 20);
@@ -26,14 +27,14 @@ namespace Scadenzario.Models.Services.Application
             }
             return lista;
         }
-        public ScadenzeViewModel GetScadenza(int IDScadenza)
+        public ScadenzaViewModel GetScadenza(int IDScadenza)
         {
-            List<ScadenzeViewModel> lista = new();
+            List<ScadenzaViewModel> lista = new();
             var rnd = new Random();
             for(int i=1; i<=20; i++)
             {
                 var importo = Convert.ToDecimal(rnd.NextDouble() * 10 + 10);
-                var scadenza = new ScadenzeViewModel();
+                var scadenza = new ScadenzaViewModel();
                 scadenza.IDScadenza=i;
                 scadenza.Beneficiario="Enel";
                 scadenza.DataPagamento = new DateTime(2021, 04, 20);
@@ -47,4 +48,5 @@ namespace Scadenzario.Models.Services.Application
             return lista.Find(z=>z.IDScadenza==IDScadenza);
         }
     }
+    */
 }

@@ -149,7 +149,6 @@ namespace Scadenzario.Models.Services.Infrastructure
                 entity.Property(e => e.Sollecito)
                     .HasColumnName("Sollecito")
                     .HasColumnType("bit")
-                    .IsRequired(true) 
                     .HasDefaultValue(0);
                     
                  entity.Property(e => e.GiorniRitardo)
