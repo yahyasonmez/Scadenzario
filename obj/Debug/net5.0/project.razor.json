@@ -15843,6 +15843,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Blog\\Scadenzario\\Views\\Scadenze\\Upload.cshtml",
+      "TargetPath": "Views\\Scadenze\\Upload.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Blog\\Scadenzario\\Areas\\Identity\\Pages\\Account\\RegisterConfirmation.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\RegisterConfirmation.cshtml",
       "FileKind": "mvc"

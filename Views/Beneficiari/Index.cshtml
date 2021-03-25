@@ -6,10 +6,10 @@
     </div>
     <br>
     <div class="row">
-        <div class="col-md-4">
-             <a class="btn btn-primary btn-lg btn-block" asp-action="Create" asp-controller="Beneficiari"><i class="fas fa-plus-circle"></i>Crea nuovo beneficiario</a>
+        <div class="col-md-3">
+             <a class="btn btn-primary btn-lg btn-block" asp-action="Create" asp-controller="Beneficiari"><i class="fas fa-plus-circle"></i>Nuovo Beneficiario</a>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-9">
             
         </div>
     </div>
@@ -28,27 +28,27 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var beneficiario in Model)
+                @foreach (var item in Model)
                 {
                     <tr>
                         <td>
-                            @beneficiario.Beneficiario
+                            @Html.DisplayFor(modelItem => item.Beneficiario)
                         </td>
                         <td>
-                            @beneficiario.Descrizione
+                           @Html.DisplayFor(modelItem => item.Descrizione)
                         </td>
                         <td>
-                            @beneficiario.Email
+                           @Html.DisplayFor(modelItem => item.Email)
                         </td>
                         <td>
-                            @beneficiario.Telefono
+                           @Html.DisplayFor(modelItem => item.Telefono)
                         </td>
                         <td>
-                            @beneficiario.SitoWeb
+                           <a href="@Html.DisplayFor(modelItem => item.SitoWeb)">@Html.DisplayFor(modelItem => item.SitoWeb)</a>
                         </td>
                         <td>
                             <div class="d-flex align-items-center">
-                                <a class="btn btn-outline-primary" asp-action="Detail" asp-controller="Beneficiari" asp-route-id = "@beneficiario.IDBeneficiario">Dettaglio</a>
+                                <a class="btn btn-outline-primary" asp-action="Detail" asp-controller="Beneficiari" asp-route-id = "@item.IDBeneficiario">Dettaglio</a>
                             </div>
                         </td>
                     </tr>

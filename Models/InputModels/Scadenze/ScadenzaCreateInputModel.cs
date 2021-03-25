@@ -13,6 +13,7 @@ namespace Scadenzario.Models.InputModels
         public string Beneficiario { get; set; }
         [Required]
         [DataType(DataType.Date)]
+        [Display(Name = "Data Scadenza")]
         public DateTime DataScadenza { get; set; }
         [Required]
         [DataType(DataType.Currency)]

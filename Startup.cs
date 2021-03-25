@@ -34,6 +34,7 @@ namespace Scadenzario
         {
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddAntiforgery(o => o.HeaderName = "XSRF-TOKEN");
             services.AddTransient<IScadenzeService,EFCoreScadenzaService>();
             services.AddTransient<IBeneficiariService,EFCoreBeneficiarioService>();
             services.AddDbContextPool<MyScadenzaDbContext>(optionsBuilder=>{

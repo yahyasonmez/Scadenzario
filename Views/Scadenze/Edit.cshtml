@@ -19,7 +19,7 @@
             <div class="col-12" asp-validation-summary="All"></div>
         </div>
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-6">
                 <div class="form-group">
                     <label asp-for="Beneficiario"></label>
                     <select asp-for="Beneficiario" asp-items="@Model.Beneficiari" class="form-control"></select>
@@ -35,16 +35,8 @@
                     <input asp-for="Importo" class="form-control">
                     <span asp-validation-for="Importo"></span>
                 </div>
-                <div class="form-group">
-                    <input asp-for="IDScadenza" class="form-control" style="visibility: hidden;">
-                    <span asp-validation-for="IDScadenza"></span>
-                </div>
-                <div class="form-group">
-                    <input asp-for="IDBeneficiario" class="form-control" style="visibility: hidden;">
-                    <span asp-validation-for="IDBeneficiario"></span>
-                </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-6">
                 <aside>
                     <div class="form-group">
                         <label asp-for="GiorniRitardo"></label>
@@ -61,7 +53,21 @@
                         <input asp-for="DataPagamento" class="form-control">
                         <span asp-validation-for="DataPagamento"></span>
                     </div>
+                    <form method="post" enctype="multipart/form-data" asp-controller="Scadenze" asp-action="Upload">
+                        <div class="form-group">
+                            <input type="file" id="FileUpload" class="btn btn-default" multiple="multiple" />
+                            <button type="button" id="btnUpload" value="Upload Files" class="btn btn-warning"><i class="fas fa-cog"></i>Upload</button> 
+                        </div>
+                    </form>
                 </aside>
+                <div class="form-group">
+                    <input asp-for="IDScadenza" class="form-control" style="visibility: hidden;">
+                    <span asp-validation-for="IDScadenza"></span>
+                </div>
+                <div class="form-group">
+                    <input asp-for="IDBeneficiario" class="form-control" style="visibility: hidden;">
+                    <span asp-validation-for="IDBeneficiario"></span>
+                </div>
             </div>
         </div>
     </form>
@@ -87,3 +93,42 @@
         </div>
     </form>
 </section>
+@section Scripts
+{
+    <script type="text/javascript">
+            $(document).ready(function () {
+                $("#btnUpload").click(function (e) {
+                    var data = new FormData();
+                    var files = $("#FileUpload").get(0).files;
+                    var value = $.trim($("#DataScadenza").val())
+                    if (value.length == 0) {
+                        alert("Compilare la Data Scadenza.");
+                        return;
+                    }
+                    var importo = $.trim($("#Importo").val())
+                    if (importo.length == 0) {
+                        alert("Compilare l'Importo.");
+                        return;
+                    }
+                    if (files.length == 0)
+                        return;
+                    for (var i = 0; i < files.length; i++)
+                    {
+                        data.append(files[i].name, files[i]);
+                    }
+                    $.ajax({
+                        url: '@Url.Action("FileUpload", "Scadenze")',
+                        type: "POST",
+                        data: data,
+                        contentType: false,
+                        dataType: false,
+                        processData: false,
+                        success: function (result)
+                        {
+                            alert(result);
+                        }
+                });
+            });
+        });
+</script>
+}

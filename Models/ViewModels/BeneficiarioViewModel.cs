@@ -11,6 +11,7 @@ namespace Scadenzario.Models.ViewModels
         public string Descrizione { get; set; }
         public string Email { get; set; }
         public string Telefono { get; set; }
+        [Display(Name = "Sito Web")]
         public string SitoWeb { get; set; }
 
         public static BeneficiarioViewModel FromEntity(Beneficiario beneficiario)

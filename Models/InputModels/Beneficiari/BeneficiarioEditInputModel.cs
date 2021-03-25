@@ -17,6 +17,7 @@ namespace Scadenzario.Models.InputModels
         [DataType(DataType.PhoneNumber)]
         public string Telefono { get; set; }
         [DataType(DataType.Url)]
+        [Display(Name = "Sito Web")]
         public string SitoWeb { get; set; }
 
         public static BeneficiarioEditInputModel FromEntity(Beneficiario beneficiario)
