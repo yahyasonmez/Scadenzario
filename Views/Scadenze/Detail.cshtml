@@ -1,74 +1,52 @@
-@model ScadenzaViewModel;
-<br>
-<h1>@ViewData["Title"]</h1>
+@model ScadenzaViewModel
 <br>
 <br>
-<br>
-<div class="container" style="align-content: center;border:1px solid;">
-    <div class="row">
-        <div class="col-md-3">
-            <b>Beneficiario</b>
-        </div>
-        <div class="col-md-3">
-            @Model.Beneficiario
-        </div>
-        <div class="col-md-6">
-            
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3">
-            <b>Data Scadenza</b>
-        </div>
-        <div class="col-md-3">
-            @Model.DataScadenza
-        </div>
-        <div class="col-md-6">
-            
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3">
-            <b>Importo</b>
-        </div>
-        <div class="col-md-3">
-            @Model.Importo
-        </div>
-        <div class="col-md-6">
-            
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3">
-            <b>Giorni Ritardo</b>
-        </div>
-        <div class="col-md-3">
-            @Model.GiorniRitardo
-        </div>
-        <div class="col-md-6">
-            
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3">
-            <b>Sollecito</b>
-        </div>
-        <div class="col-md-3">
-            @Model.Sollecito
-        </div>
-        <div class="col-md-6">
-            
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3">
-            <b>Data Pagamento</b>
-        </div>
-        <div class="col-md-3">
-            @Model.DataPagamento
-        </div>
-        <div class="col-md-6">
-            
-        </div>
-    </div>
+<div class="alert alert-success">
+    <h2><b>@ViewData["Title"]</b></h2>
 </div>
+<br>
+<section class="course-info">
+    <div class="row">
+        <input type="hidden" name="id" asp-for="IDScadenza">
+        <div class="col-md-6">
+            <a class="btn btn-outline-primary btn-sm" asp-action="Edit" asp-route-id="@Model.IDScadenza"><i class="fas fa-pencil-alt"></i> Modifica</a>
+        </div>
+        <div class="col-md-6">
+          
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-md-9">
+                <div class="form-group">
+                    <label asp-for="Beneficiario"></label>
+                    <input type="text" class="form-control form-control-lg" asp-for="Beneficiario" readonly="true">
+                </div>
+                <div class="form-group">
+                    <label asp-for="DataScadenza"></label>
+                    <input asp-for="DataScadenza" class="form-control" readonly="true">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Importo"></label>
+                    <input asp-for="Importo" class="form-control" readonly="true" asp-format="{0:n} €">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <aside>
+                    <div class="form-group">
+                        <label asp-for="GiorniRitardo"></label>
+                        <input asp-for="GiorniRitardo" class="form-control" readonly="true">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Sollecito"></label>
+                         @Html.DisplayFor(model => model.Sollecito)
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DataPagamento"></label>
+                        <input asp-for="DataPagamento" class="form-control" readonly="true">
+                    </div>
+                </aside>
+            </div>
+    </div>
+</section>

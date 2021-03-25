@@ -60,8 +60,8 @@ namespace Scadenzario.Controllers
         {
             ViewData["Title"] = "Aggiorna Scadenza".ToUpper();
             ScadenzaEditInputModel inputModel = new();
-            inputModel.Beneficiari=service.GetBeneficiari;
             inputModel = await service.GetScadenzaForEditingAsync(id);
+            inputModel.Beneficiari=service.GetBeneficiari;
             return View(inputModel);
         }
         [HttpPost]
@@ -75,6 +75,7 @@ namespace Scadenzario.Controllers
             else
             {
                 ViewData["Title"] = "Aggiorna Scadenza".ToUpper();
+                inputModel.Beneficiari=service.GetBeneficiari;
                 return View(inputModel);
             }
 

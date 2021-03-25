@@ -72,8 +72,15 @@ namespace Scadenzario.Models.Services.Application
                 .AsNoTracking()
                 .Where(scadenza => scadenza.IDScadenza == id)
                 .Select(scadenza => ScadenzaEditInputModel.FromEntity(scadenza)); //Usando metodi statici come FromEntity, la query potrebbe essere inefficiente. Mantenere il mapping nella lambda oppure usare un extension method personalizzato
-
+            
             ScadenzaEditInputModel viewModel = await queryLinq.FirstOrDefaultAsync();
+            
+            //Recupero IDBeneficiario
+            int IDBeneficiario = dbContext.Beneficiari
+            .Where(t=>t.Sbeneficiario==viewModel.Beneficiario)
+            .Select(t=>t.IDBeneficiario).Single();
+
+            viewModel.IDBeneficiario=IDBeneficiario;
 
             if (viewModel == null)
             {

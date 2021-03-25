@@ -27,7 +27,7 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="DataScadenza"></label>
-                    <input type="datetime" asp-for="DataScadenza" class="form-control">
+                    <input asp-for="DataScadenza" class="form-control">
                     <span asp-validation-for="DataScadenza"></span>
                 </div>
                 <div class="form-group">
@@ -39,6 +39,10 @@
                     <input asp-for="IDScadenza" class="form-control" style="visibility: hidden;">
                     <span asp-validation-for="IDScadenza"></span>
                 </div>
+                <div class="form-group">
+                    <input asp-for="IDBeneficiario" class="form-control" style="visibility: hidden;">
+                    <span asp-validation-for="IDBeneficiario"></span>
+                </div>
             </div>
             <div class="col-md-3">
                 <aside>
@@ -49,12 +53,12 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="Sollecito"></label>
-                        <input type="checkbox" asp-for="Sollecito" class="form-control" readonly="true">
+                        <input asp-for="Sollecito" class="form-control">
                         <span asp-validation-for="Sollecito"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="DataPagamento"></label>
-                        <input type="datetime" asp-for="DataPagamento" class="form-control">
+                        <input asp-for="DataPagamento" class="form-control">
                         <span asp-validation-for="DataPagamento"></span>
                     </div>
                 </aside>

@@ -10,21 +10,19 @@ namespace Scadenzario.Models.ViewModels
     {
         [Required]
 		public int IDScadenza { get; set; }
-        [Required]
         public String IdUser { get; set; }
-        [Required]
         public int IDBeneficiario { get; set; }
         [Required]
 		public String Beneficiario { get; set; }
         [Required]
-        [DataType(DataType.DateTime)]
+        [DataType(DataType.Date)]
         public DateTime DataScadenza { get; set; }
         [Required]
          [DataType(DataType.Currency)]
 		public decimal Importo { get; set; }
 		public bool Sollecito { get; set; }
 		public short? GiorniRitardo { get; set; }
-        [DataType(DataType.DateTime)]
+        [DataType(DataType.Date)]
         public DateTime? DataPagamento { get; set; }
         public List<SelectListItem> Beneficiari{get;set;}
         public static ScadenzaEditInputModel FromEntity(Scadenza scadenza)

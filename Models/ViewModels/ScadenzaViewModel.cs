@@ -13,10 +13,19 @@ namespace Scadenzario.Models.ViewModels
         public String IdUser { get; set; }
         public int IDBeneficiario { get; set; }
         public String Beneficiario { get; set; }
+        [Display(Name = "Data Scadenza")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime DataScadenza { get; set; }
+        [Display(Name = "Importo Euro")]
+		[DisplayFormat(DataFormatString = "{0:n} €")]
         public decimal Importo { get; set; }
         public bool Sollecito { get; set; }
+        [Display(Name = "Giorni Ritardo")]
         public int? GiorniRitardo { get; set; }
+        [Display(Name = "Data Pagamento")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime? DataPagamento { get; set; }
         public static ScadenzaViewModel FromEntity(Scadenza scadenza)
         {
