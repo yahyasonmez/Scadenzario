@@ -44,6 +44,7 @@ namespace Scadenzario.Models.Services.Application
         {
             IQueryable<ScadenzaViewModel> queryLinq = dbContext.Scadenze
                 .AsNoTracking()
+                .Include(ricevute=>ricevute.Ricevute)
                 .Where(Scadenze=>Scadenze.IDUser ==  user.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value)
                 .Select(scadenze => ScadenzaViewModel.FromEntity(scadenze)); //Usando metodi statici come FromEntity, la query potrebbe essere inefficiente. Mantenere il mapping nella lambda oppure usare un extension method personalizzato
 
@@ -57,6 +58,7 @@ namespace Scadenzario.Models.Services.Application
             IQueryable<ScadenzaViewModel> queryLinq = dbContext.Scadenze
                 .AsNoTracking()
                 .Where(scadenza => scadenza.IDScadenza == id)
+                .Include(ricevute => ricevute.Ricevute)
                 .Select(scadenza => ScadenzaViewModel.FromEntity(scadenza)); //Usando metodi statici come FromEntity, la query potrebbe essere inefficiente. Mantenere il mapping nella lambda oppure usare un extension method personalizzato
 
             ScadenzaViewModel viewModel = await queryLinq.SingleAsync();

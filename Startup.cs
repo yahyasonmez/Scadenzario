@@ -37,6 +37,7 @@ namespace Scadenzario
             services.AddAntiforgery(o => o.HeaderName = "XSRF-TOKEN");
             services.AddTransient<IScadenzeService,EFCoreScadenzaService>();
             services.AddTransient<IBeneficiariService,EFCoreBeneficiarioService>();
+            services.AddTransient<IRicevuteService,EFCoreRicevutaService>();
             services.AddDbContextPool<MyScadenzaDbContext>(optionsBuilder=>{
                  optionsBuilder.UseSqlServer("Server=LAPTOP-SMBSSRS2\\SQLEXPRESS;Database=Scadenzario;Trusted_Connection=True;User ID=LAPTOP-SMBSSRS2\\marco;");
             });

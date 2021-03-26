@@ -27,6 +27,7 @@ namespace Scadenzario.Models.ViewModels
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime? DataPagamento { get; set; }
+        public List<RicevutaViewModel> Ricevute { get; set; }
         public static ScadenzaViewModel FromEntity(Scadenza scadenza)
         {
             return new ScadenzaViewModel

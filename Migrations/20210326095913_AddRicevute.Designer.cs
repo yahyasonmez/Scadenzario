@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Scadenzario.Models.Services.Infrastructure;
 
 namespace Scadenzario.Migrations
 {
     [DbContext(typeof(MyScadenzaDbContext))]
-    partial class MyScadenzaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210326095913_AddRicevute")]
+    partial class AddRicevute
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

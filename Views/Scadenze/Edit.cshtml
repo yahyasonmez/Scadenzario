@@ -55,7 +55,7 @@
                     </div>
                     <form method="post" enctype="multipart/form-data" asp-controller="Scadenze" asp-action="Upload">
                         <div class="form-group">
-                            <input type="file" id="FileUpload" class="btn btn-default" multiple="multiple" />
+                            <input type="file" id="FileUpload" class="btn btn-info" multiple="multiple" />
                             <button type="button" id="btnUpload" value="Upload Files" class="btn btn-warning"><i class="fas fa-cog"></i>Upload</button> 
                         </div>
                     </form>
@@ -101,6 +101,7 @@
                     var data = new FormData();
                     var files = $("#FileUpload").get(0).files;
                     var value = $.trim($("#DataScadenza").val())
+                    var id = $.trim($("#IDScadenza").val())
                     if (value.length == 0) {
                         alert("Compilare la Data Scadenza.");
                         return;

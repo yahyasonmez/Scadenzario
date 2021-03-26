@@ -82,13 +82,13 @@ namespace Scadenzario.Models.Services.Infrastructure
                 
                 entity.Property(e => e.FileName)
                     .IsRequired()
-                    .HasMaxLength(150)
+                    .HasMaxLength(450)
                     .HasColumnName("FileName")
                     .HasColumnType("nvarchar");
 
                 entity.Property(e => e.FileType)
                     .IsRequired()
-                    .HasMaxLength(50)
+                    .HasMaxLength(500)
                     .HasColumnName("FileType")
                     .HasColumnType("nvarchar");  
 

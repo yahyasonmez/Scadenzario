@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Models.Utility;
 using Scadenzario.Models.Entities;
 using Scadenzario.Models.InputModels;
 using Scadenzario.Models.Services.Application;
@@ -19,8 +20,12 @@ namespace Scadenzario.Controllers
     {
         private readonly IScadenzeService service;
         private readonly IWebHostEnvironment environment;
-        public ScadenzeController(IScadenzeService service, IWebHostEnvironment environment)
+        private readonly IRicevuteService ricevute;
+
+        public static List<RicevutaCreateInputModel> Ricevute { get; private set;}
+        public ScadenzeController(IScadenzeService service, IRicevuteService ricevute, IWebHostEnvironment environment)
         {
+            this.ricevute = ricevute;
             this.environment = environment;
             this.service = service;
         }
@@ -28,6 +33,7 @@ namespace Scadenzario.Controllers
         {
             ViewData["Title"] = "Lista Scadenze".ToUpper();
             List<ScadenzaViewModel> viewModel = new();
+            
             viewModel = await service.GetScadenzeAsync();
             return View(viewModel);
         }
@@ -36,6 +42,7 @@ namespace Scadenzario.Controllers
             ViewData["Title"] = "Dettaglio Scadenza".ToUpper();
             ScadenzaViewModel viewModel;
             viewModel = await service.GetScadenzaAsync(id);
+            viewModel.Ricevute = ricevute.GetRicevute(id);
             return View(viewModel);
         }
 
@@ -65,6 +72,7 @@ namespace Scadenzario.Controllers
         }
         public async Task<IActionResult> Edit(int id)
         {
+            TempData["IDScadenza"]=id; 
             ViewData["Title"] = "Aggiorna Scadenza".ToUpper();
             ScadenzaEditInputModel inputModel = new();
             inputModel = await service.GetScadenzaForEditingAsync(id);
@@ -77,6 +85,8 @@ namespace Scadenzario.Controllers
             if (ModelState.IsValid)
             {
                 await service.EditScadenzaAsync(inputModel);
+                //Gestione Ricevute
+                await ricevute.CreateRicevutaAsync(Ricevute);
                 return RedirectToAction("Index");
             }
             else
@@ -106,36 +116,64 @@ namespace Scadenzario.Controllers
 
         }
         [HttpPost]
-        public ActionResult FileUpload()
-		{
+        public async Task<IActionResult> FileUpload()
+        {
+            var id = Convert.ToInt32(TempData["IDScadenza"]);
+            ScadenzaEditInputModel inputModel = new();
+            inputModel = await service.GetScadenzaForEditingAsync(id);
             var files = Request.Form.Files;
             var i = 0;
-			foreach (var file in files)
+            var webRoot = environment.WebRootPath;
+            var path = webRoot + "\\Upload";
+            foreach (var file in files)
             {
-				var filename = ContentDispositionHeaderValue
-								.Parse(file.ContentDisposition)
-								.FileName
-								.Trim('"');
-				var webRoot = environment.WebRootPath;
-				var path = webRoot + "/Upload";
-				if (!Directory.Exists(path))
-					Directory.CreateDirectory(path);
+                RicevutaCreateInputModel ricevuta = new RicevutaCreateInputModel();
+                var filename = ContentDispositionHeaderValue
+                                .Parse(file.ContentDisposition)
+                                .FileName
+                                .Trim('"');
+                ricevuta.FileName=filename;
+                var fileType = file.ContentType;
+                var fileLenght = file.Length;
+                if (!Directory.Exists(path))
+                    Directory.CreateDirectory(path);
                 filename = System.IO.Path.Combine(path, filename);
-				using (FileStream fs = System.IO.File.Create(filename))
-				{
-					file.CopyTo(fs);
-					fs.Flush();
-				}
+                using (FileStream fs = System.IO.File.Create(filename))
+                {
+                    await file.CopyToAsync(fs);
+                    await fs.FlushAsync();
+                }
                 i += 1;
-			}
-			string message = "Upload effettuato correttamente!";
-			JsonResult result = new JsonResult(message);
-			return result;
-		}    
-        public async Task<IActionResult> Download(string filename)
+                ricevuta.FileType=fileType;
+                ricevuta.IDScadenza=inputModel.IDScadenza;
+                ricevuta.Beneficiario=inputModel.Beneficiario;
+                byte[] filedata = new byte[fileLenght];
+                using (var stream = new FileStream(filename, FileMode.Open, FileAccess.Read))
+				{
+					using (var reader = new BinaryReader(stream))
+					{
+						filedata = reader.ReadBytes((int)stream.Length);
+					}
+				} 
+                ricevuta.FileContent=filedata;
+                AddRicevuta(ricevuta);
+            }
+            string message = "Upload effettuato correttamente!";
+            JsonResult result = new JsonResult(message);
+            return result;
+        }
+        public static void AddRicevuta(RicevutaCreateInputModel ricevuta)
         {
+            if(Ricevute==null)
+               Ricevute = new();
+            Ricevute.Add(ricevuta);
+        }
+        public async Task<IActionResult> Download(int Id)
+        {
+            var viewModel = await ricevute.GetRicevutaAsync(Id);
+            string filename = viewModel.FileName;
             if (filename == null)
-                return Content("filename not present");
+                throw new Exception("File name not found");
 
             var path = Path.Combine(
                            Directory.GetCurrentDirectory(),
@@ -147,31 +185,15 @@ namespace Scadenzario.Controllers
                 await stream.CopyToAsync(memory);
             }
             memory.Position = 0;
-            return File(memory, GetContentType(path), Path.GetFileName(path));
+            return File(memory, Utility.GetContentType(path), Path.GetFileName(path));
         }
-        private string GetContentType(string path)
+        public async Task<IActionResult> DeleteAllegato(int id, int idscadenza)
         {
-            var types = GetMimeTypes();
-            var ext = Path.GetExtension(path).ToLowerInvariant();
-            return types[ext];
+            await ricevute.DeleteRicevutaAsync(id);
+            ScadenzaViewModel viewModel = await service.GetScadenzaAsync(idscadenza);
+            ViewData["Title"] = "Dettaglio Scadenza".ToUpper();
+            return View("Detail",viewModel);
         }
-
-        private Dictionary<string, string> GetMimeTypes()
-        {
-            return new Dictionary<string, string>
-            {
-                {".txt", "text/plain"},
-                {".pdf", "application/pdf"},
-                {".doc", "application/vnd.ms-word"},
-                {".docx", "application/vnd.ms-word"},
-                {".xls", "application/vnd.ms-excel"},
-                {".xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"},
-                {".png", "image/png"},
-                {".jpg", "image/jpeg"},
-                {".jpeg", "image/jpeg"},
-                {".gif", "image/gif"},
-                {".csv", "text/csv"}
-            };
-        }
+        
     }
 }

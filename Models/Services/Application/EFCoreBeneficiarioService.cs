@@ -15,6 +15,7 @@ namespace Scadenzario.Models.Services.Application
 {
     public class EFCoreBeneficiarioService:IBeneficiariService
     {
+       
         private readonly ILogger<EFCoreBeneficiarioService> logger;
         private readonly MyScadenzaDbContext dbContext;
         public EFCoreBeneficiarioService(ILogger<EFCoreBeneficiarioService> logger, MyScadenzaDbContext dbContext)
@@ -113,5 +114,6 @@ namespace Scadenzario.Models.Services.Application
             }
             return BeneficiarioViewModel.FromEntity(beneficiario);
         }
+        
     }
 }
