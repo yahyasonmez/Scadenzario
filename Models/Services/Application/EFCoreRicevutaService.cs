@@ -34,6 +34,7 @@ namespace Scadenzario.Models.Services.Application
                 ricevuta.FileContent=item.FileContent;
                 ricevuta.FileName=item.FileName;
                 ricevuta.FileType=item.FileType;
+                ricevuta.Path=item.Path;
                 await dbContext.AddAsync(ricevuta);
             }
             if(input.Count > 0)

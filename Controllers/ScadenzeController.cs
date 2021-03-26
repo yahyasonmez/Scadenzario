@@ -86,7 +86,9 @@ namespace Scadenzario.Controllers
             {
                 await service.EditScadenzaAsync(inputModel);
                 //Gestione Ricevute
-                await ricevute.CreateRicevutaAsync(Ricevute);
+                if(Ricevute!=null)
+                    await ricevute.CreateRicevutaAsync(Ricevute);
+                Ricevute=null;
                 return RedirectToAction("Index");
             }
             else
@@ -145,6 +147,7 @@ namespace Scadenzario.Controllers
                 }
                 i += 1;
                 ricevuta.FileType=fileType;
+                ricevuta.Path=filename;
                 ricevuta.IDScadenza=inputModel.IDScadenza;
                 ricevuta.Beneficiario=inputModel.Beneficiario;
                 byte[] filedata = new byte[fileLenght];
@@ -171,7 +174,7 @@ namespace Scadenzario.Controllers
         public async Task<IActionResult> Download(int Id)
         {
             var viewModel = await ricevute.GetRicevutaAsync(Id);
-            string filename = viewModel.FileName;
+            string filename = viewModel.Path;
             if (filename == null)
                 throw new Exception("File name not found");
 
@@ -189,9 +192,12 @@ namespace Scadenzario.Controllers
         }
         public async Task<IActionResult> DeleteAllegato(int id, int idscadenza)
         {
-            await ricevute.DeleteRicevutaAsync(id);
             ScadenzaViewModel viewModel = await service.GetScadenzaAsync(idscadenza);
             ViewData["Title"] = "Dettaglio Scadenza".ToUpper();
+            RicevutaViewModel ricevutaViewModel = await ricevute.GetRicevutaAsync(id);
+            await ricevute.DeleteRicevutaAsync(id);
+            System.IO.File.Delete(ricevutaViewModel.Path);
+            viewModel.Ricevute = ricevute.GetRicevute(idscadenza);
             return View("Detail",viewModel);
         }
         

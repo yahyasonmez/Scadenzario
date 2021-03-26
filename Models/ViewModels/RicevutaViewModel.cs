@@ -14,6 +14,8 @@ namespace Scadenzario.Models.ViewModels
         public string FileType { get; set; }
         public byte[] FileContent { get; set; }
         public string Beneficiario { get; set; }
+        public string Path { get; set; }
+
 
         public static RicevutaViewModel FromEntity(Ricevuta ricevuta)
         {
@@ -23,7 +25,8 @@ namespace Scadenzario.Models.ViewModels
                 IDScadenza = ricevuta.IDScadenza,
                 FileName= ricevuta.FileName,
                 FileContent = ricevuta.FileContent,
-                FileType = ricevuta.FileType
+                FileType = ricevuta.FileType,
+                Path = ricevuta.Path
             };
         }
     }

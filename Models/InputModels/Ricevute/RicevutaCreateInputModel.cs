@@ -17,5 +17,7 @@ namespace Scadenzario.Models.InputModels
         public byte[] FileContent { get; set; }
         [Required]
         public string Beneficiario { get; set; }
+        [Required]
+        public string Path { get; set; }
     }
 }

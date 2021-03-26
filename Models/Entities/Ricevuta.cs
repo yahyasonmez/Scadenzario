@@ -12,6 +12,7 @@ namespace Scadenzario.Models.Entities
         public int IDScadenza { get; set; }
         public string FileName { get; set; }
         public string FileType { get; set; }
+        public string Path {get;set;}
         public byte[] FileContent { get; set; }
         public string Beneficiario { get; set; }
 

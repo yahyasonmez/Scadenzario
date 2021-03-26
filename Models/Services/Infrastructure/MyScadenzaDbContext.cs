@@ -70,7 +70,12 @@ namespace Scadenzario.Models.Services.Infrastructure
                     .IsRequired(false)
                     .HasColumnName("Telefono")
                     .HasMaxLength(50)
-                    .HasColumnType("nvarchar");                  
+                    .HasColumnType("nvarchar");  
+
+                //MAPPING RELAZIONI    
+                entity.HasMany(ricevuta=>ricevuta.Scadenze) 
+                      .WithOne(scadenza=>scadenza.beneficiario) 
+                      .HasForeignKey(scadenza=>scadenza.IDBeneficiario);                 
             });
 
             modelBuilder.Entity<Ricevuta>(entity =>
@@ -85,6 +90,12 @@ namespace Scadenzario.Models.Services.Infrastructure
                     .HasMaxLength(450)
                     .HasColumnName("FileName")
                     .HasColumnType("nvarchar");
+
+                 entity.Property(e => e.Path)
+                    .IsRequired()
+                    .HasMaxLength(450)
+                    .HasColumnName("Path")
+                    .HasColumnType("nvarchar");    
 
                 entity.Property(e => e.FileType)
                     .IsRequired()
@@ -158,8 +169,7 @@ namespace Scadenzario.Models.Services.Infrastructure
                     .WithOne(ricevuta => ricevuta.Scadenza)
                     .HasForeignKey(ricevuta => ricevuta.IDScadenza)
                     .HasConstraintName("FK_Scadenze_Ricevute")
-                    .OnDelete(DeleteBehavior.Cascade);
-                 
+                    .OnDelete(DeleteBehavior.Cascade);  
             });
 
             modelBuilder.Entity<ApplicationUser>(entity => {

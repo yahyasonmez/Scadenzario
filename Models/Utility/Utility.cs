@@ -5,6 +5,7 @@ namespace Models.Utility
 {
     public static class Utility
     {
+        public static string FilePath { get; set; }
         public static string GetContentType(string path)
         {
             var types = GetMimeTypes();

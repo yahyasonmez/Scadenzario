@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Scadenzario.Models.Services.Infrastructure;
 
 namespace Scadenzario.Migrations
 {
     [DbContext(typeof(MyScadenzaDbContext))]
-    partial class MyScadenzaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210326113655_Addpath")]
+    partial class Addpath
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -351,11 +353,14 @@ namespace Scadenzario.Migrations
                         .HasDefaultValue(false)
                         .HasColumnName("Sollecito");
 
+                    b.Property<int?>("beneficiarioIDBeneficiario")
+                        .HasColumnType("int");
+
                     b.HasKey("IDScadenza");
 
-                    b.HasIndex("IDBeneficiario");
-
                     b.HasIndex("IDUser");
+
+                    b.HasIndex("beneficiarioIDBeneficiario");
 
                     b.ToTable("Scadenze");
                 });
@@ -432,16 +437,14 @@ namespace Scadenzario.Migrations
 
             modelBuilder.Entity("Scadenzario.Models.Entities.Scadenza", b =>
                 {
-                    b.HasOne("Scadenzario.Models.Entities.Beneficiario", "beneficiario")
-                        .WithMany("Scadenze")
-                        .HasForeignKey("IDBeneficiario")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Scadenzario.Models.Entities.ApplicationUser", "ApplicationUser")
                         .WithMany("Scadenze")
                         .HasForeignKey("IDUser")
                         .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Scadenzario.Models.Entities.Beneficiario", "beneficiario")
+                        .WithMany("Scadenze")
+                        .HasForeignKey("beneficiarioIDBeneficiario");
 
                     b.Navigation("ApplicationUser");
 
