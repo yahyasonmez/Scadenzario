@@ -8,9 +8,9 @@
 <form method="post">
     <div class="row">
                 <div class="col-md-3">
-                    <label asp-for="Beneficiario"></label>
-                    <select asp-for="Beneficiario" asp-items="@Model.Beneficiari" class="form-control"></select>
-                    <span asp-validation-for="Beneficiario" class="text-danger"></span>
+                    <label asp-for="IDBeneficiario"></label>
+                    <select asp-for="IDBeneficiario" asp-items="@Model.Beneficiari" class="form-control"></select>
+                    <span asp-validation-for="IDBeneficiario" class="text-danger"></span>
                 </div>
                 <div class="col-md-3">
                     <label asp-for="DataScadenza"></label>
@@ -22,7 +22,9 @@
                     <input asp-for="Importo" class="form-control" placeholder="Inserisci un importo...."/>
                     <span asp-validation-for="Importo" class="text-danger"></span>
                 </div>
-                <div class="col-md-3"></div>
+                 <div class="col-md-3"></div>
+            
+               
     </div>
     <br>
     <br>

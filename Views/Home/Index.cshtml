@@ -1,12 +1,26 @@
 ﻿<br>
-<div class="jumbotron">
+<div class="jumbotron9">
     <h1 class="display-4">@ViewData["Title"]</h1>
     <p class="lead"></p>
-    <p><a asp-controller="Scadenze" asp-action="Index" class="btn btn-primary">Scadenze</a></p>
+    <p></p>
 </div>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus assumenda accusamus natus? Blanditiis consectetur iste adipisci nobis veritatis ea! Adipisci, et ad hic expedita nisi quos debitis dignissimos. Fuga, recusandae!</p>
-<p>Expedita laboriosam dolore ullam, libero harum pariatur aliquam blanditiis quia consequatur consequuntur praesentium soluta eos aspernatur quasi cum eum, doloremque, sequi amet facere nobis! Reiciendis adipisci deleniti voluptates praesentium vel.</p>
-<p>Blanditiis maxime labore ducimus, eligendi iure rem porro maiores doloribus ea illum inventore culpa? Illo, obcaecati aut sunt debitis doloremque itaque laudantium odit adipisci mollitia eos odio repellendus, incidunt nostrum!</p>
-<p>Ipsa laboriosam eius, quos quas sint soluta, perspiciatis reiciendis aliquam praesentium eos accusamus tenetur ad autem eligendi corrupti voluptatem nulla aut! Numquam, facilis assumenda adipisci cupiditate nulla enim architecto sint?</p>
-<p>Similique nobis hic alias, delectus possimus harum, ducimus quam reiciendis totam aliquam nulla, laudantium voluptates! Natus architecto earum saepe ratione optio ad adipisci voluptatem, reiciendis temporibus sit cupiditate. Explicabo, porro.</p>
-  
+
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>Gestione Scadenze</h2>
+                    <p><b>Dal menù Lista Scadenze è possibile creare tutte le nostre scadenze. Ovviamente prima
+                        vanno creati i beneficiari delle nostre scadenze.
+                    </b></p>
+                    <p><a data-toggle="tooltip" title="Gestione Scadenze" class="btn btn-primary" asp-controller="Scadenze" asp-action="Index">Gestione Scadenze</a></p>
+                </div>
+                <div class="col-md-4">
+                    <h2>Gestione Beneficiario</h2>
+                    <p><b>Dal menù Lista Beneficiari è possibile creare tutti i beneficiari delle nostre scadenze.</b></p>
+                    <p><a data-toggle="tooltip" title="Gestione Beneficiario" class="btn btn-primary" asp-controller="Beneficiari" asp-action="Index">Gestione Beneficiario</a></p>
+                </div>
+                <div class="col-md-4">
+                    <h2>Login Esterni</h2>
+                    <p><b>E' possibile gestire utenti registrati localmente o associare la propria login a provider di autenticazione esterni.</b></p>
+                    <p><a data-toggle="tooltip" title="Login" class="btn btn-primary" asp-area="Identity" asp-page="/Account/Login">Login</a></p>
+                </div>
+            </div> 

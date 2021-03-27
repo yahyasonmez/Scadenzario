@@ -15,5 +15,6 @@ namespace Scadenzario.Models.Services.Application
         Task<ScadenzaEditInputModel> GetScadenzaForEditingAsync(int id);
         Task<ScadenzaViewModel> EditScadenzaAsync(ScadenzaEditInputModel inputModel);
         List<SelectListItem> GetBeneficiari{get;}
+        string GetBeneficiarioById(int id);
     }
 }

@@ -20,10 +20,10 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                <div class="form-group">
-                    <label asp-for="Beneficiario"></label>
-                    <select asp-for="Beneficiario" asp-items="@Model.Beneficiari" class="form-control"></select>
-                    <span asp-validation-for="Beneficiario"></span>
+               <div class="form-group">
+                    <label asp-for="IDBeneficiario"></label>
+                    <select asp-for="IDBeneficiario" asp-items="@Model.Beneficiari" class="form-control"></select>
+                    <span asp-validation-for="IDBeneficiario" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="DataScadenza"></label>

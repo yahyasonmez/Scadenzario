@@ -9,7 +9,6 @@ namespace AspNetCore
     using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
 #line 2 "C:\Blog\Scadenzario\Views\_ViewImports.cshtml"
@@ -46,8 +45,15 @@ using Scadenzario.Models.InputModels;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 7 "C:\Blog\Scadenzario\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Mvc.Rendering;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0c8de99dc0af255fb8bb044f15dcf3aba62757a5", @"/Views/Scadenze/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"3e88341c2b6296e538de350911ca2489aaf3fefe", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"97fd1d40a5cb6a228d4d60a7b546fd4461b2f69f", @"/Views/_ViewImports.cshtml")]
     public class Views_Scadenze_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<ScadenzaViewModel>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("btn btn-primary btn-lg btn-block"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -88,7 +94,7 @@ using Scadenzario.Models.InputModels;
 #line hidden
 #nullable disable
             WriteLiteral("</b></h2>\r\n    </div>\r\n    <br>\r\n    <div class=\"row\">\r\n        <div class=\"col-md-3\">\r\n             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0c8de99dc0af255fb8bb044f15dcf3aba62757a55504", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0c8de99dc0af255fb8bb044f15dcf3aba62757a55626", async() => {
                 WriteLiteral("<i class=\"fas fa-plus-circle\"></i>Nuova Scadenza");
             }
             );
@@ -186,7 +192,7 @@ using Scadenzario.Models.InputModels;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n                        </td>\r\n                        <td>\r\n                            <div class=\"d-flex align-items-center\">\r\n                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0c8de99dc0af255fb8bb044f15dcf3aba62757a510121", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0c8de99dc0af255fb8bb044f15dcf3aba62757a510243", async() => {
                 WriteLiteral("Dettaglio");
             }
             );

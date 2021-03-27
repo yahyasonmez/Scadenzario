@@ -10,6 +10,8 @@ namespace Scadenzario.Models.InputModels
     public class ScadenzaCreateInputModel
     {
         [Required]
+        [Display(Name = "Beneficiario")]
+        public int IDBeneficiario { get; set; }
         public string Beneficiario { get; set; }
         [Required]
         [DataType(DataType.Date)]

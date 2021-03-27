@@ -12,8 +12,9 @@ namespace Scadenzario.Models.ViewModels
         [Required]
 		public int IDScadenza { get; set; }
         public String IdUser { get; set; }
+        [Display(Name = "Beneficiario")]
         public int IDBeneficiario { get; set; }
-        [Required]
+        
 		public String Beneficiario { get; set; }
         [Required]
         [DataType(DataType.Date)]
@@ -29,7 +30,6 @@ namespace Scadenzario.Models.ViewModels
         [Display(Name = "Data Pagamento")]
         public DateTime? DataPagamento { get; set; }
         public List<SelectListItem> Beneficiari{get;set;}
-        public List<IFormFile> FileUpload {get;set;}
         public static ScadenzaEditInputModel FromEntity(Scadenza scadenza)
         {
             return new ScadenzaEditInputModel {

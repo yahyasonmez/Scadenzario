@@ -34,6 +34,7 @@ namespace Scadenzario.Models.Services.Application
             scadenza.Beneficiario = inputModel.Beneficiario;
             scadenza.DataScadenza = inputModel.DataScadenza;
             scadenza.Importo = inputModel.Importo;
+            scadenza.IDBeneficiario=inputModel.IDBeneficiario;
             scadenza.IDUser=user.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             await dbContext.AddAsync(scadenza);
             await dbContext.SaveChangesAsync();
@@ -58,7 +59,6 @@ namespace Scadenzario.Models.Services.Application
             IQueryable<ScadenzaViewModel> queryLinq = dbContext.Scadenze
                 .AsNoTracking()
                 .Where(scadenza => scadenza.IDScadenza == id)
-                .Include(ricevute => ricevute.Ricevute)
                 .Select(scadenza => ScadenzaViewModel.FromEntity(scadenza)); //Usando metodi statici come FromEntity, la query potrebbe essere inefficiente. Mantenere il mapping nella lambda oppure usare un extension method personalizzato
 
             ScadenzaViewModel viewModel = await queryLinq.SingleAsync();
@@ -76,13 +76,13 @@ namespace Scadenzario.Models.Services.Application
                 .Select(scadenza => ScadenzaEditInputModel.FromEntity(scadenza)); //Usando metodi statici come FromEntity, la query potrebbe essere inefficiente. Mantenere il mapping nella lambda oppure usare un extension method personalizzato
             
             ScadenzaEditInputModel viewModel = await queryLinq.FirstOrDefaultAsync();
-            
+            /*
             //Recupero IDBeneficiario
             int IDBeneficiario = dbContext.Beneficiari
             .Where(t=>t.Sbeneficiario==viewModel.Beneficiario)
             .Select(t=>t.IDBeneficiario).Single();
 
-            viewModel.IDBeneficiario=IDBeneficiario;
+            viewModel.IDBeneficiario=IDBeneficiario;*/
 
             if (viewModel == null)
             {
@@ -144,10 +144,18 @@ namespace Scadenzario.Models.Services.Application
                 var beneficiario = beneficiari.Select(b => new SelectListItem
                 {
                     Text = b.Sbeneficiario,
-                    Value = b.Sbeneficiario
+                    Value = b.IDBeneficiario.ToString()
                 }).ToList();
                 return beneficiario;
             }
+        }
+       //Recupero Beneficiario
+        public string GetBeneficiarioById(int id)
+        {
+            string Beneficiario = dbContext.Beneficiari
+            .Where(t=>t.IDBeneficiario==id)
+            .Select(t=>t.Sbeneficiario).Single();
+            return Beneficiario;
         }
     }
 }

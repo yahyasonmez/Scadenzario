@@ -39,10 +39,13 @@ namespace Scadenzario.Controllers
         }
         public async Task<IActionResult> Detail(int id)
         {
+            if(id==0)
+              id = Convert.ToInt32(TempData["id"]);
             ViewData["Title"] = "Dettaglio Scadenza".ToUpper();
             ScadenzaViewModel viewModel;
             viewModel = await service.GetScadenzaAsync(id);
             viewModel.Ricevute = ricevute.GetRicevute(id);
+            TempData["id"]=id;
             return View(viewModel);
         }
 
@@ -57,6 +60,7 @@ namespace Scadenzario.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(ScadenzaCreateInputModel inputModel)
         {
+            inputModel.Beneficiario=service.GetBeneficiarioById(inputModel.IDBeneficiario);
             if (ModelState.IsValid)
             {
                 await service.CreateScadenzaAsync(inputModel);
@@ -72,16 +76,21 @@ namespace Scadenzario.Controllers
         }
         public async Task<IActionResult> Edit(int id)
         {
+            if(id==0)
+              id = Convert.ToInt32(TempData["id"]);
             TempData["IDScadenza"]=id; 
             ViewData["Title"] = "Aggiorna Scadenza".ToUpper();
             ScadenzaEditInputModel inputModel = new();
             inputModel = await service.GetScadenzaForEditingAsync(id);
             inputModel.Beneficiari = service.GetBeneficiari;
+            TempData["id"]=id;
+            inputModel.Beneficiario=service.GetBeneficiarioById(inputModel.IDBeneficiario);
             return View(inputModel);
         }
         [HttpPost]
         public async Task<IActionResult> Edit(ScadenzaEditInputModel inputModel)
         {
+            inputModel.Beneficiario=service.GetBeneficiarioById(inputModel.IDBeneficiario);
             if (ModelState.IsValid)
             {
                 await service.EditScadenzaAsync(inputModel);
