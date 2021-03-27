@@ -88,7 +88,7 @@ section+section {
     margin-top: 2em;
 }
 .jumbotron {
-    background-image: url('/images/hero.jpg');
+    background-image: url('images/Home.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
