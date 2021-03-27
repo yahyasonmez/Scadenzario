@@ -39,13 +39,10 @@ namespace Scadenzario.Controllers
         }
         public async Task<IActionResult> Detail(int id)
         {
-            if(id==0)
-              id = Convert.ToInt32(TempData["id"]);
             ViewData["Title"] = "Dettaglio Scadenza".ToUpper();
             ScadenzaViewModel viewModel;
             viewModel = await service.GetScadenzaAsync(id);
             viewModel.Ricevute = ricevute.GetRicevute(id);
-            TempData["id"]=id;
             return View(viewModel);
         }
 
@@ -76,14 +73,11 @@ namespace Scadenzario.Controllers
         }
         public async Task<IActionResult> Edit(int id)
         {
-            if(id==0)
-              id = Convert.ToInt32(TempData["id"]);
             TempData["IDScadenza"]=id; 
             ViewData["Title"] = "Aggiorna Scadenza".ToUpper();
             ScadenzaEditInputModel inputModel = new();
             inputModel = await service.GetScadenzaForEditingAsync(id);
             inputModel.Beneficiari = service.GetBeneficiari;
-            TempData["id"]=id;
             inputModel.Beneficiario=service.GetBeneficiarioById(inputModel.IDBeneficiario);
             return View(inputModel);
         }
@@ -124,7 +118,6 @@ namespace Scadenzario.Controllers
                 ViewData["Title"] = "Elimina Scadenza".ToUpper();
                 return View(inputModel);
             }
-
         }
         [HttpPost]
         public async Task<IActionResult> FileUpload()

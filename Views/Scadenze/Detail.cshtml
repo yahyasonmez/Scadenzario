@@ -9,7 +9,8 @@
     <div class="row">
         <input type="hidden" name="id" asp-for="IDScadenza">
         <div class="col-md-6">
-            <a class="btn btn-outline-primary btn-sm" asp-action="Edit" asp-route-id="@Model.IDScadenza"><i class="fas fa-pencil-alt"></i> Modifica</a>
+            <a class="btn btn-outline-primary btn-lg" asp-action="Edit" asp-route-id="@Model.IDScadenza"><i class="fas fa-pencil-alt"></i> Modifica</a>
+            <a class="btn btn-outline-primary btn-lg" asp-action="Index"><i class="fas fa-th-list"></i> Torna alla Lista</a>
         </div>
         <div class="col-md-6">
           
@@ -61,6 +62,7 @@
                     <th scope="col">ID</th>
                     <th scope="col">Beneficiario</th>
                     <th scope="col">Nome File</th>
+                     <th scope="col">Identificativo Scadenza</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -78,37 +80,19 @@
                             @Html.DisplayFor(modelItem => item.FileName)
                         </td>
                         <td>
+                            @Html.DisplayFor(modelItem => item.IDScadenza)
+                        </td>
+                        <td>
                             <div class="dropdown">
                                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                                         Azioni
                                     </button>
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item" asp-controller="Scadenze" asp-action="Download" asp-route-id ="@item.Id">Scarica File</a>
-                                        <a class="dropdown-item"  data-toggle="modal" data-target="#delete-modal">Delete File</a>
+                                        <a class="dropdown-item" onclick="return confirm('Sei sicuro di voler eliminare il file selezionato?')" href="@Url.Action("DeleteAllegato", new { idscadenza = item.IDScadenza, id = item.Id })">Cancella Allegato</a>
                                     </div> 
                             </div>
                         </td>
-                        <form method="post" asp-action="DeleteAllegato" asp-route-id="@item.Id" asp-route-idscadenza="@item.IDScadenza">
-                            <div id="delete-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="delete-modal-title" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="delete-modal-title">Conferma eliminazione</h5>
-                                            <button class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p>Stai per eliminare la ricevuta e non potrai recuperarla. Confermi l'eliminazione?</p>
-                                        </div>
-                                        <div class="modal-footer justify-content-between">
-                                            <button class="btn btn-light" type="button" data-dismiss="modal">Annulla</button>
-                                            <button type="submit" class="btn btn-danger">Conferma</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
                     </tr>
                }
             </tbody>

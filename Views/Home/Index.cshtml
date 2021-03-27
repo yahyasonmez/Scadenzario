@@ -1,5 +1,5 @@
 ﻿<br>
-<div class="jumbotron9">
+<div class="jumbotron">
     <h1 class="display-4">@ViewData["Title"]</h1>
     <p class="lead"></p>
     <p></p>
@@ -19,8 +19,9 @@
                     <p><a data-toggle="tooltip" title="Gestione Beneficiario" class="btn btn-primary" asp-controller="Beneficiari" asp-action="Index">Gestione Beneficiario</a></p>
                 </div>
                 <div class="col-md-4">
-                    <h2>Login Esterni</h2>
-                    <p><b>E' possibile gestire utenti registrati localmente o associare la propria login a provider di autenticazione esterni.</b></p>
-                    <p><a data-toggle="tooltip" title="Login" class="btn btn-primary" asp-area="Identity" asp-page="/Account/Login">Login</a></p>
+                    <h2>Gestione Utenti</h2>
+                    <p><b>ASP.NET Core Identity mette a disposizione un efficiente gestione del profilo utente, è possibile 
+                        gestire utenti registrati localmente o associare la propria login a provider di autenticazione esterni.</b></p>
+                    <p><a data-toggle="tooltip" title="Login" class="btn btn-primary" asp-area="Identity" asp-page="/Account/Manage/Index">Gestione Utenti</a></p>
                 </div>
             </div> 
