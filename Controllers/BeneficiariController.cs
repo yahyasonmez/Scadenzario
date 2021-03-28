@@ -26,6 +26,7 @@ namespace Scadenzario.Controllers
             ViewData["Title"] = "Dettaglio Beneficiario".ToUpper();
             BeneficiarioViewModel viewModel;
             viewModel = await service.GetBeneficiarioAsync(id);
+            viewModel.ToString();
             return View(viewModel);
         }
 

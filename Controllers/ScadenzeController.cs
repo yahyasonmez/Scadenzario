@@ -86,6 +86,10 @@ namespace Scadenzario.Controllers
             inputModel.Beneficiario=service.GetBeneficiarioById(inputModel.IDBeneficiario);
             if (ModelState.IsValid)
             {
+                if(inputModel.DataPagamento.HasValue)
+                   inputModel.GiorniRitardo=service.DateDiff(inputModel.DataScadenza,inputModel.DataPagamento.Value);
+                else
+                   inputModel.GiorniRitardo=service.DateDiff(inputModel.DataScadenza,DateTime.Now.Date);   
                 await service.EditScadenzaAsync(inputModel);
                 //Gestione Ricevute
                 if(Ricevute!=null)

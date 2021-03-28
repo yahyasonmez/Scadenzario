@@ -21,7 +21,7 @@ namespace Scadenzario.Models.Entities
         public DateTime DataScadenza { get; set; }
         public decimal Importo { get; set; }
         public bool Sollecito { get; set; }
-        public short? GiorniRitardo { get; set; }
+        public int? GiorniRitardo { get; set; }
         public DateTime? DataPagamento { get; set; }
 
         public virtual Beneficiario beneficiario { get; set; }

@@ -25,7 +25,7 @@ namespace Scadenzario.Models.ViewModels
 		public decimal Importo { get; set; }
 		public bool Sollecito { get; set; }
          [Display(Name = "Giorni Ritardo")]
-		public short? GiorniRitardo { get; set; }
+		public int? GiorniRitardo { get; set; }
         [DataType(DataType.Date)]
         [Display(Name = "Data Pagamento")]
         public DateTime? DataPagamento { get; set; }
