@@ -42,7 +42,6 @@ namespace Scadenzario.Controllers
             ViewData["Title"] = "Dettaglio Scadenza".ToUpper();
             ScadenzaViewModel viewModel;
             viewModel = await service.GetScadenzaAsync(id);
-            viewModel.Ricevute = ricevute.GetRicevute(id);
             return View(viewModel);
         }
 

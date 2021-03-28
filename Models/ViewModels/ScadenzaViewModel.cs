@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Scadenzario.Models.Entities;
 using Scadenzario.Models.Services.Infrastructure;
@@ -40,7 +41,16 @@ namespace Scadenzario.Models.ViewModels
                 Importo = scadenza.Importo,
                 Sollecito = scadenza.Sollecito,
                 GiorniRitardo = scadenza.GiorniRitardo,
-                DataPagamento = scadenza.DataPagamento
+                DataPagamento = scadenza.DataPagamento,
+                Ricevute=scadenza.Ricevute.Select(ricevuta=> new RicevutaViewModel{
+                    Id=ricevuta.Id,
+                    FileName=ricevuta.FileName,
+                    FileType=ricevuta.FileType,
+                    FileContent=ricevuta.FileContent,
+                    Path=ricevuta.Path,
+                    Beneficiario=ricevuta.Beneficiario,
+                    IDScadenza=ricevuta.IDScadenza
+                }).ToList()  
             };
         }
     }

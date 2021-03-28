@@ -45,7 +45,7 @@ namespace Scadenzario.Models.Services.Application
         {
             IQueryable<ScadenzaViewModel> queryLinq = dbContext.Scadenze
                 .AsNoTracking()
-                .Include(ricevute=>ricevute.Ricevute)
+                .Include(Scadenza=>Scadenza.Ricevute)
                 .Where(Scadenze=>Scadenze.IDUser ==  user.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value)
                 .Select(scadenze => ScadenzaViewModel.FromEntity(scadenze)); //Usando metodi statici come FromEntity, la query potrebbe essere inefficiente. Mantenere il mapping nella lambda oppure usare un extension method personalizzato
 
@@ -58,10 +58,11 @@ namespace Scadenzario.Models.Services.Application
         {
             IQueryable<ScadenzaViewModel> queryLinq = dbContext.Scadenze
                 .AsNoTracking()
+                .Include(Scadenza=>Scadenza.Ricevute)
                 .Where(scadenza => scadenza.IDScadenza == id)
                 .Select(scadenza => ScadenzaViewModel.FromEntity(scadenza)); //Usando metodi statici come FromEntity, la query potrebbe essere inefficiente. Mantenere il mapping nella lambda oppure usare un extension method personalizzato
 
-            ScadenzaViewModel viewModel = await queryLinq.SingleAsync();
+            ScadenzaViewModel viewModel = await queryLinq.SingleAsync();//Restituisce il primo elemento dell'elenco, ma se ne contiene 0 o più di 1 solleva un eccezione.
             //.FirstOrDefaultAsync(); //Restituisce null se l'elenco è vuoto e non solleva mai un'eccezione
             //.SingleOrDefaultAsync(); //Tollera il fatto che l'elenco sia vuoto e in quel caso restituisce null, oppure se l'elenco contiene più di 1 elemento, solleva un'eccezione
             //.FirstAsync(); //Restituisce il primo elemento, ma se l'elenco è vuoto solleva un'eccezione
@@ -76,13 +77,6 @@ namespace Scadenzario.Models.Services.Application
                 .Select(scadenza => ScadenzaEditInputModel.FromEntity(scadenza)); //Usando metodi statici come FromEntity, la query potrebbe essere inefficiente. Mantenere il mapping nella lambda oppure usare un extension method personalizzato
             
             ScadenzaEditInputModel viewModel = await queryLinq.FirstOrDefaultAsync();
-            /*
-            //Recupero IDBeneficiario
-            int IDBeneficiario = dbContext.Beneficiari
-            .Where(t=>t.Sbeneficiario==viewModel.Beneficiario)
-            .Select(t=>t.IDBeneficiario).Single();
-
-            viewModel.IDBeneficiario=IDBeneficiario;*/
 
             if (viewModel == null)
             {
