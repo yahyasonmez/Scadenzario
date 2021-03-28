@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -16,5 +17,6 @@ namespace Scadenzario.Models.Services.Application
         Task<ScadenzaViewModel> EditScadenzaAsync(ScadenzaEditInputModel inputModel);
         List<SelectListItem> GetBeneficiari{get;}
         string GetBeneficiarioById(int id);
+        int DateDiff(DateTime inizio, DateTime fine);
     }
 }

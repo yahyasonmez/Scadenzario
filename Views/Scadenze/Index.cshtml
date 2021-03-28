@@ -45,7 +45,19 @@
                             @Html.DisplayFor(modelItem => item.Sollecito)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.GiorniRitardo)
+                            @if (item.GiorniRitardo < 0)
+                            {
+                                int appoggio = @Math.Abs((int)item.GiorniRitardo);
+                                <font color="ff0000">
+                                @{
+                                    @appoggio
+                                }
+                                </font>
+                            }
+                            else
+                            {
+                                   @Html.DisplayFor(modelItem => item.GiorniRitardo)
+                            }
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.DataPagamento)

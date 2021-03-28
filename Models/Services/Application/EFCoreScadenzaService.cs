@@ -50,7 +50,7 @@ namespace Scadenzario.Models.Services.Application
                 .Select(scadenze => ScadenzaViewModel.FromEntity(scadenze)); //Usando metodi statici come FromEntity, la query potrebbe essere inefficiente. Mantenere il mapping nella lambda oppure usare un extension method personalizzato
 
             List<ScadenzaViewModel> scadenza = await queryLinq.ToListAsync(); //La query al database viene inviata qui, quando manifestiamo l'intenzione di voler leggere i risultati
-
+            
             return scadenza;
         }
 
@@ -66,7 +66,6 @@ namespace Scadenzario.Models.Services.Application
             //.FirstOrDefaultAsync(); //Restituisce null se l'elenco è vuoto e non solleva mai un'eccezione
             //.SingleOrDefaultAsync(); //Tollera il fatto che l'elenco sia vuoto e in quel caso restituisce null, oppure se l'elenco contiene più di 1 elemento, solleva un'eccezione
             //.FirstAsync(); //Restituisce il primo elemento, ma se l'elenco è vuoto solleva un'eccezione
-
             return viewModel;
         }
         public async Task<ScadenzaEditInputModel> GetScadenzaForEditingAsync(int id)
@@ -150,6 +149,13 @@ namespace Scadenzario.Models.Services.Application
             .Where(t=>t.IDBeneficiario==id)
             .Select(t=>t.Sbeneficiario).Single();
             return Beneficiario;
+        }
+        //Calcolo giorni ritardo o giorni mancanti al pagamento
+        public int DateDiff(DateTime inizio, DateTime fine)
+        {
+            int giorni = 0;
+            giorni=(inizio.Date - fine.Date).Days;
+            return giorni;
         }
     }
 }
