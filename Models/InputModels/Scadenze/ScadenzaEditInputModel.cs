@@ -24,7 +24,7 @@ namespace Scadenzario.Models.ViewModels
         [DataType(DataType.Currency)]
 		public decimal Importo { get; set; }
 		public bool Sollecito { get; set; }
-         [Display(Name = "Giorni Ritardo")]
+        [Display(Name = "Giorni Mancanti/Ritardo")]
 		public int? GiorniRitardo { get; set; }
         [DataType(DataType.Date)]
         [Display(Name = "Data Pagamento")]

@@ -22,7 +22,7 @@ namespace Scadenzario.Models.ViewModels
 		[DisplayFormat(DataFormatString = "{0:n} €")]
         public decimal Importo { get; set; }
         public bool Sollecito { get; set; }
-        [Display(Name = "Giorni Ritardo")]
+        [Display(Name = "Giorni Mancanti/Ritardo")]
         public int? GiorniRitardo { get; set; }
         [Display(Name = "Data Pagamento")]
         [DataType(DataType.Date)]
