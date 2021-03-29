@@ -16,11 +16,11 @@ namespace Scadenzario.Models.ViewModels
         public int IDBeneficiario { get; set; }
         
 		public String Beneficiario { get; set; }
-        [Required]
+        [Required(ErrorMessage="Data di Scadenza obbligatoria")]
         [DataType(DataType.Date)]
         [Display(Name = "Data Scadenza")]
         public DateTime DataScadenza { get; set; }
-        [Required]
+        [Required(ErrorMessage="Importo Obbligatorio")]
         [DataType(DataType.Currency)]
 		public decimal Importo { get; set; }
 		public bool Sollecito { get; set; }

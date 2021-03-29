@@ -8,9 +8,9 @@ namespace Scadenzario.Models.InputModels
     {
         [Required]
         public int IDBeneficiario {get;set;}
-        [Required]
+        [Required(ErrorMessage ="il campo Beneficiario è obbligatorio")]
         public string Beneficiario { get; set; }
-        [Required]
+        [Required(ErrorMessage ="il campo Descrizione è obbligatoria")]
         public string Descrizione { get; set; }
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }

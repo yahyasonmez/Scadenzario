@@ -1,12 +1,16 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
+using Scadenzario.Controllers;
+
 namespace Scadenzario.Models.InputModels
 {
     public class BeneficiarioCreateInputModel
     {
-        [Required]
+        [Required(ErrorMessage ="il campo Beneficiario è obbligatorio")]
+        [Remote(action:nameof(BeneficiariController.IsBeneficiarioAvailable),controller:"Beneficiari",ErrorMessage="Il Beneficiario esiste già")]
         public string Beneficiario { get; set; }
-        [Required]
+        [Required(ErrorMessage ="il campo Descrizione è obbligatoria")]
         public string Descrizione { get; set; }
     }
 }

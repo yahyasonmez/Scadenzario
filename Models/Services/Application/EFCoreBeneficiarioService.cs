@@ -114,6 +114,13 @@ namespace Scadenzario.Models.Services.Application
             }
             return BeneficiarioViewModel.FromEntity(beneficiario);
         }
+        public async Task<bool> VerificationExistenceAsync(string beneficiario)
+        {
+            Beneficiario verify = await dbContext.Beneficiari.FirstOrDefaultAsync(b=>b.Sbeneficiario==beneficiario);
+            if(verify==null)
+               return false;
+            return true;   
+        }
         
     }
 }

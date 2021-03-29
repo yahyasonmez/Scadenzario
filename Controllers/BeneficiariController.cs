@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +11,13 @@ namespace Scadenzario.Controllers
     public class BeneficiariController : Controller
     {
         private readonly IBeneficiariService service;
+
+        public async Task<IActionResult> IsBeneficiarioAvailable(string beneficiario)
+        {
+            bool result = await service.VerificationExistenceAsync(beneficiario);
+            return Json(!result);
+        }
+
         public BeneficiariController(IBeneficiariService service)
         {
             this.service = service;
@@ -41,6 +49,12 @@ namespace Scadenzario.Controllers
         {
             if(ModelState.IsValid)
             {
+                if(await service.VerificationExistenceAsync(inputModel.Beneficiario))
+                {
+                    ViewData["Title"] = "Nuovo beneficiario".ToUpper();
+                    ModelState.AddModelError("key","Il beneficiario è già esistente. Scegli un nome diverso.");
+                    return View(inputModel); 
+                }
                 await service.CreateBeneficiarioAsync(inputModel);
                 return RedirectToAction("Index");
             }

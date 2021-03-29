@@ -9,16 +9,17 @@ namespace Scadenzario.Models.InputModels
 {
     public class ScadenzaCreateInputModel
     {
-        [Required]
-        [Display(Name = "Beneficiario")]
+        [Required(ErrorMessage="Il Beneficiario è obbligatorio."),
+        Display(Name = "Beneficiario")]
         public int IDBeneficiario { get; set; }
         public string Beneficiario { get; set; }
-        [Required]
-        [DataType(DataType.Date)]
-        [Display(Name = "Data Scadenza")]
+        [Required (ErrorMessage="La Data Scadenza è obbligatoria."),
+        DataType(DataType.Date, ErrorMessage="Formato data non valido."),
+        Display(Name = "Data Scadenza")]
         public DateTime DataScadenza { get; set; }
-        [Required]
+        [Required (ErrorMessage="L'importo è obbligatorio.")]
         [DataType(DataType.Currency)]
+        [DisplayFormat(DataFormatString = "{0:n}", ApplyFormatInEditMode = true)]
         public Decimal Importo { get; set; }
         public List<SelectListItem> Beneficiari{get;set;}
     }

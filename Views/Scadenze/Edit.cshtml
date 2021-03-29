@@ -32,7 +32,7 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="Importo"></label>
-                    <input asp-for="Importo" class="form-control">
+                    <input asp-for="Importo" class="form-control form-control-block">
                     <span asp-validation-for="Importo"></span>
                 </div>
             </div>
@@ -103,6 +103,7 @@
 </section>
 @section Scripts
 {
+    <partial name="_Validation"></partial>
     <script type="text/javascript">
             $(document).ready(function () {
                 $("#btnUpload").click(function (e) {

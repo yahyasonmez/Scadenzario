@@ -3,7 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 
-namespace MyCourse.Customizations.Identity
+namespace Scadenzario.Customizations.Identity
 {
     public class CommonPasswordValidator<TUser> : IPasswordValidator<TUser> where TUser : class
     {

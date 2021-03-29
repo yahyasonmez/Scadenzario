@@ -6,6 +6,7 @@
 </div>
 <br>
 <form method="post">
+    <div asp-validation-summary="All"></div> 
     <div class="row">
                 <div class="col-md-6">
                     <label asp-for="Beneficiario"></label>
@@ -31,6 +32,8 @@
            
         </div>    
     </div> 
-                 
-    
 </form>
+@section Scripts
+{
+    <partial name="_Validation"></partial>
+}

@@ -242,3 +242,4 @@ C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Beneficiari\Edit.cshtml.g.cs
 C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Beneficiari\Index.cshtml.g.cs
 C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Scadenze\Create.cshtml.g.cs
 C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Scadenze\Edit.cshtml.g.cs
+C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Shared\_Validation.cshtml.g.cs

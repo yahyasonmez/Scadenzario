@@ -13,5 +13,6 @@ namespace Scadenzario.Models.Services.Application
         Task DeleteBeneficiarioAsync(BeneficiarioDeleteInputModel inputModel);
         Task<BeneficiarioEditInputModel> GetBeneficiarioForEditingAsync(int id);
         Task<BeneficiarioViewModel> EditBeneficiarioAsync(BeneficiarioEditInputModel inputModel);
+        Task<bool> VerificationExistenceAsync(string beneficiario);
     }
 }
