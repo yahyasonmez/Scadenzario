@@ -16,19 +16,19 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12" asp-validation-summary="All"></div>
+            <div class="col-12" asp-validation-summary="All" class="text-danger"></div>
         </div>
         <div class="row">
             <div class="col-md-7">
                 <div class="form-group">
                     <label asp-for="Beneficiario"></label>
                     <input type="text" class="form-control form-control-lg" asp-for="Beneficiario" readonly="true">
-                    <span asp-validation-for="Beneficiario"></span>
+                    <span asp-validation-for="Beneficiario" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="Descrizione"></label>
                     <input asp-for="Descrizione" class="form-control">
-                    <span asp-validation-for="Descrizione"></span>
+                    <span asp-validation-for="Descrizione" class="text-danger" ></span>
                 </div>
                 <div class="form-group">
                     <input asp-for="IDBeneficiario" class="form-control" style="visibility: hidden;">
@@ -40,17 +40,17 @@
                     <div class="form-group">
                         <label asp-for="Email"></label>
                         <input type="email" asp-for="Email" class="form-control">
-                        <span asp-validation-for="Email"></span>
+                        <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Telefono"></label>
                         <input type="text" asp-for="Telefono" class="form-control">
-                        <span asp-validation-for="Telefono"></span>
+                        <span asp-validation-for="Telefono" class="text-danger" ></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="SitoWeb"></label>
                         <input type="text" asp-for="SitoWeb" class="form-control">
-                        <span asp-validation-for="SitoWeb"></span>
+                        <span asp-validation-for="SitoWeb" class="text-danger"></span>
                     </div>
                 </aside>
             </div>
@@ -67,7 +67,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>Stai per eliminare il beneficiario e non potrai recuperarlo. Confermi l'eliminazione?</p>
+                        <p>Stai per eliminare il beneficiario, tutte le scadenze associate e le relative ricevute. Non potrai recuperare i dati. Confermi l'eliminazione?</p>
                     </div>
                     <div class="modal-footer justify-content-between">
                         <button class="btn btn-light" type="button" data-dismiss="modal">Annulla</button>
@@ -78,3 +78,7 @@
         </div>
     </form>
 </section>
+@section Scripts
+{
+    <partial name="_Validation"></partial>
+}

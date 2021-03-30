@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12" asp-validation-summary="All"></div>
+            <div class="col-12" asp-validation-summary="All" class="text-danger" ></div>
         </div>
         <div class="row">
             <div class="col-md-6">
@@ -28,12 +28,12 @@
                 <div class="form-group">
                     <label asp-for="DataScadenza"></label>
                     <input asp-for="DataScadenza" class="form-control">
-                    <span asp-validation-for="DataScadenza"></span>
+                    <span asp-validation-for="DataScadenza" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="Importo"></label>
                     <input asp-for="Importo" class="form-control form-control-block">
-                    <span asp-validation-for="Importo"></span>
+                    <span asp-validation-for="Importo" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-6">
@@ -104,6 +104,7 @@
 @section Scripts
 {
     <partial name="_Validation"></partial>
+
     <script type="text/javascript">
             $(document).ready(function () {
                 $("#btnUpload").click(function (e) {
