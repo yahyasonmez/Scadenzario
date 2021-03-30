@@ -1,0 +1,62 @@
+@model List<BeneficiarioViewModel>
+    <br>
+    <br>
+    <div class="alert alert-success">
+        <h2><b>@ViewData["Title"]</b></h2>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-3">
+             <a class="btn btn-primary btn-lg btn-block" asp-action="Create" asp-controller="Beneficiari"><i class="fas fa-plus-circle"></i>Nuovo Beneficiario</a>
+        </div>
+        <div class="col-md-9">
+            
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="table-responsive-md">
+        <table class="table table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Beneficiario</th>
+                    <th scope="col">Descrizione</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Sito Web</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Beneficiario)
+                        </td>
+                        <td>
+                           @Html.DisplayFor(modelItem => item.Descrizione)
+                        </td>
+                        <td>
+                           @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                           @Html.DisplayFor(modelItem => item.Telefono)
+                        </td>
+                        <td>
+                           <a href="@Html.DisplayFor(modelItem => item.SitoWeb)">@Html.DisplayFor(modelItem => item.SitoWeb)</a>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <a class="btn btn-outline-primary" asp-action="Detail" asp-controller="Beneficiari" asp-route-id = "@item.IDBeneficiario">Dettaglio</a>
+                            </div>
+                        </td>
+                    </tr>
+               }
+            </tbody>
+        </table>
+    </div>
+            
+                
+            
+

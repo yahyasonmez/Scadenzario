@@ -234,10 +234,14 @@ namespace Scadenzario.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Descrizione")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(MAX)")
+                        .HasColumnName("Descrizione");
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)")
+                        .HasColumnName("Email");
 
                     b.Property<string>("Sbeneficiario")
                         .IsRequired()
@@ -246,10 +250,14 @@ namespace Scadenzario.Migrations
                         .HasColumnName("Beneficiario");
 
                     b.Property<string>("SitoWeb")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)")
+                        .HasColumnName("SitoWeb");
 
                     b.Property<string>("Telefono")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("Telefono");
 
                     b.HasKey("IDBeneficiario");
 
@@ -264,19 +272,36 @@ namespace Scadenzario.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Beneficiario")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)")
+                        .HasColumnName("Beneficiario");
 
                     b.Property<byte[]>("FileContent")
-                        .HasColumnType("varbinary(max)");
+                        .IsRequired()
+                        .HasColumnType("image")
+                        .HasColumnName("FileContent");
 
                     b.Property<string>("FileName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("FileName");
 
                     b.Property<string>("FileType")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("FileType");
 
                     b.Property<int>("IDScadenza")
                         .HasColumnType("int");
+
+                    b.Property<string>("Path")
+                        .IsRequired()
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("Path");
 
                     b.HasKey("Id");
 
@@ -288,19 +313,27 @@ namespace Scadenzario.Migrations
             modelBuilder.Entity("Scadenzario.Models.Entities.Scadenza", b =>
                 {
                     b.Property<int>("IDScadenza")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Beneficiario")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)")
+                        .HasColumnName("Beneficiario");
 
                     b.Property<DateTime?>("DataPagamento")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime")
+                        .HasColumnName("DataPagamento");
 
                     b.Property<DateTime>("DataScadenza")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime")
+                        .HasColumnName("DataScadenza");
 
                     b.Property<short?>("GiorniRitardo")
-                        .HasColumnType("smallint");
+                        .HasColumnType("smallint")
+                        .HasColumnName("GiorniRitardo");
 
                     b.Property<int>("IDBeneficiario")
                         .HasColumnType("int");
@@ -313,9 +346,14 @@ namespace Scadenzario.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<bool>("Sollecito")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false)
+                        .HasColumnName("Sollecito");
 
                     b.HasKey("IDScadenza");
+
+                    b.HasIndex("IDBeneficiario");
 
                     b.HasIndex("IDUser");
 
@@ -396,8 +434,7 @@ namespace Scadenzario.Migrations
                 {
                     b.HasOne("Scadenzario.Models.Entities.Beneficiario", "beneficiario")
                         .WithMany("Scadenze")
-                        .HasForeignKey("IDScadenza")
-                        .HasConstraintName("FK_Scadenze_Beneficiario")
+                        .HasForeignKey("IDBeneficiario")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

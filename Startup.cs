@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
@@ -8,11 +9,12 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using MyCourse.Customizations.Identity;
+using Scadenzario.Customizations.Identity;
 using Scadenzario.Models.Entities;
 using Scadenzario.Models.Options;
 using Scadenzario.Models.Services.Application;
@@ -34,7 +36,9 @@ namespace Scadenzario
         {
             services.AddControllersWithViews();
             services.AddRazorPages();
-            services.AddTransient<IScadenzeService,ScadenzeService>();
+            services.AddTransient<IScadenzeService,EFCoreScadenzaService>();
+            services.AddTransient<IBeneficiariService,EFCoreBeneficiarioService>();
+            services.AddTransient<IRicevuteService,EFCoreRicevutaService>();
             services.AddDbContextPool<MyScadenzaDbContext>(optionsBuilder=>{
                  optionsBuilder.UseSqlServer("Server=LAPTOP-SMBSSRS2\\SQLEXPRESS;Database=Scadenzario;Trusted_Connection=True;User ID=LAPTOP-SMBSSRS2\\marco;");
             });
@@ -67,6 +71,15 @@ namespace Scadenzario
             }
             app.UseStaticFiles();
             //Endpoint routing Middleware
+            //Nel caso volessi impostare una Culture specifica...
+            
+            /*var appCulture = CultureInfo.GetCultureInfo("it-IT");
+            app.UseRequestLocalization(new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture(appCulture),
+                SupportedCultures = new[] { appCulture }
+            });*/
+
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();

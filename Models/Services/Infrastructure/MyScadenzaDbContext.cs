@@ -37,7 +37,8 @@ namespace Scadenzario.Models.Services.Infrastructure
             modelBuilder.Entity<Beneficiario>(entity =>
             {
                 entity.HasKey(e => e.IDBeneficiario);
-
+                entity.Property(z=>z.IDBeneficiario).ValueGeneratedOnAdd();
+                
                 entity.ToTable("Beneficiari");//Superfluo se la tabella ha lo stesso nome della proprietà che espone il DbSet
 
                 /*--Finchè la proprietà ha lo stesso nome della colonna del database è superfluo fare il mapping*/
@@ -69,6 +70,7 @@ namespace Scadenzario.Models.Services.Infrastructure
                     .IsRequired(false)
                     .HasColumnName("Telefono")
                     .HasMaxLength(50)
+<<<<<<< HEAD
                     .HasColumnType("nvarchar");                  
                 
                 //MAPPING DELLE RELAZIONI
@@ -86,16 +88,26 @@ namespace Scadenzario.Models.Services.Infrastructure
                     .HasForeignKey(scadenza => scadenza.IDScadenza)
                     .HasConstraintName("FK_Scadenze_Beneficiario")
                     .OnDelete(DeleteBehavior.Cascade);
+=======
+                    .HasColumnType("nvarchar");  
+
+                //MAPPING RELAZIONI    
+                entity.HasMany(ricevuta=>ricevuta.Scadenze) 
+                      .WithOne(scadenza=>scadenza.beneficiario) 
+                      .HasForeignKey(scadenza=>scadenza.IDBeneficiario);                 
+>>>>>>> sezione08
             });
 
             modelBuilder.Entity<Ricevuta>(entity =>
             {
                 entity.HasKey(e => e.Id);
+                entity.Property(z=>z.Id).ValueGeneratedOnAdd();
 
                 entity.ToTable("Ricevute");//Superfluo se la tabella ha lo stesso nome della proprietà che espone il DbSet.
                 
                 entity.Property(e => e.FileName)
                     .IsRequired()
+<<<<<<< HEAD
                     .HasMaxLength(150)
                     .HasColumnName("FileName")
                     .HasColumnType("nvarchar");
@@ -103,6 +115,21 @@ namespace Scadenzario.Models.Services.Infrastructure
                 entity.Property(e => e.FileType)
                     .IsRequired()
                     .HasMaxLength(50)
+=======
+                    .HasMaxLength(450)
+                    .HasColumnName("FileName")
+                    .HasColumnType("nvarchar");
+
+                 entity.Property(e => e.Path)
+                    .IsRequired()
+                    .HasMaxLength(450)
+                    .HasColumnName("Path")
+                    .HasColumnType("nvarchar");    
+
+                entity.Property(e => e.FileType)
+                    .IsRequired()
+                    .HasMaxLength(500)
+>>>>>>> sezione08
                     .HasColumnName("FileType")
                     .HasColumnType("nvarchar");  
 
@@ -120,8 +147,9 @@ namespace Scadenzario.Models.Services.Infrastructure
             });
             modelBuilder.Entity<Scadenza>(entity =>
             {
-                entity.HasKey(e => e.IDScadenza);
-
+                entity.HasKey(z=>z.IDScadenza);
+                entity.Property(z=>z.IDScadenza).ValueGeneratedOnAdd();
+                
                 entity.ToTable("Scadenze");//Superfluo se la tabella ha lo stesso nome della proprietà che espone il DbSet.
                 
                 entity.Property(z=>z.Importo)
@@ -149,7 +177,10 @@ namespace Scadenzario.Models.Services.Infrastructure
                 entity.Property(e => e.Sollecito)
                     .HasColumnName("Sollecito")
                     .HasColumnType("bit")
+<<<<<<< HEAD
                     .IsRequired(true) 
+=======
+>>>>>>> sezione08
                     .HasDefaultValue(0);
                     
                  entity.Property(e => e.GiorniRitardo)
@@ -172,8 +203,7 @@ namespace Scadenzario.Models.Services.Infrastructure
                     .WithOne(ricevuta => ricevuta.Scadenza)
                     .HasForeignKey(ricevuta => ricevuta.IDScadenza)
                     .HasConstraintName("FK_Scadenze_Ricevute")
-                    .OnDelete(DeleteBehavior.Cascade);
-                 
+                    .OnDelete(DeleteBehavior.Cascade);  
             });
 
             modelBuilder.Entity<ApplicationUser>(entity => {

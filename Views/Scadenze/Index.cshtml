@@ -1,6 +1,20 @@
-@model List<ScadenzeViewModel>
-<h1>@ViewData["Title"]</h1>
+@model List<ScadenzaViewModel>
 <br>
+    <br>
+    <div class="alert alert-success">
+        <h2><b>@ViewData["Title"]</b></h2>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-3">
+             <a class="btn btn-outline-primary btn-lg" asp-action="Create" asp-controller="Scadenze"><i class="fas fa-plus-circle"></i>  Nuova Scadenza</a>
+        </div>
+        <div class="col-md-9">
+            
+        </div>
+    </div>
+    <br>
+    <br>
     <div class="table-responsive-md">
         <table class="table table-striped table-hover">
             <thead class="thead-dark">
@@ -9,36 +23,48 @@
                     <th scope="col">Data Scadenza</th>
                     <th scope="col">Importo</th>
                     <th scope="col">Sollecito</th>
-                    <th scope="col">Giorni Ritardo</th>
+                    <th scope="col">Giorni Mancanti/Ritardo</th>
                     <th scope="col">Data Pagamento</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (var scadenza in Model)
+                @foreach (var item in Model)
                 {
                     <tr>
                         <td>
-                            @scadenza.Beneficiario
+                             @Html.DisplayFor(modelItem => item.Beneficiario)
                         </td>
                         <td>
-                            @scadenza.DataScadenza
+                           @Html.DisplayFor(modelItem => item.DataScadenza)
                         </td>
                         <td>
-                            @scadenza.Importo
+                           @Html.DisplayFor(modelItem => item.Importo)
                         </td>
                         <td>
-                            @scadenza.Sollecito
+                            @Html.DisplayFor(modelItem => item.Sollecito)
                         </td>
                         <td>
-                            @scadenza.GiorniRitardo
+                            @if (item.GiorniRitardo < 0)
+                            {
+                                int appoggio = @Math.Abs((int)item.GiorniRitardo);
+                                <font color="ff0000">
+                                @{
+                                    @appoggio
+                                }
+                                </font>
+                            }
+                            else
+                            {
+                                   @Html.DisplayFor(modelItem => item.GiorniRitardo)
+                            }
                         </td>
                         <td>
-                            @scadenza.DataPagamento
+                            @Html.DisplayFor(modelItem => item.DataPagamento)
                         </td>
                         <td>
                             <div class="d-flex align-items-center">
-                                <a class="btn btn-outline-primary" asp-action="Detail" asp-controller="Scadenze" asp-route-id = "@scadenza.IDScadenza">Dettaglio</a>
+                                <a class="btn btn-outline-primary" asp-action="Detail" asp-controller="Scadenze" asp-route-id = "@item.IDScadenza">Dettaglio</a>
                             </div>
                         </td>
                     </tr>

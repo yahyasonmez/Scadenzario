@@ -6,6 +6,7 @@ namespace Scadenzario.Controllers
     {
         public IActionResult Index()
         {
+            ViewData["Title"]="Home Page".ToUpper();
             return View();
         }  
     }
