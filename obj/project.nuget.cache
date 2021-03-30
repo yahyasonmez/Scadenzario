@@ -1,14 +1,6 @@
 {
   "version": 2,
-<<<<<<< HEAD
-<<<<<<< HEAD
-  "dgSpecHash": "ljwu1VmaFAu4svq/qZAEJu9U9c2LicdyfqWV0WYF5OsGCSKxef69/PVTPuHbpWx0V75DORfuGNrEeZvxq33lZg==",
-=======
-  "dgSpecHash": "3ngf2YHDNRPGClxuR5nSY2GWaFnlkqurNd9n8We4j9vlBIDdpY7gXvcqWuAO2q8V4kLNe/fbv7xQtNRU/RNcng==",
->>>>>>> sezione07
-=======
-  "dgSpecHash": "ubKnOFzaJes8DoYTA+/obkHASOAWGUE2YVdJg7InXUbndkcBqYLJUEXmXgHsHeFI1T7AoSgOlnntDW5B3EOw4Q==",
->>>>>>> sezione08
+  "dgSpecHash": "itr9EwcPpM/0GCpTDbrEPnjE+c0cN4+9z56iN86YhKgMMfvXFmEnOC07+Yu5n2pddxPpFbSMu9fhvg/uqtx27g==",
   "success": true,
   "projectFilePath": "c:\\Blog\\Scadenzario\\Scadenzario.csproj",
   "expectedPackageFiles": [
@@ -150,5 +142,12 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Si è verificato un problema durante la lettura del file di cache c:\\Blog\\Scadenzario\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

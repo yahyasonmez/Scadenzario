@@ -7684,11 +7684,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Blog\\Scadenzario\\Scadenzario.csproj",
+      "projectUniqueName": "c:\\Blog\\Scadenzario\\Scadenzario.csproj",
       "projectName": "Scadenzario",
-      "projectPath": "C:\\Blog\\Scadenzario\\Scadenzario.csproj",
+      "projectPath": "c:\\Blog\\Scadenzario\\Scadenzario.csproj",
       "packagesPath": "C:\\Users\\marco\\.nuget\\packages\\",
-      "outputPath": "C:\\Blog\\Scadenzario\\obj\\",
+      "outputPath": "c:\\Blog\\Scadenzario\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -7782,5 +7782,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Si è verificato un problema durante la lettura del file di cache c:\\Blog\\Scadenzario\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
