@@ -77,6 +77,12 @@ namespace Scadenzario.Controllers
         {
             if(ModelState.IsValid)
             {
+                if(await service.VerificationExistenceAsync(inputModel.Beneficiario))
+                {
+                    ViewData["Title"] = "Aggiorna beneficiario".ToUpper();
+                    ModelState.AddModelError("key","Il beneficiario è già esistente. Scegli un nome diverso.");
+                    return View(inputModel); 
+                }
                 await service.EditBeneficiarioAsync(inputModel);
                 return RedirectToAction("Index");
             }
