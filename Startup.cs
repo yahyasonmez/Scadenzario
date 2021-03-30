@@ -71,6 +71,15 @@ namespace Scadenzario
             }
             app.UseStaticFiles();
             //Endpoint routing Middleware
+            //Nel caso volessi impostare una Culture specifica...
+            
+            /*var appCulture = CultureInfo.GetCultureInfo("it-IT");
+            app.UseRequestLocalization(new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture(appCulture),
+                SupportedCultures = new[] { appCulture }
+            });*/
+
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
