@@ -1,12 +1,8 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "itr9EwcPpM/0GCpTDbrEPnjE+c0cN4+9z56iN86YhKgMMfvXFmEnOC07+Yu5n2pddxPpFbSMu9fhvg/uqtx27g==",
-=======
   "dgSpecHash": "C5xjm6I1y08+1ukQZMeeMVFjw+GbXZNPcm/NtT6NOz5zVS3KPYatXmdwsnkHlDc76KPAppQi1uZpIBZE58eVEA==",
->>>>>>> sezione08
   "success": true,
-  "projectFilePath": "c:\\Blog\\Scadenzario\\Scadenzario.csproj",
+  "projectFilePath": "C:\\Blog\\Scadenzario\\Scadenzario.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\marco\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\marco\\.nuget\\packages\\jquery\\1.4.4\\jquery.1.4.4.nupkg.sha512",
@@ -153,7 +149,7 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Si è verificato un problema durante la lettura del file di cache c:\\Blog\\Scadenzario\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+      "message": "Si è verificato un problema durante la lettura del file di cache C:\\Blog\\Scadenzario\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
     }
   ]
 }

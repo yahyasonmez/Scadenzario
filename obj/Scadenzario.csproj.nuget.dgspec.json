@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Blog\\Scadenzario\\Scadenzario.csproj": {}
+    "C:\\Blog\\Scadenzario\\Scadenzario.csproj": {}
   },
   "projects": {
-    "c:\\Blog\\Scadenzario\\Scadenzario.csproj": {
+    "C:\\Blog\\Scadenzario\\Scadenzario.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Blog\\Scadenzario\\Scadenzario.csproj",
+        "projectUniqueName": "C:\\Blog\\Scadenzario\\Scadenzario.csproj",
         "projectName": "Scadenzario",
-        "projectPath": "c:\\Blog\\Scadenzario\\Scadenzario.csproj",
+        "projectPath": "C:\\Blog\\Scadenzario\\Scadenzario.csproj",
         "packagesPath": "C:\\Users\\marco\\.nuget\\packages\\",
-        "outputPath": "c:\\Blog\\Scadenzario\\obj\\",
+        "outputPath": "C:\\Blog\\Scadenzario\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
