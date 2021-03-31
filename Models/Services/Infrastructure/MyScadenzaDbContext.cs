@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.Extensions.Configuration;
 using Scadenzario.Models.Entities;
 
 #nullable disable
@@ -21,12 +22,13 @@ namespace Scadenzario.Models.Services.Infrastructure
         public virtual DbSet<Ricevuta> Ricevute { get; set; }
         public virtual DbSet<Scadenza> Scadenze { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public IConfiguration Configuration { get;}
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder )
         {
             if (!optionsBuilder.IsConfigured)
             {
-                #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=LAPTOP-SMBSSRS2\\SQLEXPRESS;Database=Scadenzario;Trusted_Connection=True;User ID=LAPTOP-SMBSSRS2\\marco;");
+                String ConnectionString = Configuration.GetSection("ConnectionStrings").GetValue<string>("Default"); 
+                optionsBuilder.UseSqlServer(ConnectionString);
             }
         }
 

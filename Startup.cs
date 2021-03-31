@@ -24,13 +24,11 @@ namespace Scadenzario
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; }
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
-
-        public IConfiguration Configuration { get; }
-
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -40,7 +38,8 @@ namespace Scadenzario
             services.AddTransient<IBeneficiariService,EFCoreBeneficiarioService>();
             services.AddTransient<IRicevuteService,EFCoreRicevutaService>();
             services.AddDbContextPool<MyScadenzaDbContext>(optionsBuilder=>{
-                 optionsBuilder.UseSqlServer("Server=LAPTOP-SMBSSRS2\\SQLEXPRESS;Database=Scadenzario;Trusted_Connection=True;User ID=LAPTOP-SMBSSRS2\\marco;");
+                 String ConnectionString = Configuration.GetSection("ConnectionStrings").GetValue<string>("Default"); 
+                 optionsBuilder.UseSqlServer(ConnectionString);
             });
             services.AddDefaultIdentity<IdentityUser>(options=>{
                                  options.Password.RequireDigit=true;
