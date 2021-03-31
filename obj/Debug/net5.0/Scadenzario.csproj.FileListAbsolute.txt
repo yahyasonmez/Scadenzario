@@ -1,44 +1,6 @@
-C:\Blog\Post\ASP NET CORE\Scadenzario\bin\Debug\net5.0\appsettings.Development.json
-C:\Blog\Post\ASP NET CORE\Scadenzario\bin\Debug\net5.0\appsettings.json
-C:\Blog\Post\ASP NET CORE\Scadenzario\bin\Debug\net5.0\Scadenzario.exe
-C:\Blog\Post\ASP NET CORE\Scadenzario\bin\Debug\net5.0\Scadenzario.deps.json
-C:\Blog\Post\ASP NET CORE\Scadenzario\bin\Debug\net5.0\Scadenzario.runtimeconfig.json
-C:\Blog\Post\ASP NET CORE\Scadenzario\bin\Debug\net5.0\Scadenzario.runtimeconfig.dev.json
-C:\Blog\Post\ASP NET CORE\Scadenzario\bin\Debug\net5.0\Scadenzario.dll
-C:\Blog\Post\ASP NET CORE\Scadenzario\bin\Debug\net5.0\ref\Scadenzario.dll
-C:\Blog\Post\ASP NET CORE\Scadenzario\bin\Debug\net5.0\Scadenzario.pdb
-C:\Blog\Post\ASP NET CORE\Scadenzario\bin\Debug\net5.0\Scadenzario.Views.dll
-C:\Blog\Post\ASP NET CORE\Scadenzario\bin\Debug\net5.0\Scadenzario.Views.pdb
-C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Scadenzario.csprojAssemblyReference.cache
-C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Scadenzario.GeneratedMSBuildEditorConfig.editorconfig
-C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Scadenzario.AssemblyInfoInputs.cache
-C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Scadenzario.AssemblyInfo.cs
-C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Scadenzario.csproj.CoreCompileInputs.cache
-C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Scadenzario.MvcApplicationPartsAssemblyInfo.cache
-C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Scadenzario.RazorAssemblyInfo.cache
-C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Scadenzario.RazorAssemblyInfo.cs
-C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\staticwebassets\Scadenzario.StaticWebAssets.Manifest.cache
-C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\staticwebassets\Scadenzario.StaticWebAssets.xml
-C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\scopedcss\bundle\Scadenzario.styles.css
-C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Scadenzario.TagHelpers.input.cache
-C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Scadenzario.TagHelpers.output.cache
-C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Scadenzario.RazorCoreGenerate.cache
-C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
-C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Razor\Views\Scadenze\Detail.cshtml.g.cs
-C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Razor\Views\Scadenze\Index.cshtml.g.cs
-C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
-C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
-C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
-C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Scadenzario.RazorTargetAssemblyInfo.cache
-C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Scadenzario.RazorTargetAssemblyInfo.cs
-C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Scadenzario.Views.pdb
-C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Scadenzario.dll
-C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\ref\Scadenzario.dll
-C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Scadenzario.pdb
-C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Scadenzario.genruntimeconfig.cache
-C:\Blog\Post\ASP NET CORE\Scadenzario\obj\Debug\net5.0\Scadenzario.csproj.CopyComplete
 C:\Blog\Scadenzario\bin\Debug\net5.0\appsettings.Development.json
 C:\Blog\Scadenzario\bin\Debug\net5.0\appsettings.json
+C:\Blog\Scadenzario\bin\Debug\net5.0\Scadenzario.StaticWebAssets.xml
 C:\Blog\Scadenzario\bin\Debug\net5.0\Scadenzario.exe
 C:\Blog\Scadenzario\bin\Debug\net5.0\Scadenzario.deps.json
 C:\Blog\Scadenzario\bin\Debug\net5.0\Scadenzario.runtimeconfig.json
@@ -48,41 +10,20 @@ C:\Blog\Scadenzario\bin\Debug\net5.0\ref\Scadenzario.dll
 C:\Blog\Scadenzario\bin\Debug\net5.0\Scadenzario.pdb
 C:\Blog\Scadenzario\bin\Debug\net5.0\Scadenzario.Views.dll
 C:\Blog\Scadenzario\bin\Debug\net5.0\Scadenzario.Views.pdb
-C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.csprojAssemblyReference.cache
-C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.GeneratedMSBuildEditorConfig.editorconfig
-C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.AssemblyInfoInputs.cache
-C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.AssemblyInfo.cs
-C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.csproj.CoreCompileInputs.cache
-C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.MvcApplicationPartsAssemblyInfo.cache
-C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.RazorAssemblyInfo.cache
-C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.RazorAssemblyInfo.cs
-C:\Blog\Scadenzario\obj\Debug\net5.0\staticwebassets\Scadenzario.StaticWebAssets.Manifest.cache
-C:\Blog\Scadenzario\obj\Debug\net5.0\staticwebassets\Scadenzario.StaticWebAssets.xml
-C:\Blog\Scadenzario\obj\Debug\net5.0\scopedcss\bundle\Scadenzario.styles.css
-C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.TagHelpers.input.cache
-C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.TagHelpers.output.cache
-C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.RazorCoreGenerate.cache
-C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
-C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Scadenze\Detail.cshtml.g.cs
-C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Scadenze\Index.cshtml.g.cs
-C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
-C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
-C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
-C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.RazorTargetAssemblyInfo.cache
-C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.RazorTargetAssemblyInfo.cs
-C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.Views.pdb
-C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.dll
-C:\Blog\Scadenzario\obj\Debug\net5.0\ref\Scadenzario.dll
-C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.pdb
-C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.genruntimeconfig.cache
-C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.csproj.CopyComplete
-C:\Blog\Scadenzario\bin\Debug\net5.0\Scadenzario.StaticWebAssets.xml
 C:\Blog\Scadenzario\bin\Debug\net5.0\Humanizer.dll
+C:\Blog\Scadenzario\bin\Debug\net5.0\MailKit.dll
 C:\Blog\Scadenzario\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Blog\Scadenzario\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Blog\Scadenzario\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Blog\Scadenzario\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.UI.Views.V4.dll
 C:\Blog\Scadenzario\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.UI.dll
+C:\Blog\Scadenzario\bin\Debug\net5.0\Microsoft.AspNetCore.Razor.Language.dll
+C:\Blog\Scadenzario\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Blog\Scadenzario\bin\Debug\net5.0\Microsoft.CodeAnalysis.dll
+C:\Blog\Scadenzario\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.dll
+C:\Blog\Scadenzario\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Blog\Scadenzario\bin\Debug\net5.0\Microsoft.CodeAnalysis.Razor.dll
+C:\Blog\Scadenzario\bin\Debug\net5.0\Microsoft.CodeAnalysis.Workspaces.dll
 C:\Blog\Scadenzario\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
 C:\Blog\Scadenzario\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
 C:\Blog\Scadenzario\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -99,33 +40,6 @@ C:\Blog\Scadenzario\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
 C:\Blog\Scadenzario\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
 C:\Blog\Scadenzario\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Blog\Scadenzario\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
-C:\Blog\Scadenzario\bin\Debug\net5.0\Newtonsoft.Json.dll
-C:\Blog\Scadenzario\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
-C:\Blog\Scadenzario\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
-C:\Blog\Scadenzario\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
-C:\Blog\Scadenzario\bin\Debug\net5.0\System.Runtime.Caching.dll
-C:\Blog\Scadenzario\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
-C:\Blog\Scadenzario\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-C:\Blog\Scadenzario\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-C:\Blog\Scadenzario\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Blog\Scadenzario\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
-C:\Blog\Scadenzario\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Blog\Scadenzario\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
-C:\Blog\Scadenzario\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Blog\Scadenzario\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
-C:\Blog\Scadenzario\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Blog\Scadenzario\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
-C:\Blog\Scadenzario\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
-C:\Blog\Scadenzario\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.MvcApplicationPartsAssemblyInfo.cs
-C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
-C:\Blog\Scadenzario\bin\Debug\net5.0\Microsoft.AspNetCore.Razor.Language.dll
-C:\Blog\Scadenzario\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Blog\Scadenzario\bin\Debug\net5.0\Microsoft.CodeAnalysis.dll
-C:\Blog\Scadenzario\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.dll
-C:\Blog\Scadenzario\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
-C:\Blog\Scadenzario\bin\Debug\net5.0\Microsoft.CodeAnalysis.Razor.dll
-C:\Blog\Scadenzario\bin\Debug\net5.0\Microsoft.CodeAnalysis.Workspaces.dll
 C:\Blog\Scadenzario\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
 C:\Blog\Scadenzario\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
 C:\Blog\Scadenzario\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
@@ -134,11 +48,19 @@ C:\Blog\Scadenzario\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.E
 C:\Blog\Scadenzario\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
 C:\Blog\Scadenzario\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 C:\Blog\Scadenzario\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+C:\Blog\Scadenzario\bin\Debug\net5.0\MimeKit.dll
+C:\Blog\Scadenzario\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Blog\Scadenzario\bin\Debug\net5.0\BouncyCastle.Crypto.dll
 C:\Blog\Scadenzario\bin\Debug\net5.0\System.Composition.AttributedModel.dll
 C:\Blog\Scadenzario\bin\Debug\net5.0\System.Composition.Convention.dll
 C:\Blog\Scadenzario\bin\Debug\net5.0\System.Composition.Hosting.dll
 C:\Blog\Scadenzario\bin\Debug\net5.0\System.Composition.Runtime.dll
 C:\Blog\Scadenzario\bin\Debug\net5.0\System.Composition.TypedParts.dll
+C:\Blog\Scadenzario\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
+C:\Blog\Scadenzario\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+C:\Blog\Scadenzario\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Blog\Scadenzario\bin\Debug\net5.0\System.Runtime.Caching.dll
+C:\Blog\Scadenzario\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
 C:\Blog\Scadenzario\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.resources.dll
 C:\Blog\Scadenzario\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.resources.dll
 C:\Blog\Scadenzario\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.resources.dll
@@ -191,12 +113,35 @@ C:\Blog\Scadenzario\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.Workspaces.resour
 C:\Blog\Scadenzario\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Blog\Scadenzario\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Blog\Scadenzario\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Blog\Scadenzario\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Blog\Scadenzario\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Blog\Scadenzario\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Blog\Scadenzario\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Blog\Scadenzario\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Blog\Scadenzario\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Blog\Scadenzario\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Blog\Scadenzario\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Blog\Scadenzario\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Blog\Scadenzario\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 C:\Blog\Scadenzario\bin\Debug\net5.0\runtimes\win-arm\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 C:\Blog\Scadenzario\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
-C:\Blog\Scadenzario\bin\Debug\net5.0\MailKit.dll
-C:\Blog\Scadenzario\bin\Debug\net5.0\MimeKit.dll
-C:\Blog\Scadenzario\bin\Debug\net5.0\BouncyCastle.Crypto.dll
-C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
+C:\Blog\Scadenzario\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Blog\Scadenzario\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.csprojAssemblyReference.cache
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.GeneratedMSBuildEditorConfig.editorconfig
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.AssemblyInfoInputs.cache
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.AssemblyInfo.cs
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.csproj.CoreCompileInputs.cache
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.MvcApplicationPartsAssemblyInfo.cs
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.MvcApplicationPartsAssemblyInfo.cache
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.RazorAssemblyInfo.cache
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.RazorAssemblyInfo.cs
+C:\Blog\Scadenzario\obj\Debug\net5.0\staticwebassets\Scadenzario.StaticWebAssets.Manifest.cache
+C:\Blog\Scadenzario\obj\Debug\net5.0\staticwebassets\Scadenzario.StaticWebAssets.xml
+C:\Blog\Scadenzario\obj\Debug\net5.0\scopedcss\bundle\Scadenzario.styles.css
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.TagHelpers.input.cache
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.TagHelpers.output.cache
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.RazorCoreGenerate.cache
 C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\AccessDenied.cshtml.g.cs
 C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\ConfirmEmail.cshtml.g.cs
 C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\ConfirmEmailChange.cshtml.g.cs
@@ -236,10 +181,26 @@ C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\_ViewImp
 C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Error.cshtml.g.cs
 C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
+C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
 C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Beneficiari\Create.cshtml.g.cs
 C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Beneficiari\Detail.cshtml.g.cs
 C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Beneficiari\Edit.cshtml.g.cs
 C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Beneficiari\Index.cshtml.g.cs
+C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Scadenze\Create.cshtml.g.cs
+C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Scadenze\Detail.cshtml.g.cs
 C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Scadenze\Edit.cshtml.g.cs
+C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Scadenze\Index.cshtml.g.cs
+C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
 C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Shared\_Validation.cshtml.g.cs
+C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.RazorTargetAssemblyInfo.cache
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.RazorTargetAssemblyInfo.cs
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.Views.pdb
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.csproj.CopyComplete
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.dll
+C:\Blog\Scadenzario\obj\Debug\net5.0\ref\Scadenzario.dll
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.pdb
+C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.genruntimeconfig.cache
