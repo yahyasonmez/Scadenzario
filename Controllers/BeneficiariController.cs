@@ -10,6 +10,7 @@ namespace Scadenzario.Controllers
 {
     public class BeneficiariController : Controller
     {
+        public static string Beneficiario { get; internal set; }
         private readonly IBeneficiariService service;
 
         public async Task<IActionResult> IsBeneficiarioAvailable(string beneficiario)
@@ -70,6 +71,7 @@ namespace Scadenzario.Controllers
             ViewData["Title"] = "Aggiorna Beneficiario".ToUpper();
             BeneficiarioEditInputModel inputModel = new();
             inputModel = await service.GetBeneficiarioForEditingAsync(id);
+            Beneficiario=inputModel.Beneficiario;
             return View(inputModel);
         }
         [HttpPost]
@@ -77,13 +79,18 @@ namespace Scadenzario.Controllers
         {
             if(ModelState.IsValid)
             {
-                if(await service.VerificationExistenceAsync(inputModel.Beneficiario))
+                //SE L'UTENTE HA CAMBIATO BENEFICIARIO VERIFICO CHE NON SIA GIA' ESISTENTE
+                if(inputModel.Beneficiario!=Beneficiario)
                 {
-                    ViewData["Title"] = "Aggiorna beneficiario".ToUpper();
-                    ModelState.AddModelError("key","Il beneficiario è già esistente. Scegli un nome diverso.");
-                    return View(inputModel); 
+                   if(await service.VerificationExistenceAsync(inputModel.Beneficiario))
+                   {
+                        "Aggiorna beneficiario".ToUpper();
+                        ModelState.AddModelError("key","Il beneficiario è già esistente. Scegli un nome diverso.");
+                        return View(inputModel); 
+                   }
                 }
                 await service.EditBeneficiarioAsync(inputModel);
+                Beneficiario=String.Empty;
                 return RedirectToAction("Index");
             }
             else
