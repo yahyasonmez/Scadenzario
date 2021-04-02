@@ -15,14 +15,12 @@ namespace Scadenzario.Models.Services.Application
 {
     public class EFCoreBeneficiarioService:IBeneficiariService
     {
-       
-        private readonly ILogger<EFCoreBeneficiarioService> logger;
         private readonly MyScadenzaDbContext dbContext;
+        private readonly ILogger<EFCoreBeneficiarioService> logger;
         public EFCoreBeneficiarioService(ILogger<EFCoreBeneficiarioService> logger, MyScadenzaDbContext dbContext)
         {
             this.dbContext = dbContext;
             this.logger = logger;
-
         }
         public async Task<BeneficiarioViewModel> CreateBeneficiarioAsync(BeneficiarioCreateInputModel inputModel)
         {
@@ -47,6 +45,7 @@ namespace Scadenzario.Models.Services.Application
 
         public async Task<BeneficiarioViewModel> GetBeneficiarioAsync(int id)
         {
+            logger.LogInformation("Ricevuto identificativo beneficiario {id}",id);
             IQueryable<BeneficiarioViewModel> queryLinq = dbContext.Beneficiari
                 .AsNoTracking()
                 .Where(beneficiario => beneficiario.IDBeneficiario == id)
@@ -56,11 +55,15 @@ namespace Scadenzario.Models.Services.Application
                                                            //.FirstOrDefaultAsync(); //Restituisce null se l'elenco è vuoto e non solleva mai un'eccezione
                                                            //.SingleOrDefaultAsync(); //Tollera il fatto che l'elenco sia vuoto e in quel caso restituisce null, oppure se l'elenco contiene più di 1 elemento, solleva un'eccezione
                                                            //.FirstAsync(); //Restituisce il primo elemento, ma se l'elenco è vuoto solleva un'eccezione
-                
+            if (viewModel == null)
+            {
+                throw new BeneficiarioNotFoundException(id);
+            }    
             return viewModel;
         }
         public async Task<BeneficiarioEditInputModel> GetBeneficiarioForEditingAsync(int id)
         {
+            logger.LogInformation("Ricevuto identificativo beneficiario {id}",id);
             IQueryable<BeneficiarioEditInputModel> queryLinq = dbContext.Beneficiari
                 .AsNoTracking()
                 .Where(beneficiario => beneficiario.IDBeneficiario == id)
@@ -116,6 +119,7 @@ namespace Scadenzario.Models.Services.Application
         }
         public async Task<bool> VerificationExistenceAsync(string beneficiario)
         {
+            logger.LogInformation("Ricevuto nome beneficiario {beneficiario}",beneficiario);
             Beneficiario verify = await dbContext.Beneficiari.FirstOrDefaultAsync(b=>b.Sbeneficiario==beneficiario);
             if(verify==null)
                return false;

@@ -204,3 +204,4 @@ C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.dll
 C:\Blog\Scadenzario\obj\Debug\net5.0\ref\Scadenzario.dll
 C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.pdb
 C:\Blog\Scadenzario\obj\Debug\net5.0\Scadenzario.genruntimeconfig.cache
+C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Error\Index.cshtml.g.cs

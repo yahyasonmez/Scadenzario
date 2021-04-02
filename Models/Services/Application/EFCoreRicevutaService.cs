@@ -16,9 +16,9 @@ namespace Scadenzario.Models.Services.Application
 {
     public class EFCoreRicevutaService:IRicevuteService
     {
-        private readonly ILogger<EFCoreBeneficiarioService> logger;
+        private readonly ILogger<EFCoreRicevutaService> logger;
         private readonly MyScadenzaDbContext dbContext;
-        public EFCoreRicevutaService(ILogger<EFCoreBeneficiarioService> logger, MyScadenzaDbContext dbContext)
+        public EFCoreRicevutaService(ILogger<EFCoreRicevutaService> logger, MyScadenzaDbContext dbContext)
         {
             this.dbContext = dbContext;
             this.logger = logger;
@@ -44,6 +44,7 @@ namespace Scadenzario.Models.Services.Application
 
         public async Task DeleteRicevutaAsync(int Id)
         {
+            logger.LogInformation("Ricevuto {id}", Id);
             Ricevuta ricevuta = await dbContext.Ricevute.FindAsync(Id);
             if (ricevuta == null)
             {
@@ -55,6 +56,7 @@ namespace Scadenzario.Models.Services.Application
 
         public List<RicevutaViewModel> GetRicevute(int id)
         {
+            logger.LogInformation("Ricevuto {id}", id);
             var queryLinq = dbContext.Ricevute
                 .AsNoTracking()
                 .Where(ricevuta => ricevuta.IDScadenza == id);
@@ -64,10 +66,15 @@ namespace Scadenzario.Models.Services.Application
                 RicevutaViewModel view = RicevutaViewModel.FromEntity(item);
                 viewModel.Add(view);
             }
+            if (viewModel == null)
+            {
+                throw new RicevutaNotFoundException(id);
+            }
             return viewModel;
         }
         public async Task<RicevutaViewModel> GetRicevutaAsync(int id)
         {
+            logger.LogInformation("Ricevuto {id}", id);
             var queryLinq = dbContext.Ricevute
                 .AsNoTracking()
                 .Where(ricevuta => ricevuta.Id == id)
