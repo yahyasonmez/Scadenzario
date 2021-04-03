@@ -1,7 +1,7 @@
 using System;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-
+using Scadenzario.Models.Exceptions.Application;
 namespace Scadenzario.Controllers
 {
     public class ErrorController:Controller

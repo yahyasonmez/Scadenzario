@@ -1,6 +1,6 @@
 using System;
 
-namespace MyCourse.Models.Exceptions.Application
+namespace Scadenzario.Models.Exceptions.Application
 {
     public class UserUnknownException : Exception
     {

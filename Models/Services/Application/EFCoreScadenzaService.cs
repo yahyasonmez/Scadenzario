@@ -57,32 +57,22 @@ namespace Scadenzario.Models.Services.Application
         public async Task<ScadenzaViewModel> GetScadenzaAsync(int id)
         {
             logger.LogInformation("Ricevuto identificativo scadenza {id}",id);
-            try
-            {
-                IQueryable<ScadenzaViewModel> queryLinq = dbContext.Scadenze
+            IQueryable<ScadenzaViewModel> queryLinq = dbContext.Scadenze
                     .AsNoTracking()
                     .Include(Scadenza=>Scadenza.Ricevute)
                     .Where(scadenza => scadenza.IDScadenza == id)
                     .Select(scadenza => ScadenzaViewModel.FromEntity(scadenza)); //Usando metodi statici come FromEntity, la query potrebbe essere inefficiente. Mantenere il mapping nella lambda oppure usare un extension method personalizzato
 
-                ScadenzaViewModel viewModel = await queryLinq.SingleAsync();
+            ScadenzaViewModel viewModel = await queryLinq.FirstOrDefaultAsync();
                 //Restituisce il primo elemento dell'elenco, ma se ne contiene 0 o più di 1 solleva un eccezione.
                 //.FirstOrDefaultAsync(); //Restituisce null se l'elenco è vuoto e non solleva mai un'eccezione
                 //.SingleOrDefaultAsync(); //Tollera il fatto che l'elenco sia vuoto e in quel caso restituisce null, oppure se l'elenco contiene più di 1 elemento, solleva un'eccezione
                 //.FirstAsync(); //Restituisce il primo elemento, ma se l'elenco è vuoto solleva un'eccezione
-                
-                if(viewModel==null)
-                {
-                    throw new ScadenzaNotFoundException(id);
-                }
-                
-                return viewModel;
-            }
-            catch(Exception ex)
+            if(viewModel==null)
             {
                 throw new ScadenzaNotFoundException(id);
-            }
-            
+            } 
+            return viewModel;
         }
         public async Task<ScadenzaEditInputModel> GetScadenzaForEditingAsync(int id)
         {

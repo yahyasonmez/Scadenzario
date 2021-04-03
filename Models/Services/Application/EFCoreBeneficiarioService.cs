@@ -45,21 +45,20 @@ namespace Scadenzario.Models.Services.Application
 
         public async Task<BeneficiarioViewModel> GetBeneficiarioAsync(int id)
         {
+            
             logger.LogInformation("Ricevuto identificativo beneficiario {id}",id);
             IQueryable<BeneficiarioViewModel> queryLinq = dbContext.Beneficiari
                 .AsNoTracking()
                 .Where(beneficiario => beneficiario.IDBeneficiario == id)
                 .Select(beneficiario => BeneficiarioViewModel.FromEntity(beneficiario)); //Usando metodi statici come FromEntity, la query potrebbe essere inefficiente. Mantenere il mapping nella lambda oppure usare un extension method personalizzato
             
-            BeneficiarioViewModel viewModel = await queryLinq.SingleAsync();
+            BeneficiarioViewModel viewModel = await queryLinq.FirstOrDefaultAsync();
                                                            //.FirstOrDefaultAsync(); //Restituisce null se l'elenco è vuoto e non solleva mai un'eccezione
-                                                           //.SingleOrDefaultAsync(); //Tollera il fatto che l'elenco sia vuoto e in quel caso restituisce null, oppure se l'elenco contiene più di 1 elemento, solleva un'eccezione
-                                                           //.FirstAsync(); //Restituisce il primo elemento, ma se l'elenco è vuoto solleva un'eccezione
-            if (viewModel == null)
+            if(viewModel==null)
             {
-                throw new BeneficiarioNotFoundException(id);
-            }    
-            return viewModel;
+                 throw new BeneficiarioNotFoundException(id); 
+            }                                              //.SingleOrDefaultAsync(); //Tollera il fatto che l'elenco sia vuoto e in quel caso restituisce null, oppure se l'elenco contiene più di 1 elemento, solleva un'eccezione                                            //.FirstAsync(); //Restituisce il primo elemento, ma se l'elenco è vuoto solleva un'eccezione  
+            return viewModel;    
         }
         public async Task<BeneficiarioEditInputModel> GetBeneficiarioForEditingAsync(int id)
         {
