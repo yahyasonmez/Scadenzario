@@ -15773,6 +15773,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Blog\\Scadenzario\\Views\\Error\\BeneficiarioNotFound.cshtml",
+      "TargetPath": "Views\\Error\\BeneficiarioNotFound.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Blog\\Scadenzario\\Views\\Error\\Index.cshtml",
+      "TargetPath": "Views\\Error\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Blog\\Scadenzario\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
@@ -15785,6 +15795,11 @@
     {
       "FilePath": "c:\\Blog\\Scadenzario\\Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Blog\\Scadenzario\\Views\\Error\\ScadenzaNotFound.cshtml",
+      "TargetPath": "Views\\Error\\ScadenzaNotFound.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15830,6 +15845,11 @@
     {
       "FilePath": "c:\\Blog\\Scadenzario\\Areas\\Identity\\Pages\\Account\\Manage\\_StatusMessage.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\_StatusMessage.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Blog\\Scadenzario\\Views\\Error\\RicevutaNotFound.cshtml",
+      "TargetPath": "Views\\Error\\RicevutaNotFound.cshtml",
       "FileKind": "mvc"
     },
     {

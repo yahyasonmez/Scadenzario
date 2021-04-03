@@ -18,10 +18,10 @@ namespace Scadenzario.Models.Services.Application
 {
     public class EFCoreScadenzaService : IScadenzeService
     {
-        private readonly ILogger<EFCoreBeneficiarioService> logger;
+        private readonly ILogger<EFCoreScadenzaService> logger;
         private readonly MyScadenzaDbContext dbContext;
         private readonly IHttpContextAccessor user;
-        public EFCoreScadenzaService(ILogger<EFCoreBeneficiarioService> logger, MyScadenzaDbContext dbContext, IHttpContextAccessor user)
+        public EFCoreScadenzaService(ILogger<EFCoreScadenzaService> logger, MyScadenzaDbContext dbContext, IHttpContextAccessor user)
         {
             this.user = user;
             this.dbContext = dbContext;
@@ -56,20 +56,27 @@ namespace Scadenzario.Models.Services.Application
 
         public async Task<ScadenzaViewModel> GetScadenzaAsync(int id)
         {
+            logger.LogInformation("Ricevuto identificativo scadenza {id}",id);
             IQueryable<ScadenzaViewModel> queryLinq = dbContext.Scadenze
-                .AsNoTracking()
-                .Include(Scadenza=>Scadenza.Ricevute)
-                .Where(scadenza => scadenza.IDScadenza == id)
-                .Select(scadenza => ScadenzaViewModel.FromEntity(scadenza)); //Usando metodi statici come FromEntity, la query potrebbe essere inefficiente. Mantenere il mapping nella lambda oppure usare un extension method personalizzato
+                    .AsNoTracking()
+                    .Include(Scadenza=>Scadenza.Ricevute)
+                    .Where(scadenza => scadenza.IDScadenza == id)
+                    .Select(scadenza => ScadenzaViewModel.FromEntity(scadenza)); //Usando metodi statici come FromEntity, la query potrebbe essere inefficiente. Mantenere il mapping nella lambda oppure usare un extension method personalizzato
 
-            ScadenzaViewModel viewModel = await queryLinq.SingleAsync();//Restituisce il primo elemento dell'elenco, ma se ne contiene 0 o più di 1 solleva un eccezione.
-            //.FirstOrDefaultAsync(); //Restituisce null se l'elenco è vuoto e non solleva mai un'eccezione
-            //.SingleOrDefaultAsync(); //Tollera il fatto che l'elenco sia vuoto e in quel caso restituisce null, oppure se l'elenco contiene più di 1 elemento, solleva un'eccezione
-            //.FirstAsync(); //Restituisce il primo elemento, ma se l'elenco è vuoto solleva un'eccezione
+            ScadenzaViewModel viewModel = await queryLinq.FirstOrDefaultAsync();
+                //Restituisce il primo elemento dell'elenco, ma se ne contiene 0 o più di 1 solleva un eccezione.
+                //.FirstOrDefaultAsync(); //Restituisce null se l'elenco è vuoto e non solleva mai un'eccezione
+                //.SingleOrDefaultAsync(); //Tollera il fatto che l'elenco sia vuoto e in quel caso restituisce null, oppure se l'elenco contiene più di 1 elemento, solleva un'eccezione
+                //.FirstAsync(); //Restituisce il primo elemento, ma se l'elenco è vuoto solleva un'eccezione
+            if(viewModel==null)
+            {
+                throw new ScadenzaNotFoundException(id);
+            } 
             return viewModel;
         }
         public async Task<ScadenzaEditInputModel> GetScadenzaForEditingAsync(int id)
         {
+            logger.LogInformation("Ricevuto identificativo scadenza {id}",id);
             IQueryable<ScadenzaEditInputModel> queryLinq = dbContext.Scadenze
                 .AsNoTracking()
                 .Where(scadenza => scadenza.IDScadenza == id)
@@ -145,6 +152,7 @@ namespace Scadenzario.Models.Services.Application
        //Recupero Beneficiario
         public string GetBeneficiarioById(int id)
         {
+            logger.LogInformation("Ricevuto identificativo beneficiario {id}",id);
             string Beneficiario = dbContext.Beneficiari
             .Where(t=>t.IDBeneficiario==id)
             .Select(t=>t.Sbeneficiario).Single();

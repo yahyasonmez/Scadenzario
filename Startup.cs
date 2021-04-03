@@ -68,6 +68,10 @@ namespace Scadenzario
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseExceptionHandler("/Error");
+            }
             app.UseStaticFiles();
             //Endpoint routing Middleware
             //Nel caso volessi impostare una Culture specifica...
