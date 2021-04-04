@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Scadenzario.Models.InputModels;
 using Scadenzario.Models.Services.Application;
+using Scadenzario.Models.Services.Application.Beneficiari;
 using Scadenzario.Models.ViewModels;
 
 namespace Scadenzario.Controllers

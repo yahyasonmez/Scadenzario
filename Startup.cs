@@ -1,25 +1,18 @@
 using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
-using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Options;
 using Scadenzario.Customizations.Identity;
 using Scadenzario.Customizations.ModelBinders;
-using Scadenzario.Models.Entities;
 using Scadenzario.Models.Options;
 using Scadenzario.Models.Services.Application;
+using Scadenzario.Models.Services.Application.Beneficiari;
+using Scadenzario.Models.Services.Application.Scadenze;
 using Scadenzario.Models.Services.Infrastructure;
 
 namespace Scadenzario
@@ -42,6 +35,7 @@ namespace Scadenzario
             services.AddTransient<IScadenzeService,EFCoreScadenzaService>();
             services.AddTransient<IBeneficiariService,EFCoreBeneficiarioService>();
             services.AddTransient<IRicevuteService,EFCoreRicevutaService>();
+            services.AddTransient<ICachedScadenzaService,MemoryCacheScadenzaService>();
             services.AddDbContextPool<MyScadenzaDbContext>(optionsBuilder=>{
                  String ConnectionString = Configuration.GetSection("ConnectionStrings").GetValue<string>("Default"); 
                  optionsBuilder.UseSqlServer(ConnectionString);
@@ -80,14 +74,6 @@ namespace Scadenzario
             }
             app.UseStaticFiles();
             //Endpoint routing Middleware
-            //Nel caso volessi impostare una Culture specifica...
-            
-            /*var appCulture = CultureInfo.GetCultureInfo("it-IT");
-            app.UseRequestLocalization(new RequestLocalizationOptions
-            {
-                DefaultRequestCulture = new RequestCulture(appCulture),
-                SupportedCultures = new[] { appCulture }
-            });*/
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();

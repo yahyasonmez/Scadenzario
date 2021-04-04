@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Scadenzario.Models.InputModels;
 using Scadenzario.Models.ViewModels;
 
-namespace Scadenzario.Models.Services.Application
+namespace Scadenzario.Models.Services.Application.Beneficiari
 {
     public interface IBeneficiariService
     {

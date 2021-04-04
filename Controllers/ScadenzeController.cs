@@ -13,18 +13,19 @@ using Models.Utility;
 using Scadenzario.Models.Entities;
 using Scadenzario.Models.InputModels;
 using Scadenzario.Models.Services.Application;
+using Scadenzario.Models.Services.Application.Scadenze;
 using Scadenzario.Models.ViewModels;
 
 namespace Scadenzario.Controllers
 {
     public class ScadenzeController : Controller
     {
-        private readonly IScadenzeService service;
+        private readonly ICachedScadenzaService service;
         private readonly IWebHostEnvironment environment;
         private readonly IRicevuteService ricevute;
 
         public static List<RicevutaCreateInputModel> Ricevute { get; private set;}
-        public ScadenzeController(IScadenzeService service, IRicevuteService ricevute, IWebHostEnvironment environment)
+        public ScadenzeController(ICachedScadenzaService service, IRicevuteService ricevute, IWebHostEnvironment environment)
         {
             this.ricevute = ricevute;
             this.environment = environment;
