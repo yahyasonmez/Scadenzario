@@ -5,7 +5,7 @@
     <h2><b>@ViewData["Title"]</b></h2>
 </div>
 <br>
-<form method="post">
+<form method="post" id="myForm">
     <div class="row">
                
                 <div class="col-md-3">
@@ -20,7 +20,7 @@
                 </div>
                  <div class="col-md-3">
                     <label asp-for="Importo"></label>
-                    <input asp-for="Importo" class="form-control" placeholder="Inserisci un importo...."/>
+                    <input asp-for="Importo" class="form-control form-control-block"  placeholder="Inserisci un importo....">
                     <span asp-validation-for="Importo" class="text-danger"></span>
                 </div>
                  <div class="col-md-3">

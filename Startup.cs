@@ -14,7 +14,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using Scadenzario.Customizations.Identity;
+using Scadenzario.Customizations.ModelBinders;
 using Scadenzario.Models.Entities;
 using Scadenzario.Models.Options;
 using Scadenzario.Models.Services.Application;
@@ -32,6 +34,9 @@ namespace Scadenzario
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc(Options=>{
+                Options.ModelBinderProviders.Insert(0, new DecimalModelBinderProvider());
+            });
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddTransient<IScadenzeService,EFCoreScadenzaService>();
@@ -59,6 +64,7 @@ namespace Scadenzario
             services.AddSingleton<IEmailSender, MailKitEmailSender>();
             //Options
             services.Configure<SmtpOptions>(Configuration.GetSection("Smtp"));
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -82,7 +88,6 @@ namespace Scadenzario
                 DefaultRequestCulture = new RequestCulture(appCulture),
                 SupportedCultures = new[] { appCulture }
             });*/
-
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();

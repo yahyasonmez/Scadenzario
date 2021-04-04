@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.Http.Headers;
@@ -76,8 +77,8 @@ namespace Scadenzario.Controllers
             ViewData["Title"] = "Aggiorna Scadenza".ToUpper();
             ScadenzaEditInputModel inputModel = new();
             inputModel = await service.GetScadenzaForEditingAsync(id);
-            inputModel.Beneficiari = service.GetBeneficiari;
             inputModel.Beneficiario=service.GetBeneficiarioById(inputModel.IDBeneficiario);
+            inputModel.Beneficiari = service.GetBeneficiari;
             return View(inputModel);
         }
         [HttpPost]
