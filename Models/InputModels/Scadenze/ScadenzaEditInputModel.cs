@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Scadenzario.Models.Entities;
@@ -22,6 +23,7 @@ namespace Scadenzario.Models.ViewModels
         public DateTime DataScadenza { get; set; }
         [Required(ErrorMessage="Importo Obbligatorio")]
         [DataType(DataType.Currency)]
+        [Range(1,100000,ErrorMessage="L'importo deve essere compreso tra 1 e 100.000")]
 		public decimal Importo { get; set; }
 		public bool Sollecito { get; set; }
         [Display(Name = "Giorni Mancanti/Ritardo")]

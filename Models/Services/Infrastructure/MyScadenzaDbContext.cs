@@ -153,7 +153,7 @@ namespace Scadenzario.Models.Services.Infrastructure
                 entity.ToTable("Scadenze");//Superfluo se la tabella ha lo stesso nome della proprietà che espone il DbSet.
                 
                 entity.Property(z=>z.Importo)
-                    .HasPrecision(18,2)
+                    .HasPrecision(10,2)
                     .HasColumnType("decimal")
                     .IsRequired();
 

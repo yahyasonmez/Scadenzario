@@ -1,23 +1,20 @@
 using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
-using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Scadenzario.Customizations.Identity;
-using Scadenzario.Models.Entities;
+using Scadenzario.Customizations.ModelBinders;
 using Scadenzario.Models.Options;
 using Scadenzario.Models.Services.Application;
+using Scadenzario.Models.Services.Application.Beneficiari;
+using Scadenzario.Models.Services.Application.Scadenze;
 using Scadenzario.Models.Services.Infrastructure;
 
 namespace Scadenzario
@@ -32,11 +29,22 @@ namespace Scadenzario
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddResponseCaching();
+            services.AddMvc(Options=>{
+                Options.ModelBinderProviders.Insert(0, new DecimalModelBinderProvider());
+                var homeProfile = new CacheProfile();
+                //homeProfile.Duration = Configuration.GetValue<int>("ResponseCache:Home:Duration");
+                //homeProfile.Location = Configuration.GetValue<ResponseCacheLocation>("ResponseCache:Home:Location");
+                homeProfile.VaryByQueryKeys= new string[]{"Page"};
+                Options.CacheProfiles.Add("Home",homeProfile);
+                Configuration.Bind("ResponseCache:Home", homeProfile);
+            });
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddTransient<IScadenzeService,EFCoreScadenzaService>();
             services.AddTransient<IBeneficiariService,EFCoreBeneficiarioService>();
             services.AddTransient<IRicevuteService,EFCoreRicevutaService>();
+            services.AddTransient<ICachedScadenzaService,MemoryCacheScadenzaService>();
             services.AddDbContextPool<MyScadenzaDbContext>(optionsBuilder=>{
                  String ConnectionString = Configuration.GetSection("ConnectionStrings").GetValue<string>("Default"); 
                  optionsBuilder.UseSqlServer(ConnectionString);
@@ -59,6 +67,8 @@ namespace Scadenzario
             services.AddSingleton<IEmailSender, MailKitEmailSender>();
             //Options
             services.Configure<SmtpOptions>(Configuration.GetSection("Smtp"));
+            services.Configure<MemoryCacheOptions>(Configuration.GetSection("MemoryCache"));
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -74,15 +84,6 @@ namespace Scadenzario
             }
             app.UseStaticFiles();
             //Endpoint routing Middleware
-            //Nel caso volessi impostare una Culture specifica...
-            
-            /*var appCulture = CultureInfo.GetCultureInfo("it-IT");
-            app.UseRequestLocalization(new RequestLocalizationOptions
-            {
-                DefaultRequestCulture = new RequestCulture(appCulture),
-                SupportedCultures = new[] { appCulture }
-            });*/
-
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
@@ -95,7 +96,7 @@ namespace Scadenzario
             Grazie a questo template il meccanismo di routing sa che deve andare a chiamare
             un controller chiamato Scadenze, la cui action è Detail e a cui passa
             l'id 5.*/
-            
+            app.UseResponseCaching();
             app.UseEndpoints(routeBuilder => {
                 routeBuilder.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
                 routeBuilder.MapRazorPages();

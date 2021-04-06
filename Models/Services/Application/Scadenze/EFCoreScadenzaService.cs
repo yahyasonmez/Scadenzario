@@ -11,6 +11,7 @@ using Scadenzario.Models.Entities;
 using Scadenzario.Models.Exceptions.Application;
 using Scadenzario.Models.InputModels;
 using Scadenzario.Models.Services.Application;
+using Scadenzario.Models.Services.Application.Scadenze;
 using Scadenzario.Models.Services.Infrastructure;
 using Scadenzario.Models.ViewModels;
 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Scadenzario.Models.Entities;
 using Scadenzario.Models.Services.Infrastructure;
@@ -18,8 +19,9 @@ namespace Scadenzario.Models.InputModels
         Display(Name = "Data Scadenza")]
         public DateTime DataScadenza { get; set; }
         [Required (ErrorMessage="L'importo è obbligatorio.")]
+        [Range(1,100000,ErrorMessage="L'importo deve essere compreso tra 1 e 100.000")]
+        [DisplayFormat(ApplyFormatInEditMode=true, DataFormatString = "{0:n}")]
         [DataType(DataType.Currency)]
-        [DisplayFormat(DataFormatString = "{0:n}", ApplyFormatInEditMode = true)]
         public Decimal Importo { get; set; }
         public List<SelectListItem> Beneficiari{get;set;}
     }

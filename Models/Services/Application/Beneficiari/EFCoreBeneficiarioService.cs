@@ -11,7 +11,7 @@ using Scadenzario.Models.Services.Application;
 using Scadenzario.Models.Services.Infrastructure;
 using Scadenzario.Models.ViewModels;
 
-namespace Scadenzario.Models.Services.Application
+namespace Scadenzario.Models.Services.Application.Beneficiari
 {
     public class EFCoreBeneficiarioService:IBeneficiariService
     {
