@@ -29,6 +29,7 @@ namespace Scadenzario.Models.Services.Application.Scadenze
             e se non dovesse esistere lo recuperiamo dal database impostando 60 secondi*/
             return memoryCache.GetOrCreateAsync($"Scadenze", cacheEntry =>
             {
+                cacheEntry.SetSize(1);
                 cacheEntry.SetAbsoluteExpiration(TimeSpan.FromSeconds(60)); //Esercizio: provate a recuperare il valore 60 usando il servizio di configurazione
                 return scadenzaService.GetScadenzeAsync();
             });
@@ -39,6 +40,7 @@ namespace Scadenzario.Models.Services.Application.Scadenze
             e se non dovesse esistere lo recuperiamo dal database impostando 60 secondi*/
             return memoryCache.GetOrCreateAsync($"Scadenza{id}", cacheEntry =>
             {
+                cacheEntry.SetSize(1);
                 cacheEntry.SetAbsoluteExpiration(TimeSpan.FromSeconds(60));
                 return scadenzaService.GetScadenzaAsync(id);
             });

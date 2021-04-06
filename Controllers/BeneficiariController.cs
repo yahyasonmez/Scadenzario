@@ -12,7 +12,7 @@ namespace Scadenzario.Controllers
     public class BeneficiariController : Controller
     {
         public static string Beneficiario { get; internal set; }
-        private readonly IBeneficiariService service;
+        private readonly ICachedBeneficiarioService service;
 
         public async Task<IActionResult> IsBeneficiarioAvailable(string beneficiario)
         {
@@ -20,7 +20,7 @@ namespace Scadenzario.Controllers
             return Json(!result);
         }
 
-        public BeneficiariController(IBeneficiariService service)
+        public BeneficiariController(ICachedBeneficiarioService service)
         {
             this.service = service;
         }
