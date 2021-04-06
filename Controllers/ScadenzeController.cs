@@ -20,7 +20,7 @@ namespace Scadenzario.Controllers
 {
     public class ScadenzeController : Controller
     {
-        private readonly ICachedScadenzaService service;
+        private readonly IScadenzeService service;
         private readonly IWebHostEnvironment environment;
         private readonly IRicevuteService ricevute;
 
