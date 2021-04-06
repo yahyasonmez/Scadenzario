@@ -11384,6 +11384,37 @@
         }
       },
       {
+        "HashCode": -1469174739,
+        "Kind": "ITagHelper",
+        "Name": "Scadenzario.Customizations.TagHelpers.InputNumberTagHelper",
+        "AssemblyName": "Scadenzario",
+        "CaseSensitive": false,
+        "TagMatchingRules": [
+          {
+            "TagName": "input",
+            "Attributes": [
+              {
+                "Name": "asp-for"
+              }
+            ]
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "ITagHelper",
+            "Name": "asp-for",
+            "TypeName": "Microsoft.AspNetCore.Mvc.ViewFeatures.ModelExpression",
+            "Metadata": {
+              "Common.PropertyName": "For"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "ITagHelper",
+          "Common.TypeName": "Scadenzario.Customizations.TagHelpers.InputNumberTagHelper"
+        }
+      },
+      {
         "HashCode": 379793146,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper",

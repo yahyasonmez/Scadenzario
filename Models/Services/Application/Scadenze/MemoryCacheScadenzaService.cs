@@ -25,20 +25,13 @@ namespace Scadenzario.Models.Services.Application.Scadenze
 
         public Task<List<ScadenzaViewModel>> GetScadenzeAsync()
         {
-            /*--Andiamo a cercare in memoria un oggetto identificato dalla chiave Scadenza
-            e se non dovesse esistere lo recuperiamo dal database impostando 60 secondi*/
-            return memoryCache.GetOrCreateAsync($"Scadenze", cacheEntry =>
-            {
-                cacheEntry.SetSize(1);
-                cacheEntry.SetAbsoluteExpiration(TimeSpan.FromSeconds(60)); //Esercizio: provate a recuperare il valore 60 usando il servizio di configurazione
-                return scadenzaService.GetScadenzeAsync();
-            });
+            return scadenzaService.GetScadenzeAsync();
         }
         public Task<ScadenzaViewModel> GetScadenzaAsync(int id)
         {
             /*--Andiamo a cercare in memoria un oggetto identificato dalla chiave Scadenza + id
             e se non dovesse esistere lo recuperiamo dal database impostando 60 secondi*/
-            return memoryCache.GetOrCreateAsync($"Scadenza{id}", cacheEntry =>
+            return memoryCache.GetOrCreateAsync($"Scadenze{id}", cacheEntry =>
             {
                 cacheEntry.SetSize(1);
                 cacheEntry.SetAbsoluteExpiration(TimeSpan.FromSeconds(60));
@@ -58,14 +51,14 @@ namespace Scadenzario.Models.Services.Application.Scadenze
         public async Task<ScadenzaViewModel> EditScadenzaAsync(ScadenzaEditInputModel inputModel)
         {
             ScadenzaViewModel viewModel = await scadenzaService.EditScadenzaAsync(inputModel);
-            memoryCache.Remove($"Scadenza{inputModel.IDScadenza}");
+            memoryCache.Remove($"Scadenze{inputModel.IDScadenza}");
             return viewModel;
         }
 
         public async Task DeleteScadenzaAsync(ScadenzaDeleteInputModel inputModel)
         {
             await scadenzaService.DeleteScadenzaAsync(inputModel);
-            memoryCache.Remove($"Scadenza{inputModel.IDScadenza}");
+            memoryCache.Remove($"Scadenze{inputModel.IDScadenza}");
         }
         public List<SelectListItem> GetBeneficiari
         {

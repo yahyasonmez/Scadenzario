@@ -9,7 +9,7 @@ namespace Scadenzario.Customizations.ModelBinders
         public Task BindModelAsync(ModelBindingContext bindingContext)
         {
             string value = bindingContext.ValueProvider.GetValue(bindingContext.ModelName).FirstValue;
-            if (decimal.TryParse(value, NumberStyles.Currency, CultureInfo.InvariantCulture, out decimal decimalValue)) 
+            if (decimal.TryParse(value, NumberStyles.Currency, CultureInfo.CurrentCulture, out decimal decimalValue)) 
             {
                 bindingContext.Result = ModelBindingResult.Success(decimalValue);
             }
