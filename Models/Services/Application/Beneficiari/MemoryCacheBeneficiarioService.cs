@@ -24,14 +24,7 @@ namespace Scadenzario.Models.Services.Application.Beneficiari
 
         public Task<List<BeneficiarioViewModel>> GetBeneficiariAsync()
         {
-            /*--Andiamo a cercare in memoria un oggetto identificato dalla chiave Beneficiari
-            e se non dovesse esistere lo recuperiamo dal database impostando 60 secondi*/
-            return memoryCache.GetOrCreateAsync($"Beneficiari", cacheEntry =>
-            {
-                cacheEntry.SetSize(1);
-                cacheEntry.SetAbsoluteExpiration(TimeSpan.FromSeconds(60)); //Esercizio: provate a recuperare il valore 60 usando il servizio di configurazione
-                return beneficiarioService.GetBeneficiariAsync();
-            });
+            return beneficiarioService.GetBeneficiariAsync();
         }
         public Task<BeneficiarioViewModel> GetBeneficiarioAsync(int id)
         {
