@@ -23,9 +23,9 @@ namespace Scadenzario.Models.Services.Application.Scadenze
             this.memoryCache = memoryCache;
         }
 
-        public Task<List<ScadenzaViewModel>> GetScadenzeAsync()
+        public Task<List<ScadenzaViewModel>> GetScadenzeAsync(string search)
         {
-            return scadenzaService.GetScadenzeAsync();
+            return scadenzaService.GetScadenzeAsync(search);
         }
         public Task<ScadenzaViewModel> GetScadenzaAsync(int id)
         {
@@ -90,6 +90,11 @@ namespace Scadenzario.Models.Services.Application.Scadenze
             int giorni = 0;
             giorni = (inizio.Date - fine.Date).Days;
             return giorni;
+        }
+
+        public bool IsDate(string date)
+        {
+            throw new NotImplementedException();
         }
     }
 }

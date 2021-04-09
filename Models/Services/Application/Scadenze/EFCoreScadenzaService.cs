@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -42,17 +43,32 @@ namespace Scadenzario.Models.Services.Application
             return ScadenzaViewModel.FromEntity(scadenza);
         }
 
-        public async Task<List<ScadenzaViewModel>> GetScadenzeAsync()
+        public async Task<List<ScadenzaViewModel>> GetScadenzeAsync(string search)
         {
-            IQueryable<ScadenzaViewModel> queryLinq = dbContext.Scadenze
-                .AsNoTracking()
-                .Include(Scadenza=>Scadenza.Ricevute)
-                .Where(Scadenze=>Scadenze.IDUser ==  user.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value)
-                .Select(scadenze => ScadenzaViewModel.FromEntity(scadenze)); //Usando metodi statici come FromEntity, la query potrebbe essere inefficiente. Mantenere il mapping nella lambda oppure usare un extension method personalizzato
-
-            List<ScadenzaViewModel> scadenza = await queryLinq.ToListAsync(); //La query al database viene inviata qui, quando manifestiamo l'intenzione di voler leggere i risultati
-            
-            return scadenza;
+            search = search ?? "";
+            if(IsDate(search))
+            {
+                DateTime data = Convert.ToDateTime(search);
+                IQueryable<ScadenzaViewModel> queryLinq = dbContext.Scadenze
+                    .AsNoTracking()
+                    .Include(Scadenza=>Scadenza.Ricevute)
+                    .Where(Scadenze=>Scadenze.IDUser ==  user.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value)
+                    .Where(scadenze=>scadenze.DataScadenza==data)
+                    .Select(scadenze => ScadenzaViewModel.FromEntity(scadenze)); //Usando metodi statici come FromEntity, la query potrebbe essere inefficiente. Mantenere il mapping nella lambda oppure usare un extension method personalizzato
+                List<ScadenzaViewModel> scadenza = await queryLinq.ToListAsync(); //La query al database viene inviata qui, quando manifestiamo l'intenzione di voler leggere i risultati
+                return scadenza;
+            }
+            else
+            {
+                IQueryable<ScadenzaViewModel> queryLinq = dbContext.Scadenze
+                    .AsNoTracking()
+                    .Include(Scadenza=>Scadenza.Ricevute)
+                    .Where(Scadenze=>Scadenze.IDUser ==  user.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value)
+                    .Where(scadenze=>scadenze.Beneficiario.Contains(search))
+                    .Select(scadenze => ScadenzaViewModel.FromEntity(scadenze)); //Usando metodi statici come FromEntity, la query potrebbe essere inefficiente. Mantenere il mapping nella lambda oppure usare un extension method personalizzato
+                List<ScadenzaViewModel> scadenza = await queryLinq.ToListAsync(); //La query al database viene inviata qui, quando manifestiamo l'intenzione di voler leggere i risultati
+                return scadenza;
+            }
         }
 
         public async Task<ScadenzaViewModel> GetScadenzaAsync(int id)
@@ -165,6 +181,19 @@ namespace Scadenzario.Models.Services.Application
             int giorni = 0;
             giorni=(inizio.Date - fine.Date).Days;
             return giorni;
+        }
+        public bool IsDate(string date)
+        {
+            try
+            {
+                string[] formats = { "dd/MM/yyyy" };
+                DateTime parsedDateTime;
+                return DateTime.TryParseExact(date, formats, new CultureInfo("it-IT"),DateTimeStyles.None, out parsedDateTime);
+            }
+            catch(Exception)
+            {
+                return false;
+            }
         }
     }
 }
