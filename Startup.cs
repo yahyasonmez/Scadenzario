@@ -45,6 +45,7 @@ namespace Scadenzario
             services.AddTransient<IBeneficiariService,EFCoreBeneficiarioService>();
             services.AddTransient<IRicevuteService,EFCoreRicevutaService>();
             services.AddTransient<ICachedScadenzaService,MemoryCacheScadenzaService>();
+            services.AddTransient<ICachedBeneficiarioService,MemoryCacheBeneficiarioService>();
             services.AddDbContextPool<MyScadenzaDbContext>(optionsBuilder=>{
                  String ConnectionString = Configuration.GetSection("ConnectionStrings").GetValue<string>("Default"); 
                  optionsBuilder.UseSqlServer(ConnectionString);

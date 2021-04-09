@@ -9,7 +9,7 @@ namespace Scadenzario.Models.Services.Application.Scadenze
 {
     public interface IScadenzeService
     {
-        Task<List<ScadenzaViewModel>> GetScadenzeAsync();
+        Task<List<ScadenzaViewModel>> GetScadenzeAsync(string search);
         Task<ScadenzaViewModel> CreateScadenzaAsync(ScadenzaCreateInputModel inputModel);
         Task<ScadenzaViewModel> GetScadenzaAsync(int id);
         Task DeleteScadenzaAsync(ScadenzaDeleteInputModel inputModel);
@@ -18,5 +18,6 @@ namespace Scadenzario.Models.Services.Application.Scadenze
         List<SelectListItem> GetBeneficiari{get;}
         string GetBeneficiarioById(int id);
         int DateDiff(DateTime inizio, DateTime fine);
+        bool IsDate(string date);
     }
 }

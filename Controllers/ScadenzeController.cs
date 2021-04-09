@@ -31,12 +31,11 @@ namespace Scadenzario.Controllers
             this.environment = environment;
             this.service = service;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string search,int page, string orderby,bool ascending)
         {
             ViewData["Title"] = "Lista Scadenze".ToUpper();
             List<ScadenzaViewModel> viewModel = new();
-            
-            viewModel = await service.GetScadenzeAsync();
+            viewModel = await service.GetScadenzeAsync(search);
             return View(viewModel);
         }
         public async Task<IActionResult> Detail(int id)
