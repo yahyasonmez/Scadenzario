@@ -9,8 +9,15 @@
         <div class="col-md-3">
              <a class="btn btn-primary btn-lg btn-block" asp-action="Create" asp-controller="Beneficiari"><i class="fas fa-plus-circle"></i>Nuovo Beneficiario</a>
         </div>
-        <div class="col-md-9">
-            
+        <div class="col-md-9 d-flex flex-row-reverse">
+            <form asp-controller="Beneficiari" asp-action="Index" method="GET">
+                <div class="input-group">
+                    <b>Beneficiario</b>&nbsp&nbsp&nbsp  <input type="text" name="search" placeholder="Cerca ....">
+                       <div class="input-group-append">
+                            <button class="input-group-text"><i class="fas fa-search"></i></button>
+                      </div> 
+                </div>
+            </form>
         </div>
     </div>
     <br>
