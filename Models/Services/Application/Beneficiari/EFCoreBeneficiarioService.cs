@@ -8,6 +8,7 @@ using Microsoft.Extensions.Options;
 using Scadenzario.Models.Entities;
 using Scadenzario.Models.Exceptions.Application;
 using Scadenzario.Models.InputModels;
+using Scadenzario.Models.InputModels.Beneficiari;
 using Scadenzario.Models.Options;
 using Scadenzario.Models.Services.Application;
 using Scadenzario.Models.Services.Infrastructure;
@@ -37,17 +38,38 @@ namespace Scadenzario.Models.Services.Application.Beneficiari
             return BeneficiarioViewModel.FromEntity(beneficiario);
         }
 
-        public async Task<List<BeneficiarioViewModel>> GetBeneficiariAsync(string search, int page)
+        public async Task<List<BeneficiarioViewModel>> GetBeneficiariAsync(BeneficiarioListInputModel model)
         {
-            search = search ?? "";
-            page = Math.Max(1,page);
-            int limit = beneficiariOptions.CurrentValue.PerPage;
-            int offset = (page - 1) * limit;
-            IQueryable<BeneficiarioViewModel> queryLinq = dbContext.Beneficiari
+            IQueryable<Beneficiario> baseQuery = dbContext.Beneficiari;
+            switch(model.OrderBy)
+            {
+                case "Beneficiario":
+                    if(model.Ascending)
+                    {
+                        baseQuery=baseQuery.OrderBy(z=>z.Sbeneficiario);
+                    }
+                    else
+                    {
+                        baseQuery=baseQuery.OrderByDescending(z=>z.Sbeneficiario);
+                    }
+                break; 
+                case "Descrizione":
+                    if(model.Ascending)
+                    {
+                        baseQuery=baseQuery.OrderBy(z=>z.Descrizione);
+                    }
+                    else
+                    {
+                        baseQuery=baseQuery.OrderByDescending(z=>z.Descrizione);
+                    }
+                break; 
+                
+            }
+            IQueryable<BeneficiarioViewModel> queryLinq = baseQuery
                 .AsNoTracking()
-                .Skip(offset)
-                .Take(limit)
-                .Where(beneficiari => beneficiari.Sbeneficiario.Contains(search))
+                .Skip(model.Offset)
+                .Take(model.Limit)
+                .Where(beneficiari => beneficiari.Sbeneficiario.Contains(model.Search))
                 .Select(beneficiari => BeneficiarioViewModel.FromEntity(beneficiari)); //Usando metodi statici come FromEntity, la query potrebbe essere inefficiente. Mantenere il mapping nella lambda oppure usare un extension method personalizzato
             List<BeneficiarioViewModel> beneficiari = await queryLinq.ToListAsync(); //La query al database viene inviata qui, quando manifestiamo l'intenzione di voler leggere i risultati
             return beneficiari;

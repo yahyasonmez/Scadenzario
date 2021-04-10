@@ -12,6 +12,7 @@ using Microsoft.Extensions.Options;
 using Scadenzario.Models.Entities;
 using Scadenzario.Models.Exceptions.Application;
 using Scadenzario.Models.InputModels;
+using Scadenzario.Models.InputModels.Scadenze;
 using Scadenzario.Models.Options;
 using Scadenzario.Models.Services.Application;
 using Scadenzario.Models.Services.Application.Scadenze;
@@ -47,19 +48,49 @@ namespace Scadenzario.Models.Services.Application
             return ScadenzaViewModel.FromEntity(scadenza);
         }
 
-        public async Task<List<ScadenzaViewModel>> GetScadenzeAsync(string search, int page)
+        public async Task<List<ScadenzaViewModel>> GetScadenzeAsync(ScadenzaListInputModel model)
         {
-            search = search ?? "";
-            page = Math.Max(1,page);
-            int limit = scadenzeOptions.CurrentValue.PerPage;
-            int offset = (page - 1) * limit;
-            if (IsDate(search))
+            IQueryable<Scadenza> baseQuery = dbContext.Scadenze;
+            switch(model.OrderBy)
             {
-                DateTime data = Convert.ToDateTime(search);
-                IQueryable<ScadenzaViewModel> queryLinq = dbContext.Scadenze
+                case "Beneficiario":
+                    if(model.Ascending)
+                    {
+                        baseQuery=baseQuery.OrderBy(z=>z.Beneficiario);
+                    }
+                    else
+                    {
+                        baseQuery=baseQuery.OrderByDescending(z=>z.Beneficiario);
+                    }
+                break; 
+                case "DataScadenza":
+                    if(model.Ascending)
+                    {
+                        baseQuery=baseQuery.OrderBy(z=>z.DataScadenza);
+                    }
+                    else
+                    {
+                        baseQuery=baseQuery.OrderByDescending(z=>z.DataScadenza);
+                    }
+                break; 
+                case "Importo":
+                    if(model.Ascending)
+                    {
+                        baseQuery=baseQuery.OrderBy(z=>z.Importo);
+                    }
+                    else
+                    {
+                        baseQuery=baseQuery.OrderByDescending(z=>z.Importo);
+                    }
+                break;    
+            }
+            if (IsDate(model.Search))
+            {
+                DateTime data = Convert.ToDateTime(model.Search);
+                IQueryable<ScadenzaViewModel> queryLinq = baseQuery
                     .AsNoTracking()
-                    .Skip(offset)
-                    .Take(limit)
+                    .Skip(model.Offset)
+                    .Take(model.Limit)
                     .Include(Scadenza => Scadenza.Ricevute)
                     .Where(Scadenze => Scadenze.IDUser == user.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value)
                     .Where(scadenze => scadenze.DataScadenza == data)
@@ -69,13 +100,13 @@ namespace Scadenzario.Models.Services.Application
             }
             else
             {
-                IQueryable<ScadenzaViewModel> queryLinq = dbContext.Scadenze
+                IQueryable<ScadenzaViewModel> queryLinq = baseQuery
                     .AsNoTracking()
-                    .Skip(offset)
-                    .Take(limit)
+                    .Skip(model.Offset)
+                    .Take(model.Limit)
                     .Include(Scadenza => Scadenza.Ricevute)
                     .Where(Scadenze => Scadenze.IDUser == user.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value)
-                    .Where(scadenze => scadenze.Beneficiario.Contains(search))
+                    .Where(scadenze => scadenze.Beneficiario.Contains(model.Search))
                     .Select(scadenze => ScadenzaViewModel.FromEntity(scadenze)); //Usando metodi statici come FromEntity, la query potrebbe essere inefficiente. Mantenere il mapping nella lambda oppure usare un extension method personalizzato
                 List<ScadenzaViewModel> scadenza = await queryLinq.ToListAsync(); //La query al database viene inviata qui, quando manifestiamo l'intenzione di voler leggere i risultati
                 return scadenza;

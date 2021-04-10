@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Models.Utility;
 using Scadenzario.Models.Entities;
 using Scadenzario.Models.InputModels;
+using Scadenzario.Models.InputModels.Scadenze;
 using Scadenzario.Models.Services.Application;
 using Scadenzario.Models.Services.Application.Scadenze;
 using Scadenzario.Models.ViewModels;
@@ -31,11 +32,11 @@ namespace Scadenzario.Controllers
             this.environment = environment;
             this.service = service;
         }
-        public async Task<IActionResult> Index(string search,int page, string orderby,bool ascending)
+        public async Task<IActionResult> Index(ScadenzaListInputModel model)
         {
             ViewData["Title"] = "Lista Scadenze".ToUpper();
             List<ScadenzaViewModel> viewModel = new();
-            viewModel = await service.GetScadenzeAsync(search,page);
+            viewModel = await service.GetScadenzeAsync(model);
             return View(viewModel);
         }
         public async Task<IActionResult> Detail(int id)

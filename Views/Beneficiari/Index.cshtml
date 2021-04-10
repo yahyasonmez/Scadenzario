@@ -26,8 +26,8 @@
         <table class="table table-striped table-hover">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">Beneficiario</th>
-                    <th scope="col">Descrizione</th>
+                    <th scope="col"><a asp-route-orderby="Beneficiario" asp-route-ascending=true>Beneficiario</a></th>
+                     <th scope="col"><a asp-route-orderby="Beneficiario" asp-route-ascending=true>Descrizione</a></th>
                     <th scope="col">Email</th>
                     <th scope="col">Telefono</th>
                     <th scope="col">Sito Web</th>
@@ -66,7 +66,7 @@
      <br>
     <br>
     <nav aria-label="Paginazione">
-        <ul class="pagination d-flex giustify-content-center mt-3">
+        <ul class="pagination d-flex justify-content-center mt-3">
             <li class="page-item active" aria-current="page">
                 <a class="page-link" asp-route-page="1">Page 1</a>
             </li>

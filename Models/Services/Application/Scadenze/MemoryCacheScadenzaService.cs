@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Caching.Memory;
 using Scadenzario.Models.Entities;
 using Scadenzario.Models.InputModels;
+using Scadenzario.Models.InputModels.Scadenze;
 using Scadenzario.Models.Services.Infrastructure;
 using Scadenzario.Models.ViewModels;
 
@@ -22,10 +23,9 @@ namespace Scadenzario.Models.Services.Application.Scadenze
             this.scadenzaService = scadenzaService;
             this.memoryCache = memoryCache;
         }
-
-        public Task<List<ScadenzaViewModel>> GetScadenzeAsync(string search, int page)
+        public Task<List<ScadenzaViewModel>> GetScadenzeAsync(ScadenzaListInputModel model)
         {
-            return scadenzaService.GetScadenzeAsync(search,page);
+            return scadenzaService.GetScadenzeAsync(model);
         }
         public Task<ScadenzaViewModel> GetScadenzaAsync(int id)
         {
