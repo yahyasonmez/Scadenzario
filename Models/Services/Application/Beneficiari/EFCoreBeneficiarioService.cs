@@ -32,17 +32,16 @@ namespace Scadenzario.Models.Services.Application.Beneficiari
             return BeneficiarioViewModel.FromEntity(beneficiario);
         }
 
-        public async Task<List<BeneficiarioViewModel>> GetBeneficiariAsync()
+        public async Task<List<BeneficiarioViewModel>> GetBeneficiariAsync(string search)
         {
+            search = search ?? "";
             IQueryable<BeneficiarioViewModel> queryLinq = dbContext.Beneficiari
                 .AsNoTracking()
+                .Where(beneficiari => beneficiari.Sbeneficiario.Contains(search))
                 .Select(beneficiari => BeneficiarioViewModel.FromEntity(beneficiari)); //Usando metodi statici come FromEntity, la query potrebbe essere inefficiente. Mantenere il mapping nella lambda oppure usare un extension method personalizzato
-
             List<BeneficiarioViewModel> beneficiari = await queryLinq.ToListAsync(); //La query al database viene inviata qui, quando manifestiamo l'intenzione di voler leggere i risultati
-
             return beneficiari;
         }
-
         public async Task<BeneficiarioViewModel> GetBeneficiarioAsync(int id)
         {
             

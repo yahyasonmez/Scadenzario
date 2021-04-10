@@ -24,11 +24,11 @@ namespace Scadenzario.Controllers
         {
             this.service = service;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string search,int page, string orderby, bool ascending)
         {
             ViewData["Title"] = "Lista Beneficiari".ToUpper();
             List<BeneficiarioViewModel> viewModel = new();
-            viewModel = await service.GetBeneficiariAsync();
+            viewModel = await service.GetBeneficiariAsync(search);
             return View(viewModel);
         }
         public async Task<IActionResult> Detail(int id)
