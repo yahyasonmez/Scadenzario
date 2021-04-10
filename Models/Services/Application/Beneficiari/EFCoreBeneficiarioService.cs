@@ -4,12 +4,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Scadenzario.Models.Entities;
 using Scadenzario.Models.Exceptions.Application;
 using Scadenzario.Models.InputModels;
+using Scadenzario.Models.Options;
 using Scadenzario.Models.Services.Application;
 using Scadenzario.Models.Services.Infrastructure;
 using Scadenzario.Models.ViewModels;
+
 
 namespace Scadenzario.Models.Services.Application.Beneficiari
 {
@@ -17,8 +20,10 @@ namespace Scadenzario.Models.Services.Application.Beneficiari
     {
         private readonly MyScadenzaDbContext dbContext;
         private readonly ILogger<EFCoreBeneficiarioService> logger;
-        public EFCoreBeneficiarioService(ILogger<EFCoreBeneficiarioService> logger, MyScadenzaDbContext dbContext)
+        private readonly IOptionsMonitor<BeneficiariOptions> beneficiariOptions;
+        public EFCoreBeneficiarioService(ILogger<EFCoreBeneficiarioService> logger, MyScadenzaDbContext dbContext,IOptionsMonitor<BeneficiariOptions> beneficiariOptions)
         {
+            this.beneficiariOptions = beneficiariOptions;
             this.dbContext = dbContext;
             this.logger = logger;
         }
@@ -32,11 +37,16 @@ namespace Scadenzario.Models.Services.Application.Beneficiari
             return BeneficiarioViewModel.FromEntity(beneficiario);
         }
 
-        public async Task<List<BeneficiarioViewModel>> GetBeneficiariAsync(string search)
+        public async Task<List<BeneficiarioViewModel>> GetBeneficiariAsync(string search, int page)
         {
             search = search ?? "";
+            page = Math.Max(1,page);
+            int limit = beneficiariOptions.CurrentValue.PerPage;
+            int offset = (page - 1) * limit;
             IQueryable<BeneficiarioViewModel> queryLinq = dbContext.Beneficiari
                 .AsNoTracking()
+                .Skip(offset)
+                .Take(limit)
                 .Where(beneficiari => beneficiari.Sbeneficiario.Contains(search))
                 .Select(beneficiari => BeneficiarioViewModel.FromEntity(beneficiari)); //Usando metodi statici come FromEntity, la query potrebbe essere inefficiente. Mantenere il mapping nella lambda oppure usare un extension method personalizzato
             List<BeneficiarioViewModel> beneficiari = await queryLinq.ToListAsync(); //La query al database viene inviata qui, quando manifestiamo l'intenzione di voler leggere i risultati

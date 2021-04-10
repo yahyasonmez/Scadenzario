@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Scadenzario.Models.Entities;
 using Scadenzario.Models.Exceptions.Application;
 using Scadenzario.Models.InputModels;
+using Scadenzario.Models.Options;
 using Scadenzario.Models.Services.Application;
 using Scadenzario.Models.Services.Application.Scadenze;
 using Scadenzario.Models.Services.Infrastructure;
@@ -23,8 +25,10 @@ namespace Scadenzario.Models.Services.Application
         private readonly ILogger<EFCoreScadenzaService> logger;
         private readonly MyScadenzaDbContext dbContext;
         private readonly IHttpContextAccessor user;
-        public EFCoreScadenzaService(ILogger<EFCoreScadenzaService> logger, MyScadenzaDbContext dbContext, IHttpContextAccessor user)
+        private readonly IOptionsMonitor<ScadenzeOptions> scadenzeOptions;
+        public EFCoreScadenzaService(ILogger<EFCoreScadenzaService> logger, MyScadenzaDbContext dbContext, IHttpContextAccessor user, IOptionsMonitor<ScadenzeOptions> scadenzeOptions)
         {
+            this.scadenzeOptions = scadenzeOptions;
             this.user = user;
             this.dbContext = dbContext;
             this.logger = logger;
@@ -36,24 +40,29 @@ namespace Scadenzario.Models.Services.Application
             scadenza.Beneficiario = inputModel.Beneficiario;
             scadenza.DataScadenza = inputModel.DataScadenza;
             scadenza.Importo = inputModel.Importo;
-            scadenza.IDBeneficiario=inputModel.IDBeneficiario;
-            scadenza.IDUser=user.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            scadenza.IDBeneficiario = inputModel.IDBeneficiario;
+            scadenza.IDUser = user.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             await dbContext.AddAsync(scadenza);
             await dbContext.SaveChangesAsync();
             return ScadenzaViewModel.FromEntity(scadenza);
         }
 
-        public async Task<List<ScadenzaViewModel>> GetScadenzeAsync(string search)
+        public async Task<List<ScadenzaViewModel>> GetScadenzeAsync(string search, int page)
         {
             search = search ?? "";
-            if(IsDate(search))
+            page = Math.Max(1,page);
+            int limit = scadenzeOptions.CurrentValue.PerPage;
+            int offset = (page - 1) * limit;
+            if (IsDate(search))
             {
                 DateTime data = Convert.ToDateTime(search);
                 IQueryable<ScadenzaViewModel> queryLinq = dbContext.Scadenze
                     .AsNoTracking()
-                    .Include(Scadenza=>Scadenza.Ricevute)
-                    .Where(Scadenze=>Scadenze.IDUser ==  user.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value)
-                    .Where(scadenze=>scadenze.DataScadenza==data)
+                    .Skip(offset)
+                    .Take(limit)
+                    .Include(Scadenza => Scadenza.Ricevute)
+                    .Where(Scadenze => Scadenze.IDUser == user.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value)
+                    .Where(scadenze => scadenze.DataScadenza == data)
                     .Select(scadenze => ScadenzaViewModel.FromEntity(scadenze)); //Usando metodi statici come FromEntity, la query potrebbe essere inefficiente. Mantenere il mapping nella lambda oppure usare un extension method personalizzato
                 List<ScadenzaViewModel> scadenza = await queryLinq.ToListAsync(); //La query al database viene inviata qui, quando manifestiamo l'intenzione di voler leggere i risultati
                 return scadenza;
@@ -62,9 +71,11 @@ namespace Scadenzario.Models.Services.Application
             {
                 IQueryable<ScadenzaViewModel> queryLinq = dbContext.Scadenze
                     .AsNoTracking()
-                    .Include(Scadenza=>Scadenza.Ricevute)
-                    .Where(Scadenze=>Scadenze.IDUser ==  user.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value)
-                    .Where(scadenze=>scadenze.Beneficiario.Contains(search))
+                    .Skip(offset)
+                    .Take(limit)
+                    .Include(Scadenza => Scadenza.Ricevute)
+                    .Where(Scadenze => Scadenze.IDUser == user.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value)
+                    .Where(scadenze => scadenze.Beneficiario.Contains(search))
                     .Select(scadenze => ScadenzaViewModel.FromEntity(scadenze)); //Usando metodi statici come FromEntity, la query potrebbe essere inefficiente. Mantenere il mapping nella lambda oppure usare un extension method personalizzato
                 List<ScadenzaViewModel> scadenza = await queryLinq.ToListAsync(); //La query al database viene inviata qui, quando manifestiamo l'intenzione di voler leggere i risultati
                 return scadenza;
@@ -73,32 +84,32 @@ namespace Scadenzario.Models.Services.Application
 
         public async Task<ScadenzaViewModel> GetScadenzaAsync(int id)
         {
-            logger.LogInformation("Ricevuto identificativo scadenza {id}",id);
+            logger.LogInformation("Ricevuto identificativo scadenza {id}", id);
             IQueryable<ScadenzaViewModel> queryLinq = dbContext.Scadenze
                     .AsNoTracking()
-                    .Include(Scadenza=>Scadenza.Ricevute)
+                    .Include(Scadenza => Scadenza.Ricevute)
                     .Where(scadenza => scadenza.IDScadenza == id)
                     .Select(scadenza => ScadenzaViewModel.FromEntity(scadenza)); //Usando metodi statici come FromEntity, la query potrebbe essere inefficiente. Mantenere il mapping nella lambda oppure usare un extension method personalizzato
 
             ScadenzaViewModel viewModel = await queryLinq.FirstOrDefaultAsync();
-                //Restituisce il primo elemento dell'elenco, ma se ne contiene 0 o più di 1 solleva un eccezione.
-                //.FirstOrDefaultAsync(); //Restituisce null se l'elenco è vuoto e non solleva mai un'eccezione
-                //.SingleOrDefaultAsync(); //Tollera il fatto che l'elenco sia vuoto e in quel caso restituisce null, oppure se l'elenco contiene più di 1 elemento, solleva un'eccezione
-                //.FirstAsync(); //Restituisce il primo elemento, ma se l'elenco è vuoto solleva un'eccezione
-            if(viewModel==null)
+            //Restituisce il primo elemento dell'elenco, ma se ne contiene 0 o più di 1 solleva un eccezione.
+            //.FirstOrDefaultAsync(); //Restituisce null se l'elenco è vuoto e non solleva mai un'eccezione
+            //.SingleOrDefaultAsync(); //Tollera il fatto che l'elenco sia vuoto e in quel caso restituisce null, oppure se l'elenco contiene più di 1 elemento, solleva un'eccezione
+            //.FirstAsync(); //Restituisce il primo elemento, ma se l'elenco è vuoto solleva un'eccezione
+            if (viewModel == null)
             {
                 throw new ScadenzaNotFoundException(id);
-            } 
+            }
             return viewModel;
         }
         public async Task<ScadenzaEditInputModel> GetScadenzaForEditingAsync(int id)
         {
-            logger.LogInformation("Ricevuto identificativo scadenza {id}",id);
+            logger.LogInformation("Ricevuto identificativo scadenza {id}", id);
             IQueryable<ScadenzaEditInputModel> queryLinq = dbContext.Scadenze
                 .AsNoTracking()
                 .Where(scadenza => scadenza.IDScadenza == id)
                 .Select(scadenza => ScadenzaEditInputModel.FromEntity(scadenza)); //Usando metodi statici come FromEntity, la query potrebbe essere inefficiente. Mantenere il mapping nella lambda oppure usare un extension method personalizzato
-            
+
             ScadenzaEditInputModel viewModel = await queryLinq.FirstOrDefaultAsync();
 
             if (viewModel == null)
@@ -166,20 +177,20 @@ namespace Scadenzario.Models.Services.Application
                 return beneficiario;
             }
         }
-       //Recupero Beneficiario
+        //Recupero Beneficiario
         public string GetBeneficiarioById(int id)
         {
-            logger.LogInformation("Ricevuto identificativo beneficiario {id}",id);
+            logger.LogInformation("Ricevuto identificativo beneficiario {id}", id);
             string Beneficiario = dbContext.Beneficiari
-            .Where(t=>t.IDBeneficiario==id)
-            .Select(t=>t.Sbeneficiario).Single();
+            .Where(t => t.IDBeneficiario == id)
+            .Select(t => t.Sbeneficiario).Single();
             return Beneficiario;
         }
         //Calcolo giorni ritardo o giorni mancanti al pagamento
         public int DateDiff(DateTime inizio, DateTime fine)
         {
             int giorni = 0;
-            giorni=(inizio.Date - fine.Date).Days;
+            giorni = (inizio.Date - fine.Date).Days;
             return giorni;
         }
         public bool IsDate(string date)
@@ -188,9 +199,9 @@ namespace Scadenzario.Models.Services.Application
             {
                 string[] formats = { "dd/MM/yyyy" };
                 DateTime parsedDateTime;
-                return DateTime.TryParseExact(date, formats, new CultureInfo("it-IT"),DateTimeStyles.None, out parsedDateTime);
+                return DateTime.TryParseExact(date, formats, new CultureInfo("it-IT"), DateTimeStyles.None, out parsedDateTime);
             }
-            catch(Exception)
+            catch (Exception)
             {
                 return false;
             }

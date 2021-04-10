@@ -23,9 +23,9 @@ namespace Scadenzario.Models.Services.Application.Scadenze
             this.memoryCache = memoryCache;
         }
 
-        public Task<List<ScadenzaViewModel>> GetScadenzeAsync(string search)
+        public Task<List<ScadenzaViewModel>> GetScadenzeAsync(string search, int page)
         {
-            return scadenzaService.GetScadenzeAsync(search);
+            return scadenzaService.GetScadenzeAsync(search,page);
         }
         public Task<ScadenzaViewModel> GetScadenzaAsync(int id)
         {

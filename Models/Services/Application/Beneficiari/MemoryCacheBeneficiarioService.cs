@@ -22,9 +22,9 @@ namespace Scadenzario.Models.Services.Application.Beneficiari
             this.memoryCache = memoryCache;
         }
 
-        public Task<List<BeneficiarioViewModel>> GetBeneficiariAsync(string search)
+        public Task<List<BeneficiarioViewModel>> GetBeneficiariAsync(string search, int page)
         {
-            return beneficiarioService.GetBeneficiariAsync(search);
+            return beneficiarioService.GetBeneficiariAsync(search,page);
         }
         public Task<BeneficiarioViewModel> GetBeneficiarioAsync(int id)
         {
