@@ -38,7 +38,7 @@ namespace Scadenzario.Models.Services.Application.Beneficiari
             return BeneficiarioViewModel.FromEntity(beneficiario);
         }
 
-        public async Task<List<BeneficiarioViewModel>> GetBeneficiariAsync(BeneficiarioListInputModel model)
+        public async Task<ListViewModel<BeneficiarioViewModel>> GetBeneficiariAsync(BeneficiarioListInputModel model)
         {
             IQueryable<Beneficiario> baseQuery = dbContext.Beneficiari;
             switch(model.OrderBy)
@@ -67,12 +67,19 @@ namespace Scadenzario.Models.Services.Application.Beneficiari
             }
             IQueryable<BeneficiarioViewModel> queryLinq = baseQuery
                 .AsNoTracking()
-                .Skip(model.Offset)
-                .Take(model.Limit)
                 .Where(beneficiari => beneficiari.Sbeneficiario.Contains(model.Search))
                 .Select(beneficiari => BeneficiarioViewModel.FromEntity(beneficiari)); //Usando metodi statici come FromEntity, la query potrebbe essere inefficiente. Mantenere il mapping nella lambda oppure usare un extension method personalizzato
-            List<BeneficiarioViewModel> beneficiari = await queryLinq.ToListAsync(); //La query al database viene inviata qui, quando manifestiamo l'intenzione di voler leggere i risultati
-            return beneficiari;
+                 List<BeneficiarioViewModel> beneficiari = await queryLinq
+                .Skip(model.Offset)
+                .Take(model.Limit)                       
+                .ToListAsync(); //La query al database viene inviata qui, quando manifestiamo l'intenzione di voler leggere i risultati
+                int totalCount = await queryLinq.CountAsync();
+                ListViewModel<BeneficiarioViewModel> results = new ListViewModel<BeneficiarioViewModel>
+                {
+                     Results=beneficiari,
+                     TotalCount=totalCount
+                };
+                return results;
         }
         public async Task<BeneficiarioViewModel> GetBeneficiarioAsync(int id)
         {

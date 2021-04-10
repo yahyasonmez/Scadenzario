@@ -10,7 +10,7 @@ namespace Scadenzario.Models.Services.Application.Scadenze
 {
     public interface IScadenzeService
     {
-        Task<List<ScadenzaViewModel>> GetScadenzeAsync(ScadenzaListInputModel model);
+        Task<ListViewModel<ScadenzaViewModel>> GetScadenzeAsync(ScadenzaListInputModel model);
         Task<ScadenzaViewModel> CreateScadenzaAsync(ScadenzaCreateInputModel inputModel);
         Task<ScadenzaViewModel> GetScadenzaAsync(int id);
         Task DeleteScadenzaAsync(ScadenzaDeleteInputModel inputModel);

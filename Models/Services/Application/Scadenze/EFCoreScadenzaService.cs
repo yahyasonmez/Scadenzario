@@ -48,7 +48,7 @@ namespace Scadenzario.Models.Services.Application
             return ScadenzaViewModel.FromEntity(scadenza);
         }
 
-        public async Task<List<ScadenzaViewModel>> GetScadenzeAsync(ScadenzaListInputModel model)
+        public async Task<ListViewModel<ScadenzaViewModel>> GetScadenzeAsync(ScadenzaListInputModel model)
         {
             IQueryable<Scadenza> baseQuery = dbContext.Scadenze;
             switch(model.OrderBy)
@@ -89,27 +89,39 @@ namespace Scadenzario.Models.Services.Application
                 DateTime data = Convert.ToDateTime(model.Search);
                 IQueryable<ScadenzaViewModel> queryLinq = baseQuery
                     .AsNoTracking()
-                    .Skip(model.Offset)
-                    .Take(model.Limit)
                     .Include(Scadenza => Scadenza.Ricevute)
                     .Where(Scadenze => Scadenze.IDUser == user.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value)
                     .Where(scadenze => scadenze.DataScadenza == data)
                     .Select(scadenze => ScadenzaViewModel.FromEntity(scadenze)); //Usando metodi statici come FromEntity, la query potrebbe essere inefficiente. Mantenere il mapping nella lambda oppure usare un extension method personalizzato
-                List<ScadenzaViewModel> scadenza = await queryLinq.ToListAsync(); //La query al database viene inviata qui, quando manifestiamo l'intenzione di voler leggere i risultati
-                return scadenza;
+                List<ScadenzaViewModel> scadenza = await queryLinq
+                    .Skip(model.Offset)
+                    .Take(model.Limit).ToListAsync();
+                int totalCount = await queryLinq.CountAsync();
+                ListViewModel<ScadenzaViewModel> results = new ListViewModel<ScadenzaViewModel>
+                {
+                     Results=scadenza,
+                     TotalCount=totalCount
+                };
+                return results;
             }
             else
             {
-                IQueryable<ScadenzaViewModel> queryLinq = baseQuery
+               IQueryable<ScadenzaViewModel> queryLinq = baseQuery
                     .AsNoTracking()
-                    .Skip(model.Offset)
-                    .Take(model.Limit)
                     .Include(Scadenza => Scadenza.Ricevute)
                     .Where(Scadenze => Scadenze.IDUser == user.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value)
                     .Where(scadenze => scadenze.Beneficiario.Contains(model.Search))
                     .Select(scadenze => ScadenzaViewModel.FromEntity(scadenze)); //Usando metodi statici come FromEntity, la query potrebbe essere inefficiente. Mantenere il mapping nella lambda oppure usare un extension method personalizzato
-                List<ScadenzaViewModel> scadenza = await queryLinq.ToListAsync(); //La query al database viene inviata qui, quando manifestiamo l'intenzione di voler leggere i risultati
-                return scadenza;
+                List<ScadenzaViewModel> scadenza = await queryLinq
+                    .Skip(model.Offset)
+                    .Take(model.Limit).ToListAsync();
+                int totalCount = await queryLinq.CountAsync();
+                ListViewModel<ScadenzaViewModel> results = new ListViewModel<ScadenzaViewModel>
+                {
+                     Results=scadenza,
+                     TotalCount=totalCount
+                };
+                return results;
             }
         }
 

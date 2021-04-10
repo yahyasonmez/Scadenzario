@@ -23,7 +23,7 @@ namespace Scadenzario.Models.Services.Application.Scadenze
             this.scadenzaService = scadenzaService;
             this.memoryCache = memoryCache;
         }
-        public Task<List<ScadenzaViewModel>> GetScadenzeAsync(ScadenzaListInputModel model)
+        public Task<ListViewModel<ScadenzaViewModel>> GetScadenzeAsync(ScadenzaListInputModel model)
         {
             return scadenzaService.GetScadenzeAsync(model);
         }

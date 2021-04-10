@@ -5,7 +5,7 @@ namespace Scadenzario.Models.ViewModels
 {
     public class ScadenzaListViewModel
     {
-        public List<ScadenzaViewModel> Scadenze {get;set;}
+        public ListViewModel<ScadenzaViewModel> Scadenze {get;set;}
         public ScadenzaListInputModel Input {get;set;}
     }
 }

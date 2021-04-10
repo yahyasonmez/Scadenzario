@@ -35,7 +35,7 @@ namespace Scadenzario.Controllers
         public async Task<IActionResult> Index(ScadenzaListInputModel model)
         {
             ViewData["Title"] = "Lista Scadenze".ToUpper();
-            List<ScadenzaViewModel> viewModel = new();
+            ListViewModel<ScadenzaViewModel> viewModel = new();
             viewModel = await service.GetScadenzeAsync(model);
             ScadenzaListViewModel view = new ScadenzaListViewModel{
                  Scadenze = viewModel,

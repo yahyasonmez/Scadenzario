@@ -23,7 +23,7 @@ namespace Scadenzario.Models.Services.Application.Beneficiari
             this.memoryCache = memoryCache;
         }
 
-        public Task<List<BeneficiarioViewModel>> GetBeneficiariAsync(BeneficiarioListInputModel model)
+        public Task<ListViewModel<BeneficiarioViewModel>> GetBeneficiariAsync(BeneficiarioListInputModel model)
         {
             return beneficiarioService.GetBeneficiariAsync(model);
         }

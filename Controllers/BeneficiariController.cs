@@ -28,7 +28,7 @@ namespace Scadenzario.Controllers
         public async Task<IActionResult> Index(BeneficiarioListInputModel model)
         {
             ViewData["Title"] = "Lista Beneficiari".ToUpper();
-            List<BeneficiarioViewModel> viewModel = new();
+            ListViewModel<BeneficiarioViewModel> viewModel = new();
             viewModel = await service.GetBeneficiariAsync(model);
             BeneficiarioListViewModel view = new BeneficiarioListViewModel{
                  Beneficiari = viewModel,

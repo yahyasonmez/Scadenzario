@@ -8,7 +8,7 @@ namespace Scadenzario.Models.Services.Application.Beneficiari
 {
     public interface IBeneficiariService
     {
-        Task<List<BeneficiarioViewModel>> GetBeneficiariAsync(BeneficiarioListInputModel model);
+        Task<ListViewModel<BeneficiarioViewModel>> GetBeneficiariAsync(BeneficiarioListInputModel model);
         Task<BeneficiarioViewModel> CreateBeneficiarioAsync(BeneficiarioCreateInputModel inputModel);
         Task<BeneficiarioViewModel> GetBeneficiarioAsync(int id);
         Task DeleteBeneficiarioAsync(BeneficiarioDeleteInputModel inputModel);
