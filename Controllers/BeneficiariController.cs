@@ -30,7 +30,11 @@ namespace Scadenzario.Controllers
             ViewData["Title"] = "Lista Beneficiari".ToUpper();
             List<BeneficiarioViewModel> viewModel = new();
             viewModel = await service.GetBeneficiariAsync(model);
-            return View(viewModel);
+            BeneficiarioListViewModel view = new BeneficiarioListViewModel{
+                 Beneficiari = viewModel,
+                 Input = model
+            };
+            return View(view);
         }
         public async Task<IActionResult> Detail(int id)
         {

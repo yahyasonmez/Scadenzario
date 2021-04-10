@@ -1,4 +1,4 @@
-@model List<ScadenzaViewModel>
+@model ScadenzaListViewModel
 <br>
     <br>
     <div class="row">
@@ -15,7 +15,7 @@
          <div class="col-md-9 d-flex flex-row-reverse">
             <form asp-controller="Scadenze" asp-action="Index" method="GET">
                 <div class="input-group">
-                    <b>Beneficiario/Data scadenza</b>&nbsp&nbsp&nbsp  <input type="text" name="search" placeholder="Cerca ....">
+                    <b>Beneficiario/Data scadenza</b>&nbsp&nbsp&nbsp  <input type="text" name="search" placeholder="Cerca ...." value="@Model.Input.Search">
                        <div class="input-group-append">
                             <button class="input-group-text"><i class="fas fa-search"></i></button>
                       </div> 
@@ -25,17 +25,15 @@
     </div>
     <br>
     <br>
-    <div class="row">
-        
-    </div>
+    
     <br>
     <div class="table-responsive-md">
         <table class="table table-striped table-hover">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col"><a asp-route-orderby="Beneficiario" asp-route-ascending=true>Beneficiario</a></th>
-                    <th scope="col"><a asp-route-orderby="DataScadenza" asp-route-ascending=true>Data Scadenza</a></th>
-                    <th scope="col"><a asp-route-orderby="Importo" asp-route-ascending=true>Importo</a></th>
+                    <th scope="col"><a asp-route-orderby="Beneficiario" asp-route-search="@Model.Input.Search" asp-route-ascending="@(Model.Input.OrderBy=="Beneficiario" ? !Model.Input.Ascending:true)">Beneficiario @if(Model.Input.OrderBy=="Beneficiario"){<i class="fas fa-caret-@(Model.Input.Ascending ? "up":"down")"></i>}</a></th>
+                    <th scope="col"><a asp-route-orderby="DataScadenza" asp-route-ascending="@(Model.Input.OrderBy=="DataScadenza" ? !Model.Input.Ascending:true)" asp-route-search="@Model.Input.Search">Data Scadenza @if(Model.Input.OrderBy=="DataScadenza"){<i class="fas fa-caret-@(Model.Input.Ascending ? "up":"down")"></i>}</a></th>
+                    <th scope="col"><a asp-route-orderby="Importo" asp-route-ascending="@(Model.Input.OrderBy=="Importo" ? !Model.Input.Ascending:true)" asp-route-search="@Model.Input.Search">Importo @if(Model.Input.OrderBy=="Importo"){<i class="fas fa-caret-@(Model.Input.Ascending ? "up":"down")"></i>}</a></th>
                     <th scope="col">Sollecito</th>
                     <th scope="col">Giorni Mancanti/Ritardo</th>
                     <th scope="col">Data Pagamento</th>
@@ -43,7 +41,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model)
+                @foreach (var item in Model.Scadenze)
                 {
                     <tr>
                         <td>
