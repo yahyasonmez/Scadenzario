@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Scadenzario.Models.InputModels;
+using Scadenzario.Models.InputModels.Beneficiari;
 using Scadenzario.Models.Services.Application;
 using Scadenzario.Models.Services.Application.Beneficiari;
 using Scadenzario.Models.ViewModels;
@@ -24,12 +25,16 @@ namespace Scadenzario.Controllers
         {
             this.service = service;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(BeneficiarioListInputModel model)
         {
             ViewData["Title"] = "Lista Beneficiari".ToUpper();
-            List<BeneficiarioViewModel> viewModel = new();
-            viewModel = await service.GetBeneficiariAsync();
-            return View(viewModel);
+            ListViewModel<BeneficiarioViewModel> viewModel = new();
+            viewModel = await service.GetBeneficiariAsync(model);
+            BeneficiarioListViewModel view = new BeneficiarioListViewModel{
+                 Beneficiari = viewModel,
+                 Input = model
+            };
+            return View(view);
         }
         public async Task<IActionResult> Detail(int id)
         {

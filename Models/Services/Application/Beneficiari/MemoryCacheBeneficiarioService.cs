@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 using Scadenzario.Models.Entities;
 using Scadenzario.Models.InputModels;
+using Scadenzario.Models.InputModels.Beneficiari;
 using Scadenzario.Models.Services.Infrastructure;
 using Scadenzario.Models.ViewModels;
 
@@ -22,9 +23,9 @@ namespace Scadenzario.Models.Services.Application.Beneficiari
             this.memoryCache = memoryCache;
         }
 
-        public Task<List<BeneficiarioViewModel>> GetBeneficiariAsync()
+        public Task<ListViewModel<BeneficiarioViewModel>> GetBeneficiariAsync(BeneficiarioListInputModel model)
         {
-            return beneficiarioService.GetBeneficiariAsync();
+            return beneficiarioService.GetBeneficiariAsync(model);
         }
         public Task<BeneficiarioViewModel> GetBeneficiarioAsync(int id)
         {

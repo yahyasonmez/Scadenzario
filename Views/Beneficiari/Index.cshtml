@@ -1,4 +1,4 @@
-@model List<BeneficiarioViewModel>
+@model BeneficiarioListViewModel
     <br>
     <br>
     <div class="alert alert-success">
@@ -9,8 +9,15 @@
         <div class="col-md-3">
              <a class="btn btn-primary btn-lg btn-block" asp-action="Create" asp-controller="Beneficiari"><i class="fas fa-plus-circle"></i>Nuovo Beneficiario</a>
         </div>
-        <div class="col-md-9">
-            
+        <div class="col-md-9 d-flex flex-row-reverse">
+            <form asp-controller="Beneficiari" asp-action="Index" method="GET">
+                <div class="input-group">
+                    <b>Beneficiario</b>&nbsp&nbsp&nbsp  <input type="text" name="search" placeholder="Cerca ....">
+                       <div class="input-group-append">
+                            <button class="input-group-text"><i class="fas fa-search"></i></button>
+                      </div> 
+                </div>
+            </form>
         </div>
     </div>
     <br>
@@ -19,8 +26,8 @@
         <table class="table table-striped table-hover">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">Beneficiario</th>
-                    <th scope="col">Descrizione</th>
+                    <th scope="col"><a asp-route-orderby="Beneficiario" asp-route-search="@Model.Input.Search" asp-route-ascending="@(Model.Input.OrderBy=="Beneficiario" ? !Model.Input.Ascending:true)">Beneficiario @if(Model.Input.OrderBy=="Beneficiario"){<i class="fas fa-caret-@(Model.Input.Ascending ? "up":"down")"></i>}</a></th>
+                    <th scope="col"><a asp-route-orderby="Descrizione" asp-route-ascending="@(Model.Input.OrderBy=="Descrizione" ? !Model.Input.Ascending:true)" asp-route-search="@Model.Input.Search">Descrizione @if(Model.Input.OrderBy=="Descrizione"){<i class="fas fa-caret-@(Model.Input.Ascending ? "up":"down")"></i>}</a></th>
                     <th scope="col">Email</th>
                     <th scope="col">Telefono</th>
                     <th scope="col">Sito Web</th>
@@ -28,7 +35,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model)
+                @foreach (var item in Model.Beneficiari.Results)
                 {
                     <tr>
                         <td>
@@ -56,7 +63,43 @@
             </tbody>
         </table>
     </div>
-            
+   <br>
+    <br>
+    @{
+        int TotalPage = (int)Math.Ceiling(Model.Beneficiari.TotalCount / (decimal) Model.Input.Limit);
+        int currentPage = Model.Input.Page;
+    }
+    <nav aria-label="Paginazione">
+        <ul class="pagination d-flex justify-content-center mt-3">
+            @if(currentPage > 1)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-route-page=@(currentPage-1)><i class="fas fa-angle-left"></i></a>
+                </li>
+            }
+            @for(int p = Math.Max(1,currentPage-4); p <= Math.Min(TotalPage,currentPage + 4);p++)
+            {
+                if(p==currentPage)
+                {
+                     <li class="page-item active" aria-current="page">
+                        <a class="page-link" asp-route-page=@p>@p</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="page-item">
+                       <a class="page-link" asp-route-page=@p>@p</a>
+                    </li>
+                }
+            }
+            @if(currentPage < TotalPage)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-route-page=@(currentPage+1)><i class="fas fa-angle-right"></i></a>
+                </li>
+            }
+        </ul>
+    </nav>
                 
             
 
