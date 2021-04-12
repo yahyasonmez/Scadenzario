@@ -208,3 +208,6 @@ C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Error\Index.cshtml.g.cs
 C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Error\BeneficiarioNotFound.cshtml.g.cs
 C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Error\RicevutaNotFound.cshtml.g.cs
 C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Error\ScadenzaNotFound.cshtml.g.cs
+C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Shared\Components\PaginationBar\Default.cshtml.g.cs
+C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Shared\Scadenze\_ScadenzaLine.cshtml.g.cs
+C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Shared\Beneficiari\_BeneficiarioLine.cshtml.g.cs
