@@ -1,11 +1,11 @@
-html, body {
+html body{
     min-height: 100vh;
 }
 body {
     display: flex;
     flex-direction: column;
 }
-body>.container {
+body>.container>{
     flex: 1;
 }
 body>footer {
