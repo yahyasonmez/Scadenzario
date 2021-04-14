@@ -1,6 +1,3 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -44,7 +41,7 @@ namespace Scadenzario.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                return NotFound($"Non è stato possibile trovare il profilo utente con ID '{_userManager.GetUserId(User)}'.");
             }
 
             HasAuthenticator = await _userManager.GetAuthenticatorKeyAsync(user) != null;
@@ -60,11 +57,11 @@ namespace Scadenzario.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                return NotFound($"Non è stato possibile trovare il profilo utente con ID '{_userManager.GetUserId(User)}'.");
             }
 
             await _signInManager.ForgetTwoFactorClientAsync();
-            StatusMessage = "The current browser has been forgotten. When you login again from this browser you will be prompted for your 2fa code.";
+            StatusMessage = "Il browser corrente è stato dimenticato. Quando farai di nuovo l'accesso da questo browser, ti verrà chiesto di inserire di nuovo il codice per l'autenticazione a due fattori.";
             return RedirectToPage();
         }
     }

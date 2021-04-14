@@ -33,7 +33,7 @@ namespace Scadenzario.Areas.Identity.Pages.Account
             [BindProperty]
             [Required]
             [DataType(DataType.Text)]
-            [Display(Name = "Recovery Code")]
+            [Display(Name = "Codice di ripristino")]
             public string RecoveryCode { get; set; }
         }
 
@@ -61,7 +61,7 @@ namespace Scadenzario.Areas.Identity.Pages.Account
             var user = await _signInManager.GetTwoFactorAuthenticationUserAsync();
             if (user == null)
             {
-                throw new InvalidOperationException($"Unable to load two-factor authentication user.");
+                throw new InvalidOperationException($"Impossibile caricare il two-factor authentication user.");
             }
 
             var recoveryCode = Input.RecoveryCode.Replace(" ", string.Empty);
@@ -70,18 +70,18 @@ namespace Scadenzario.Areas.Identity.Pages.Account
 
             if (result.Succeeded)
             {
-                _logger.LogInformation("User with ID '{UserId}' logged in with a recovery code.", user.Id);
+                _logger.LogInformation("Utente con ID '{UserId}' connesso con un codice di ripristino.", user.Id);
                 return LocalRedirect(returnUrl ?? Url.Content("~/"));
             }
             if (result.IsLockedOut)
             {
-                _logger.LogWarning("User with ID '{UserId}' account locked out.", user.Id);
+                _logger.LogWarning("Utente con ID '{UserId}' account bloccato.", user.Id);
                 return RedirectToPage("./Lockout");
             }
             else
             {
-                _logger.LogWarning("Invalid recovery code entered for user with ID '{UserId}' ", user.Id);
-                ModelState.AddModelError(string.Empty, "Invalid recovery code entered.");
+                _logger.LogWarning("Codice di ripristino non valido immesso per l'utente con ID '{UserId}' ", user.Id);
+                ModelState.AddModelError(string.Empty, "Codice di ripristino non valido");
                 return Page();
             }
         }
