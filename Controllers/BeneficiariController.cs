@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Scadenzario.Models.InputModels;
 using Scadenzario.Models.InputModels.Beneficiari;
@@ -10,6 +11,7 @@ using Scadenzario.Models.ViewModels;
 
 namespace Scadenzario.Controllers
 {
+    [Authorize] 
     public class BeneficiariController : Controller
     {
         public static string Beneficiario { get; internal set; }
