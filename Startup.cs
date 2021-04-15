@@ -1,4 +1,5 @@
 using System;
+using AspNetCore.ReCaptcha;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -29,6 +30,7 @@ namespace Scadenzario
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddReCaptcha(Configuration.GetSection("ReCaptcha"));
             services.AddResponseCaching();
             services.AddMvc(Options=>{
                 Options.ModelBinderProviders.Insert(0, new DecimalModelBinderProvider());

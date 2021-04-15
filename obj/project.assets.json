@@ -2,6 +2,21 @@
   "version": 3,
   "targets": {
     "net5.0": {
+      "AspNetCore.ReCaptcha/1.2.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Options": "3.1.0"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/AspNetCore.ReCaptcha.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/AspNetCore.ReCaptcha.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Humanizer.Core/2.8.26": {
         "type": "package",
         "compile": {
@@ -2201,6 +2216,18 @@
     }
   },
   "libraries": {
+    "AspNetCore.ReCaptcha/1.2.1": {
+      "sha512": "NnWJX0pryBnw93KBG6l7KXhtmlTk2kbfqOMS8F8EZguVSeFlSotWf2GHsmq3V/Og52xT8d/mbCY+mOWorpBt/A==",
+      "type": "package",
+      "path": "aspnetcore.recaptcha/1.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "aspnetcore.recaptcha.1.2.1.nupkg.sha512",
+        "aspnetcore.recaptcha.nuspec",
+        "lib/netcoreapp3.1/AspNetCore.ReCaptcha.dll"
+      ]
+    },
     "Humanizer.Core/2.8.26": {
       "sha512": "OiKusGL20vby4uDEswj2IgkdchC1yQ6rwbIkZDVBPIR6al2b7n3pC91elBul9q33KaBgRKhbZH3+2Ur4fnWx2A==",
       "type": "package",
@@ -7702,6 +7729,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "AspNetCore.ReCaptcha >= 1.2.1",
       "MailKit >= 2.11.1",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 5.0.4",
       "Microsoft.AspNetCore.Identity.UI >= 5.0.4",
@@ -7762,6 +7790,10 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
+          "AspNetCore.ReCaptcha": {
+            "target": "Package",
+            "version": "[1.2.1, )"
+          },
           "MailKit": {
             "target": "Package",
             "version": "[2.11.1, )"
@@ -7821,7 +7853,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

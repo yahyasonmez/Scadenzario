@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "C5xjm6I1y08+1ukQZMeeMVFjw+GbXZNPcm/NtT6NOz5zVS3KPYatXmdwsnkHlDc76KPAppQi1uZpIBZE58eVEA==",
+  "dgSpecHash": "eo2g/awdMPE3UL5xvCtBJt6/OdXbyuo7wZ7Izu39VoPYhfuWVO2gXvXeuCgJobmYbavQ1Hb3kOgKg/p+QMu9uw==",
   "success": true,
   "projectFilePath": "C:\\Blog\\Scadenzario\\Scadenzario.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\marco\\.nuget\\packages\\aspnetcore.recaptcha\\1.2.1\\aspnetcore.recaptcha.1.2.1.nupkg.sha512",
     "C:\\Users\\marco\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\marco\\.nuget\\packages\\jquery\\1.4.4\\jquery.1.4.4.nupkg.sha512",
     "C:\\Users\\marco\\.nuget\\packages\\jquery.validation\\1.19.3\\jquery.validation.1.19.3.nupkg.sha512",
