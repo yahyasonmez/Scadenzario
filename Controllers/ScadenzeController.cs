@@ -68,6 +68,7 @@ namespace Scadenzario.Controllers
             if (ModelState.IsValid)
             {
                 await service.CreateScadenzaAsync(inputModel);
+                TempData["Message"] = "Inserimento effettuato correttamente".ToUpper();
                 return RedirectToAction("Index");
             }
             else
@@ -103,6 +104,7 @@ namespace Scadenzario.Controllers
                 if(Ricevute!=null)
                     await ricevute.CreateRicevutaAsync(Ricevute);
                 Ricevute=null;
+                TempData["Message"] = "Aggiornamento effettuato correttamente".ToUpper();
                 return RedirectToAction("Index");
             }
             else
@@ -122,6 +124,7 @@ namespace Scadenzario.Controllers
             if (ModelState.IsValid)
             {
                 await service.DeleteScadenzaAsync(inputModel);
+                TempData["Message"] = "Cancellazione effettuata correttamente".ToUpper();
                 return RedirectToAction("Index");
             }
             else

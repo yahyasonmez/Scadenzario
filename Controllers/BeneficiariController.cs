@@ -65,6 +65,7 @@ namespace Scadenzario.Controllers
                     return View(inputModel); 
                 }
                 await service.CreateBeneficiarioAsync(inputModel);
+                TempData["Message"] = "Inserimento effettuato correttamente".ToUpper();
                 return RedirectToAction("Index");
             }
             else
@@ -92,13 +93,14 @@ namespace Scadenzario.Controllers
                 {
                    if(await service.VerificationExistenceAsync(inputModel.Beneficiario))
                    {
-                        "Aggiorna beneficiario".ToUpper();
+                        ViewData["Title"] = "Aggiorna beneficiario".ToUpper();
                         ModelState.AddModelError("key","Il beneficiario è già esistente. Scegli un nome diverso.");
                         return View(inputModel); 
                    }
                 }
                 await service.EditBeneficiarioAsync(inputModel);
                 Beneficiario=String.Empty;
+                TempData["Message"] = "Aggiornamento effettuato correttamente".ToUpper();
                 return RedirectToAction("Index");
             }
             else
@@ -117,6 +119,7 @@ namespace Scadenzario.Controllers
             if(ModelState.IsValid)
             {
                 await service.DeleteBeneficiarioAsync(inputModel);
+                TempData["Message"] = "Cancellazione effettuata correttamente".ToUpper();
                 return RedirectToAction("Index");
             }
             else

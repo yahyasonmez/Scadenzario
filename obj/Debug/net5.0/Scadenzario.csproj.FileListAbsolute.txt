@@ -213,3 +213,6 @@ C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Shared\Scadenze\_ScadenzaLine.c
 C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Shared\Beneficiari\_BeneficiarioLine.cshtml.g.cs
 C:\Blog\Scadenzario\bin\Debug\net5.0\AspNetCore.ReCaptcha.dll
 C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Shared\_Summernote.cshtml.g.cs
+C:\Blog\Scadenzario\bin\Debug\net5.0\AngleSharp.dll
+C:\Blog\Scadenzario\bin\Debug\net5.0\AngleSharp.Css.dll
+C:\Blog\Scadenzario\bin\Debug\net5.0\HtmlSanitizer.dll

@@ -11683,6 +11683,27 @@
         }
       },
       {
+        "HashCode": 1414512555,
+        "Kind": "ITagHelper",
+        "Name": "Scadenzario.Customizations.TagHelpers.HtmlSanitizeTagHelper",
+        "AssemblyName": "Scadenzario",
+        "CaseSensitive": false,
+        "TagMatchingRules": [
+          {
+            "TagName": "*",
+            "Attributes": [
+              {
+                "Name": "html-sanitize"
+              }
+            ]
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "ITagHelper",
+          "Common.TypeName": "Scadenzario.Customizations.TagHelpers.HtmlSanitizeTagHelper"
+        }
+      },
+      {
         "HashCode": 1479723328,
         "Kind": "ITagHelper",
         "Name": "AspNetCore.ReCaptcha.ReCaptchaTagHelper",

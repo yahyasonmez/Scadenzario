@@ -2,14 +2,14 @@
 <tr>
                         @{
                            string descrizione = Model.Descrizione;
-                           if(descrizione.Length > 20)
-                              descrizione = descrizione.Substring(0,20);
+                           if(descrizione.Length > 100)
+                               descrizione=descrizione.Substring(0,98);
                         }
                         <td>
                             @Html.DisplayFor(modelItem => Model.Beneficiario)
                         </td>
                         <td>
-                           <p><a asp-controller="Beneficiari" asp-action="Edit" asp-route-id="@Model.IDBeneficiario">@Html.Raw(descrizione)</a></p>
+                           <a asp-action="Edit" asp-route-id="@Model.IDBeneficiario"><p html-sanitize> @descrizione </p></a>
                         </td>
                         <td>
                            @Html.DisplayFor(modelItem => Model.Email)

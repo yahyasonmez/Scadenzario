@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "eo2g/awdMPE3UL5xvCtBJt6/OdXbyuo7wZ7Izu39VoPYhfuWVO2gXvXeuCgJobmYbavQ1Hb3kOgKg/p+QMu9uw==",
+  "dgSpecHash": "rTvLk7nOV1eD8v+Tp+Y9QfugpanHqXFzvjaLzubBZi4w780B/CNFX7j5Aa+ZEHqMa2MuhmA/FXlBN8CtFS9KQg==",
   "success": true,
   "projectFilePath": "C:\\Blog\\Scadenzario\\Scadenzario.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\marco\\.nuget\\packages\\anglesharp\\0.14.0\\anglesharp.0.14.0.nupkg.sha512",
+    "C:\\Users\\marco\\.nuget\\packages\\anglesharp.css\\0.14.2\\anglesharp.css.0.14.2.nupkg.sha512",
     "C:\\Users\\marco\\.nuget\\packages\\aspnetcore.recaptcha\\1.2.1\\aspnetcore.recaptcha.1.2.1.nupkg.sha512",
+    "C:\\Users\\marco\\.nuget\\packages\\htmlsanitizer\\5.0.376\\htmlsanitizer.5.0.376.nupkg.sha512",
     "C:\\Users\\marco\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\marco\\.nuget\\packages\\jquery\\1.4.4\\jquery.1.4.4.nupkg.sha512",
     "C:\\Users\\marco\\.nuget\\packages\\jquery.validation\\1.19.3\\jquery.validation.1.19.3.nupkg.sha512",
