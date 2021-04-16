@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Scadenzario.Models.InputModels;
 using Scadenzario.Models.InputModels.Beneficiari;
@@ -10,6 +11,7 @@ using Scadenzario.Models.ViewModels;
 
 namespace Scadenzario.Controllers
 {
+    [Authorize] 
     public class BeneficiariController : Controller
     {
         public static string Beneficiario { get; internal set; }
@@ -63,6 +65,7 @@ namespace Scadenzario.Controllers
                     return View(inputModel); 
                 }
                 await service.CreateBeneficiarioAsync(inputModel);
+                TempData["Message"] = "Inserimento effettuato correttamente".ToUpper();
                 return RedirectToAction("Index");
             }
             else
@@ -90,13 +93,14 @@ namespace Scadenzario.Controllers
                 {
                    if(await service.VerificationExistenceAsync(inputModel.Beneficiario))
                    {
-                        "Aggiorna beneficiario".ToUpper();
+                        ViewData["Title"] = "Aggiorna beneficiario".ToUpper();
                         ModelState.AddModelError("key","Il beneficiario è già esistente. Scegli un nome diverso.");
                         return View(inputModel); 
                    }
                 }
                 await service.EditBeneficiarioAsync(inputModel);
                 Beneficiario=String.Empty;
+                TempData["Message"] = "Aggiornamento effettuato correttamente".ToUpper();
                 return RedirectToAction("Index");
             }
             else
@@ -115,6 +119,7 @@ namespace Scadenzario.Controllers
             if(ModelState.IsValid)
             {
                 await service.DeleteBeneficiarioAsync(inputModel);
+                TempData["Message"] = "Cancellazione effettuata correttamente".ToUpper();
                 return RedirectToAction("Index");
             }
             else

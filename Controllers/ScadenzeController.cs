@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -19,6 +20,7 @@ using Scadenzario.Models.ViewModels;
 
 namespace Scadenzario.Controllers
 {
+    [Authorize]
     public class ScadenzeController : Controller
     {
         private readonly IScadenzeService service;
@@ -66,6 +68,7 @@ namespace Scadenzario.Controllers
             if (ModelState.IsValid)
             {
                 await service.CreateScadenzaAsync(inputModel);
+                TempData["Message"] = "Inserimento effettuato correttamente".ToUpper();
                 return RedirectToAction("Index");
             }
             else
@@ -101,6 +104,7 @@ namespace Scadenzario.Controllers
                 if(Ricevute!=null)
                     await ricevute.CreateRicevutaAsync(Ricevute);
                 Ricevute=null;
+                TempData["Message"] = "Aggiornamento effettuato correttamente".ToUpper();
                 return RedirectToAction("Index");
             }
             else
@@ -120,6 +124,7 @@ namespace Scadenzario.Controllers
             if (ModelState.IsValid)
             {
                 await service.DeleteScadenzaAsync(inputModel);
+                TempData["Message"] = "Cancellazione effettuata correttamente".ToUpper();
                 return RedirectToAction("Index");
             }
             else

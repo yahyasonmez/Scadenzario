@@ -21,16 +21,16 @@
     <div class="row">
         <div class="col-md-9">
                 <div class="form-group">
-                    <label asp-for="Beneficiario"></label>
-                    <input type="text" class="form-control form-control-lg" asp-for="Beneficiario" readonly="true">
+                    <label asp-for="Beneficiario"></label>:&nbsp
+                    <b>@Model.Beneficiario</b>
                 </div>
                 <div class="form-group">
-                    <label asp-for="DataScadenza"></label>
-                    <input asp-for="DataScadenza" class="form-control" readonly="true">
+                    <label asp-for="DataScadenza"></label>:&nbsp
+                    <b>@Model.DataScadenza.ToString("dd/MM/yyyy")</b>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Importo"></label>
-                    <input asp-for="Importo" class="form-control" readonly="true">
+                    <label asp-for="Importo"></label>:&nbsp
+                    <b>@Model.Importo</b>
                 </div>
             </div>
             <div class="col-md-3">
@@ -40,21 +40,24 @@
                          {
                              Model.GiorniRitardo=@Math.Abs((int)Model.GiorniRitardo);
                             <label asp-for="GiorniRitardo"></label>
-                            <input asp-for="GiorniRitardo" class="form-control" readonly="true" style = "color:red">
+                             <b> :@Model.GiorniRitardo</b>
                          }
                          else
                          {
                             <label asp-for="GiorniRitardo"></label>
-                            <input asp-for="GiorniRitardo" class="form-control" readonly="true">
+                             <b> :@Model.GiorniRitardo</b>
                          }
                     </div>
                     <div class="form-group">
-                        <label asp-for="Sollecito"></label>
+                        <label asp-for="Sollecito"></label>:&nbsp
                          @Html.DisplayFor(model => model.Sollecito)
                     </div>
                     <div class="form-group">
-                        <label asp-for="DataPagamento"></label>
-                        <input asp-for="DataPagamento" class="form-control" readonly="true">
+                        <label asp-for="DataPagamento"></label>:&nbsp
+                        @if(Model.DataPagamento.HasValue)
+                        {
+                             <b>@Model.DataPagamento.Value.ToString("dd/MM/yyyy")</b>
+                        }
                     </div>
                 </aside>
             </div>

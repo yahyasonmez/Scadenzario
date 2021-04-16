@@ -211,3 +211,8 @@ C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Error\ScadenzaNotFound.cshtml.g
 C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Shared\Components\PaginationBar\Default.cshtml.g.cs
 C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Shared\Scadenze\_ScadenzaLine.cshtml.g.cs
 C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Shared\Beneficiari\_BeneficiarioLine.cshtml.g.cs
+C:\Blog\Scadenzario\bin\Debug\net5.0\AspNetCore.ReCaptcha.dll
+C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Shared\_Summernote.cshtml.g.cs
+C:\Blog\Scadenzario\bin\Debug\net5.0\AngleSharp.dll
+C:\Blog\Scadenzario\bin\Debug\net5.0\AngleSharp.Css.dll
+C:\Blog\Scadenzario\bin\Debug\net5.0\HtmlSanitizer.dll

@@ -6,6 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AspNetCore.ReCaptcha" Version="1.2.1" />
+    <PackageReference Include="HtmlSanitizer" Version="5.0.376" />
     <PackageReference Include="jQuery.Validation" Version="1.19.3" />
     <PackageReference Include="MailKit" Version="2.11.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.4" />
