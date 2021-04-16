@@ -27,7 +27,7 @@
 
                 <div class="form-group">
                     <label asp-for="Descrizione"></label>
-                    <input asp-for="Descrizione" class="form-control" readonly="true">
+                    <p>@Html.Raw(Model.Descrizione)</p>
                 </div>
             </div>
             <div class="col-md-5">

@@ -212,3 +212,4 @@ C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Shared\Components\PaginationBar
 C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Shared\Scadenze\_ScadenzaLine.cshtml.g.cs
 C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Shared\Beneficiari\_BeneficiarioLine.cshtml.g.cs
 C:\Blog\Scadenzario\bin\Debug\net5.0\AspNetCore.ReCaptcha.dll
+C:\Blog\Scadenzario\obj\Debug\net5.0\Razor\Views\Shared\_Summernote.cshtml.g.cs

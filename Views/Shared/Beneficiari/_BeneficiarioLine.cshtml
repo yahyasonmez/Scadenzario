@@ -1,10 +1,15 @@
 @model BeneficiarioViewModel
 <tr>
+                        @{
+                           string descrizione = Model.Descrizione;
+                           if(descrizione.Length > 20)
+                              descrizione = descrizione.Substring(0,20);
+                        }
                         <td>
                             @Html.DisplayFor(modelItem => Model.Beneficiario)
                         </td>
                         <td>
-                           @Html.DisplayFor(modelItem => Model.Descrizione)
+                           <p><a asp-controller="Beneficiari" asp-action="Edit" asp-route-id="@Model.IDBeneficiario">@Html.Raw(descrizione)</a></p>
                         </td>
                         <td>
                            @Html.DisplayFor(modelItem => Model.Email)

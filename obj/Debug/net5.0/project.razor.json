@@ -11683,6 +11683,120 @@
         }
       },
       {
+        "HashCode": 1479723328,
+        "Kind": "ITagHelper",
+        "Name": "AspNetCore.ReCaptcha.ReCaptchaTagHelper",
+        "AssemblyName": "AspNetCore.ReCaptcha",
+        "CaseSensitive": false,
+        "TagMatchingRules": [
+          {
+            "TagName": "recaptcha"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "ITagHelper",
+            "Name": "text",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Text"
+            }
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "class-name",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "ClassName"
+            }
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "size",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Size"
+            }
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "theme",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Theme"
+            }
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "action",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Action"
+            }
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "language",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Language"
+            }
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "id",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Id"
+            }
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "badge",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Badge"
+            }
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "callback",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "Callback"
+            }
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "error-callback",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "ErrorCallback"
+            }
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "expired-callback",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "ExpiredCallback"
+            }
+          },
+          {
+            "Kind": "ITagHelper",
+            "Name": "view-context",
+            "TypeName": "Microsoft.AspNetCore.Mvc.Rendering.ViewContext",
+            "Metadata": {
+              "Common.PropertyName": "ViewContext"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "ITagHelper",
+          "Common.TypeName": "AspNetCore.ReCaptcha.ReCaptchaTagHelper"
+        }
+      },
+      {
         "HashCode": -1132855933,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper",
@@ -13846,120 +13960,6 @@
         "Metadata": {
           "Runtime.Name": "ITagHelper",
           "Common.TypeName": "Microsoft.AspNetCore.Mvc.TagHelpers.ValidationSummaryTagHelper"
-        }
-      },
-      {
-        "HashCode": 1479723328,
-        "Kind": "ITagHelper",
-        "Name": "AspNetCore.ReCaptcha.ReCaptchaTagHelper",
-        "AssemblyName": "AspNetCore.ReCaptcha",
-        "CaseSensitive": false,
-        "TagMatchingRules": [
-          {
-            "TagName": "recaptcha"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "ITagHelper",
-            "Name": "text",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Text"
-            }
-          },
-          {
-            "Kind": "ITagHelper",
-            "Name": "class-name",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "ClassName"
-            }
-          },
-          {
-            "Kind": "ITagHelper",
-            "Name": "size",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Size"
-            }
-          },
-          {
-            "Kind": "ITagHelper",
-            "Name": "theme",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Theme"
-            }
-          },
-          {
-            "Kind": "ITagHelper",
-            "Name": "action",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Action"
-            }
-          },
-          {
-            "Kind": "ITagHelper",
-            "Name": "language",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Language"
-            }
-          },
-          {
-            "Kind": "ITagHelper",
-            "Name": "id",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Id"
-            }
-          },
-          {
-            "Kind": "ITagHelper",
-            "Name": "badge",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Badge"
-            }
-          },
-          {
-            "Kind": "ITagHelper",
-            "Name": "callback",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "Callback"
-            }
-          },
-          {
-            "Kind": "ITagHelper",
-            "Name": "error-callback",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "ErrorCallback"
-            }
-          },
-          {
-            "Kind": "ITagHelper",
-            "Name": "expired-callback",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "ExpiredCallback"
-            }
-          },
-          {
-            "Kind": "ITagHelper",
-            "Name": "view-context",
-            "TypeName": "Microsoft.AspNetCore.Mvc.Rendering.ViewContext",
-            "Metadata": {
-              "Common.PropertyName": "ViewContext"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "ITagHelper",
-          "Common.TypeName": "AspNetCore.ReCaptcha.ReCaptchaTagHelper"
         }
       },
       {
@@ -16305,6 +16305,11 @@
     {
       "FilePath": "c:\\Blog\\Scadenzario\\Areas\\Identity\\Pages\\Account\\Manage\\_StatusMessage.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\_StatusMessage.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Blog\\Scadenzario\\Views\\Shared\\_Summernote.cshtml",
+      "TargetPath": "Views\\Shared\\_Summernote.cshtml",
       "FileKind": "mvc"
     },
     {

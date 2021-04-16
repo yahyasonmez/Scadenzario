@@ -73,6 +73,7 @@ namespace Scadenzario
             services.Configure<MemoryCacheOptions>(Configuration.GetSection("MemoryCache"));
             services.Configure<ScadenzeOptions>(Configuration.GetSection("Scadenze"));
             services.Configure<BeneficiariOptions>(Configuration.GetSection("Beneficiari"));
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
