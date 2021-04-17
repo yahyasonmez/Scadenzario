@@ -16,11 +16,11 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12" asp-validation-summary="All" class="text-danger" ></div>
+            <div class="col-12" asp-validation-summary="All" class="text-danger"></div>
         </div>
         <div class="row">
             <div class="col-md-6">
-               <div class="form-group">
+                <div class="form-group">
                     <label asp-for="IDBeneficiario"></label>
                     <select asp-for="IDBeneficiario" asp-items="@Model.Beneficiari" class="form-control"></select>
                     <span asp-validation-for="IDBeneficiario" class="text-danger"></span>
@@ -39,17 +39,17 @@
             <div class="col-md-6">
                 <aside>
                     <div class="form-group">
-                        @if(Model.GiorniRitardo<0)
-                         {
-                             Model.GiorniRitardo=@Math.Abs((int)Model.GiorniRitardo);
+                        @if (Model.GiorniRitardo < 0)
+                        {
+                            Model.GiorniRitardo = @Math.Abs((int)Model.GiorniRitardo);
                             <label asp-for="GiorniRitardo"></label>
-                            <input asp-for="GiorniRitardo" class="form-control" readonly="true" style = "color:red">
-                         }
-                         else
-                         {
+                            <input asp-for="GiorniRitardo" class="form-control" readonly="true" style="color:red"> 
+                        }
+                        else
+                        {
                             <label asp-for="GiorniRitardo"></label>
                             <input asp-for="GiorniRitardo" class="form-control" readonly="true">
-                         }
+                        }
                     </div>
                     <div class="form-group">
                         <label asp-for="Sollecito"></label>
@@ -64,7 +64,7 @@
                     <form method="post" enctype="multipart/form-data" asp-controller="Scadenze" asp-action="Upload">
                         <div class="form-group">
                             <input type="file" id="FileUpload" class="btn btn-success" multiple="multiple" />
-                            <button type="button" id="btnUpload" value="Upload Files" class="btn btn-warning"><i class="fas fa-cog"></i>Upload</button> 
+                            <button type="button" id="btnUpload" value="Upload Files" class="btn btn-warning"><i class="fas fa-cog"></i>Upload</button>
                         </div>
                     </form>
                 </aside>
@@ -144,5 +144,12 @@
                 });
             });
         });
+<<<<<<< HEAD
 </script>
+=======
+    </script>
+    <partial name="_Validation" />
+
+>>>>>>> sezione14
 }
+
