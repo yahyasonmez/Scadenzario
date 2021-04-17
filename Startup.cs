@@ -49,7 +49,7 @@ namespace Scadenzario
             services.AddTransient<ICachedScadenzaService,MemoryCacheScadenzaService>();
             services.AddTransient<ICachedBeneficiarioService,MemoryCacheBeneficiarioService>();
             services.AddDbContextPool<MyScadenzaDbContext>(optionsBuilder=>{
-                 String ConnectionString = Configuration.GetSection("ConnectionStrings").GetValue<string>("Default"); 
+                 String ConnectionString = Configuration.GetSection("ConnectionStrings").GetValue<string>("Default");
                  optionsBuilder.UseSqlServer(ConnectionString);
             });
             services.AddDefaultIdentity<IdentityUser>(options=>{
