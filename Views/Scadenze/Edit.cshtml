@@ -42,12 +42,14 @@
                         @if (Model.GiorniRitardo < 0)
                         {
                             Model.GiorniRitardo = @Math.Abs((int)Model.GiorniRitardo);
-            <label asp-for="GiorniRitardo"></label>
-                            <input asp-for="GiorniRitardo" class="form-control" readonly="true" style="color:red"> }
-                                        else
-                                        {
                             <label asp-for="GiorniRitardo"></label>
-                                            <input asp-for="GiorniRitardo" class="form-control" readonly="true">}
+                            <input asp-for="GiorniRitardo" class="form-control" readonly="true" style="color:red"> 
+                        }
+                        else
+                        {
+                            <label asp-for="GiorniRitardo"></label>
+                            <input asp-for="GiorniRitardo" class="form-control" readonly="true">
+                        }
                     </div>
                     <div class="form-group">
                         <label asp-for="Sollecito"></label>

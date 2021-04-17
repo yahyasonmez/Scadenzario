@@ -36,17 +36,17 @@
             <div class="col-md-3">
                 <aside>
                     <div class="form-group">
-                         @if(Model.GiorniRitardo<0)
-                         {
-                             Model.GiorniRitardo=@Math.Abs((int)Model.GiorniRitardo);
+                        @if (Model.GiorniRitardo < 0)
+                        {
+                            Model.GiorniRitardo = @Math.Abs((int)Model.GiorniRitardo);
                             <label asp-for="GiorniRitardo"></label>
-                             <b> :@Model.GiorniRitardo</b>
-                         }
-                         else
-                         {
+                            <font style="color: red;">:&nbsp @Model.GiorniRitardo</font>
+                        }
+                        else
+                        {
                             <label asp-for="GiorniRitardo"></label>
-                             <b> :@Model.GiorniRitardo</b>
-                         }
+                            <font style="color:black;">:&nbsp @Model.GiorniRitardo</font>
+                        }
                     </div>
                     <div class="form-group">
                         <label asp-for="Sollecito"></label>:&nbsp
