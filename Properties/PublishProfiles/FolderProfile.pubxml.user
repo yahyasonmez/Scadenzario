@@ -5,6 +5,6 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>C:\inetpub\wwwroot\Scadenzario</_PublishTargetUrl>
-    <History>True|2021-04-17T03:35:50.9906212Z;</History>
+    <History>True|2021-04-17T03:43:49.4850508Z;True|2021-04-17T05:35:50.9906212+02:00;</History>
   </PropertyGroup>
 </Project>
