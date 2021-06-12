@@ -69,7 +69,36 @@
                             <p>
                                 @foreach (var provider in Model.ExternalLogins)
                                 {
-                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                                if (provider.Name == "Google")
+                                                {
+                                                    <img src="~/images/google.png" style="background-size: cover;background-color:transparent;background-size: 100%;width: 48px;height: 48px;cursor: pointer;border:none;" onclick="document.getElementById('@provider.Name').click();" />
+                                                    <input name="provider" type="submit" id="@provider.Name" value="@provider.Name" title="Log in using your @provider.DisplayName account" style="display:none;" />
+                                                }
+                                                if (provider.Name == "Twitter")
+                                                {
+                                                    <img src="~/images/twitter.png" style="background-size: cover;background-color: transparent;background-size: 100%;width: 48px;height: 48px;cursor: pointer;border:none;" onclick="document.getElementById('@provider.Name').click();" />
+                                                    <input name="provider" type="submit" id="@provider.Name" value="@provider.Name" title="Log in using your @provider.DisplayName account" style="display:none;" />
+                                                }
+                                                if (provider.Name == "Microsoft")
+                                                {
+                                                    <img src="~/images/microsoft.png" style="background-size: cover;background-color: transparent;background-size: 100%;width: 48px;height: 48px;cursor: pointer;border:none;" onclick="document.getElementById('@provider.Name').click();" />
+                                                    <input name="provider" type="submit" id="@provider.Name" value="@provider.Name" title="Log in using your @provider.DisplayName account" style="display:none;" />
+                                                }
+                                                if (provider.Name == "Facebook")
+                                                {
+                                                    <img src="~/images/facebook.png" style="background-size: cover;background-color: transparent;background-size: 100%;width: 48px;height: 48px;cursor: pointer;border:none;" onclick="document.getElementById('@provider.Name').click();" />
+                                                    <input name="provider" type="submit" id="@provider.Name" value="@provider.Name" title="Log in using your @provider.DisplayName account" style="display:none;" />
+                                                }
+                                                if (provider.Name == "LinkedIn")
+                                                {
+                                                    <img src="~/images/linkedin.png" style="background-size: cover;background-color: transparent;background-size: 100%;width: 48px;height: 48px;cursor: pointer;border:none;" onclick="document.getElementById('@provider.Name').click();" />
+                                                    <input name="provider" type="submit" id="@provider.Name" value="@provider.Name" title="Log in using your @provider.DisplayName account" style="display:none;" />
+                                                }
+                                                if (provider.Name == "Yahoo")
+                                                {
+                                                    <img src="~/images/yahoo.png" style="background-size: cover;background-color: transparent;background-size: 100%;width: 48px;height: 48px;cursor: pointer;border:none;" onclick="document.getElementById('@provider.Name').click();" />
+                                                    <input name="provider" type="submit" id="@provider.Name" value="@provider.Name" title="Log in using your @provider.DisplayName account" style="display:none;" />
+                                                }
                                 }
                             </p>
                         </div>

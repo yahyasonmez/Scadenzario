@@ -73,7 +73,31 @@ namespace Scadenzario
             services.Configure<MemoryCacheOptions>(Configuration.GetSection("MemoryCache"));
             services.Configure<ScadenzeOptions>(Configuration.GetSection("Scadenze"));
             services.Configure<BeneficiariOptions>(Configuration.GetSection("Beneficiari"));
-           
+            services.AddAuthentication().AddFacebook(facebookOptions =>
+            {
+                facebookOptions.AppId = Environment.GetEnvironmentVariable("Authentication:LoginFacebook:AppId",EnvironmentVariableTarget.User);
+                facebookOptions.AppSecret = Environment.GetEnvironmentVariable("Authentication:LoginFacebook:AppSecret",EnvironmentVariableTarget.User);
+            });
+            services.AddAuthentication().AddGoogle(googleOptions =>
+            {
+                googleOptions.ClientId = Environment.GetEnvironmentVariable("Authentication:LoginGoogle:ClientID",EnvironmentVariableTarget.User);
+                googleOptions.ClientSecret = Environment.GetEnvironmentVariable("Authentication:LoginGoogle:ClientSecret",EnvironmentVariableTarget.User);
+            });
+            services.AddAuthentication().AddTwitter(twitterOptions =>
+            {
+                twitterOptions.ConsumerKey = Environment.GetEnvironmentVariable("Authentication:LoginTwitter:consumerkey",EnvironmentVariableTarget.User);
+                twitterOptions.ConsumerSecret = Environment.GetEnvironmentVariable("Authentication:LoginTwitter:consumersecret",EnvironmentVariableTarget.User);
+            });
+            services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
+            {
+                microsoftOptions.ClientId = Environment.GetEnvironmentVariable("Authentication:LoginMicrosoft:id",EnvironmentVariableTarget.User);
+                microsoftOptions.ClientSecret = Environment.GetEnvironmentVariable("Authentication:LoginMicrosoft:key",EnvironmentVariableTarget.User);
+            });
+            services.AddAuthentication().AddYahoo(options =>
+            {
+                options.ClientId = Environment.GetEnvironmentVariable("Authentication:LoginYahoo:clientid",EnvironmentVariableTarget.User);
+                options.ClientSecret = Environment.GetEnvironmentVariable("Authentication:LoginYahoo:clientsecret",EnvironmentVariableTarget.User);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

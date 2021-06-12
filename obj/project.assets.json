@@ -26,6 +26,30 @@
           "lib/netstandard2.0/AngleSharp.Css.dll": {}
         }
       },
+      "AspNet.Security.OAuth.LinkedIn/5.0.6": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/AspNet.Security.OAuth.LinkedIn.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/AspNet.Security.OAuth.LinkedIn.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "AspNet.Security.OAuth.Yahoo/5.0.6": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/AspNet.Security.OAuth.Yahoo.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/AspNet.Security.OAuth.Yahoo.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "AspNetCore.ReCaptcha/1.2.1": {
         "type": "package",
         "dependencies": {
@@ -83,6 +107,54 @@
         "runtime": {
           "lib/net50/MailKit.dll": {}
         }
+      },
+      "Microsoft.AspNetCore.Authentication.Facebook/5.0.7": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Microsoft.AspNetCore.Authentication.Facebook.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.AspNetCore.Authentication.Facebook.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "Microsoft.AspNetCore.Authentication.Google/5.0.7": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Microsoft.AspNetCore.Authentication.Google.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.AspNetCore.Authentication.Google.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "Microsoft.AspNetCore.Authentication.MicrosoftAccount/5.0.7": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Microsoft.AspNetCore.Authentication.MicrosoftAccount.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.AspNetCore.Authentication.MicrosoftAccount.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "Microsoft.AspNetCore.Authentication.Twitter/5.0.7": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Microsoft.AspNetCore.Authentication.Twitter.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.AspNetCore.Authentication.Twitter.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "Microsoft.AspNetCore.Cryptography.Internal/5.0.4": {
         "type": "package",
@@ -2295,6 +2367,34 @@
         "lib/netstandard2.0/AngleSharp.Css.xml"
       ]
     },
+    "AspNet.Security.OAuth.LinkedIn/5.0.6": {
+      "sha512": "MRbfCNvqxzwAMiutQeNelP2r44BD7lTmP/8eXxi4EQsh6cTrBOBuJKgIK4HhRiqwQTZi2BY04tZDAKFdkI5U/A==",
+      "type": "package",
+      "path": "aspnet.security.oauth.linkedin/5.0.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "aspnet.security.oauth.linkedin.5.0.6.nupkg.sha512",
+        "aspnet.security.oauth.linkedin.nuspec",
+        "lib/net5.0/AspNet.Security.OAuth.LinkedIn.dll",
+        "lib/net5.0/AspNet.Security.OAuth.LinkedIn.xml"
+      ]
+    },
+    "AspNet.Security.OAuth.Yahoo/5.0.6": {
+      "sha512": "6Vl70jm8gTbpewzKzvsEnh0wS0zhADpdbexhryEVieD2LUCo/Kgr629gAjyp1FmCxjS0r0DU125yHjbRLSus3w==",
+      "type": "package",
+      "path": "aspnet.security.oauth.yahoo/5.0.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "aspnet.security.oauth.yahoo.5.0.6.nupkg.sha512",
+        "aspnet.security.oauth.yahoo.nuspec",
+        "lib/net5.0/AspNet.Security.OAuth.Yahoo.dll",
+        "lib/net5.0/AspNet.Security.OAuth.Yahoo.xml"
+      ]
+    },
     "AspNetCore.ReCaptcha/1.2.1": {
       "sha512": "NnWJX0pryBnw93KBG6l7KXhtmlTk2kbfqOMS8F8EZguVSeFlSotWf2GHsmq3V/Og52xT8d/mbCY+mOWorpBt/A==",
       "type": "package",
@@ -2394,6 +2494,66 @@
         "lib/netstandard2.0/MailKit.xml",
         "mailkit.2.11.1.nupkg.sha512",
         "mailkit.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.Facebook/5.0.7": {
+      "sha512": "IXf9W1r4svkJEI7Ke57pMbi6AULd/o5AM1sHHdGVhFYoYvFQz7AyT03wfZYRVnN2h3wCQjCAtt3EqVRc1lB6dA==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.facebook/5.0.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net5.0/Microsoft.AspNetCore.Authentication.Facebook.dll",
+        "lib/net5.0/Microsoft.AspNetCore.Authentication.Facebook.xml",
+        "microsoft.aspnetcore.authentication.facebook.5.0.7.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.facebook.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.Google/5.0.7": {
+      "sha512": "LsI/AjzQDtJLSU/osWfIOSMT5JrOOphX0MXRJ4piMzrKOcqUzvXY4jbb7o59fsyQTyDz13eH70qKvqbMwXF6qw==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.google/5.0.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net5.0/Microsoft.AspNetCore.Authentication.Google.dll",
+        "lib/net5.0/Microsoft.AspNetCore.Authentication.Google.xml",
+        "microsoft.aspnetcore.authentication.google.5.0.7.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.google.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.MicrosoftAccount/5.0.7": {
+      "sha512": "KFc66x5aG4qM//DcxrZ3/fWAiv/REwL1aaUro15QrtPpxAgHmezblrNQwdAfHOLsj2B81qNa0/dZnl6AAGJe+w==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.microsoftaccount/5.0.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net5.0/Microsoft.AspNetCore.Authentication.MicrosoftAccount.dll",
+        "lib/net5.0/Microsoft.AspNetCore.Authentication.MicrosoftAccount.xml",
+        "microsoft.aspnetcore.authentication.microsoftaccount.5.0.7.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.microsoftaccount.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.Twitter/5.0.7": {
+      "sha512": "csEkpShR9CQirYXhqc9/iBLO29flXFD3DuqUjR4p58ve96W9xLqHp6+1EdVFPyeorDEEKTL8LF0CO3GDrZcXUQ==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.twitter/5.0.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net5.0/Microsoft.AspNetCore.Authentication.Twitter.dll",
+        "lib/net5.0/Microsoft.AspNetCore.Authentication.Twitter.xml",
+        "microsoft.aspnetcore.authentication.twitter.5.0.7.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.twitter.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Cryptography.Internal/5.0.4": {
@@ -7823,9 +7983,15 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "AspNet.Security.OAuth.LinkedIn >= 5.0.6",
+      "AspNet.Security.OAuth.Yahoo >= 5.0.6",
       "AspNetCore.ReCaptcha >= 1.2.1",
       "HtmlSanitizer >= 5.0.376",
       "MailKit >= 2.11.1",
+      "Microsoft.AspNetCore.Authentication.Facebook >= 5.0.7",
+      "Microsoft.AspNetCore.Authentication.Google >= 5.0.7",
+      "Microsoft.AspNetCore.Authentication.MicrosoftAccount >= 5.0.7",
+      "Microsoft.AspNetCore.Authentication.Twitter >= 5.0.7",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 5.0.4",
       "Microsoft.AspNetCore.Identity.UI >= 5.0.4",
       "Microsoft.EntityFrameworkCore >= 5.0.4",
@@ -7885,6 +8051,14 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
+          "AspNet.Security.OAuth.LinkedIn": {
+            "target": "Package",
+            "version": "[5.0.6, )"
+          },
+          "AspNet.Security.OAuth.Yahoo": {
+            "target": "Package",
+            "version": "[5.0.6, )"
+          },
           "AspNetCore.ReCaptcha": {
             "target": "Package",
             "version": "[1.2.1, )"
@@ -7896,6 +8070,22 @@
           "MailKit": {
             "target": "Package",
             "version": "[2.11.1, )"
+          },
+          "Microsoft.AspNetCore.Authentication.Facebook": {
+            "target": "Package",
+            "version": "[5.0.7, )"
+          },
+          "Microsoft.AspNetCore.Authentication.Google": {
+            "target": "Package",
+            "version": "[5.0.7, )"
+          },
+          "Microsoft.AspNetCore.Authentication.MicrosoftAccount": {
+            "target": "Package",
+            "version": "[5.0.7, )"
+          },
+          "Microsoft.AspNetCore.Authentication.Twitter": {
+            "target": "Package",
+            "version": "[5.0.7, )"
           },
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
             "target": "Package",

@@ -47,6 +47,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "AspNet.Security.OAuth.LinkedIn": {
+              "target": "Package",
+              "version": "[5.0.6, )"
+            },
+            "AspNet.Security.OAuth.Yahoo": {
+              "target": "Package",
+              "version": "[5.0.6, )"
+            },
             "AspNetCore.ReCaptcha": {
               "target": "Package",
               "version": "[1.2.1, )"
@@ -58,6 +66,22 @@
             "MailKit": {
               "target": "Package",
               "version": "[2.11.1, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Facebook": {
+              "target": "Package",
+              "version": "[5.0.7, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Google": {
+              "target": "Package",
+              "version": "[5.0.7, )"
+            },
+            "Microsoft.AspNetCore.Authentication.MicrosoftAccount": {
+              "target": "Package",
+              "version": "[5.0.7, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Twitter": {
+              "target": "Package",
+              "version": "[5.0.7, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
