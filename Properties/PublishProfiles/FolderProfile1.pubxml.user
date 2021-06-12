@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <History>True|2021-06-12T02:58:33.0118202Z;True|2021-06-12T04:12:46.5559792+02:00;True|2021-06-12T04:06:26.7687635+02:00;True|2021-06-12T03:31:32.2928894+02:00;False|2021-06-12T03:31:10.8627214+02:00;True|2021-06-12T03:01:59.6745946+02:00;True|2021-06-12T02:35:20.7432093+02:00;True|2021-06-12T02:00:10.0945067+02:00;False|2021-06-12T01:59:17.4550938+02:00;True|2021-04-17T05:57:27.3344041+02:00;True|2021-04-17T05:52:42.4805602+02:00;False|2021-04-17T05:52:09.7257067+02:00;</History>
+    <_PublishTargetUrl>C:\inetpub\wwwroot\Scadenzario</_PublishTargetUrl>
+  </PropertyGroup>
+</Project>

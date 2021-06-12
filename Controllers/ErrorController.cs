@@ -32,7 +32,7 @@ namespace Scadenzario.Controllers
                     return View();
 
                 default:
-                    ViewData["Title"] = "Errore";
+                    ViewData["Title"] = features.Error.Message;
                     return View();
             }
             
