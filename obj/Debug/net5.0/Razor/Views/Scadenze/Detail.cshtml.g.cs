@@ -11,49 +11,49 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 3 "C:\Blog\Scadenzario\Views\_ViewImports.cshtml"
+#line 4 "C:\Blog\Scadenzario\Views\_ViewImports.cshtml"
 using System.Collections.Generic;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Blog\Scadenzario\Views\_ViewImports.cshtml"
+#line 5 "C:\Blog\Scadenzario\Views\_ViewImports.cshtml"
 using Scadenzario.Models.ViewModels;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Blog\Scadenzario\Views\_ViewImports.cshtml"
+#line 6 "C:\Blog\Scadenzario\Views\_ViewImports.cshtml"
 using Microsoft.AspNetCore.Identity;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Blog\Scadenzario\Views\_ViewImports.cshtml"
+#line 7 "C:\Blog\Scadenzario\Views\_ViewImports.cshtml"
 using Scadenzario.Models.Entities;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Blog\Scadenzario\Views\_ViewImports.cshtml"
+#line 8 "C:\Blog\Scadenzario\Views\_ViewImports.cshtml"
 using Scadenzario.Models.InputModels;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Blog\Scadenzario\Views\_ViewImports.cshtml"
+#line 9 "C:\Blog\Scadenzario\Views\_ViewImports.cshtml"
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b07a1690fae1363a82b227e05eff8d708fa4dd77", @"/Views/Scadenze/Detail.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"16bc539067e10b1f8054f4b21e2302b89895ba2e", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"20bcbaa0c731a3485213e312c509b3c962a2739f", @"/Views/_ViewImports.cshtml")]
     public class Views_Scadenze_Detail : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ScadenzaViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("type", "hidden", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);

@@ -31,6 +31,7 @@ namespace Scadenzario
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddReCaptcha(Configuration.GetSection("ReCaptcha"));
+          
             services.AddResponseCaching();
             services.AddMvc(Options=>{
                 Options.ModelBinderProviders.Insert(0, new DecimalModelBinderProvider());
@@ -49,7 +50,7 @@ namespace Scadenzario
             services.AddTransient<ICachedScadenzaService,MemoryCacheScadenzaService>();
             services.AddTransient<ICachedBeneficiarioService,MemoryCacheBeneficiarioService>();
             services.AddDbContextPool<MyScadenzaDbContext>(optionsBuilder=>{
-                 String ConnectionString = Configuration.GetSection("ConnectionStrings").GetValue<string>("Default");
+                 string ConnectionString=Environment.GetEnvironmentVariable("ConnectionStrings:Default",EnvironmentVariableTarget.User);
                  optionsBuilder.UseSqlServer(ConnectionString);
             });
             services.AddDefaultIdentity<IdentityUser>(options=>{

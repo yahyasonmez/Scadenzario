@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "697f45f3-86cf-4ef7-983a-980f68834af3": {
+      "ProjectGuid": "697f45f3-86cf-4ef7-983a-980f68834af3",
+      "DisplayName": "Scadenzario",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "File esterni",
+      "ColorIndex": -1
+    },
+    "8b3173d1-1597-4d7f-a216-f4a5d5bbccee": {
+      "ProjectGuid": "8b3173d1-1597-4d7f-a216-f4a5d5bbccee",
+      "DisplayName": "Scadenzario",
+      "ColorIndex": 1
+    },
+    "01d57223-1526-473a-b821-9a2744cace15": {
+      "ProjectGuid": "01d57223-1526-473a-b821-9a2744cace15",
+      "DisplayName": "Scadenzario",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}
