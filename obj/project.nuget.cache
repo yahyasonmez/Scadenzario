@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "YH5fgk5ZiJoILSlbM1dLQa4e2Y/l0M6X0eYCuPc3Ofn1KHl1CKR4IMQLaTNyg3BCQLiipwRKPQVkCEp7zQZ/9g==",
+  "dgSpecHash": "1W/mz1rG3JUl4gAoKyDVG1M61cr9y/8kNn2sWHPBoeVtm//jbNDv5SFUFi7PQFw/qBfX64DMPtD4Hj0Q3RWdjQ==",
   "success": true,
   "projectFilePath": "C:\\Blog\\Scadenzario\\Scadenzario.csproj",
   "expectedPackageFiles": [
@@ -77,6 +77,7 @@
     "C:\\Users\\marco\\.nuget\\packages\\mimekit\\2.15.0\\mimekit.2.15.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
     "C:\\Users\\marco\\.nuget\\packages\\portable.bouncycastle\\1.8.10\\portable.bouncycastle.1.8.10.nupkg.sha512",
+    "C:\\Users\\marco\\.nuget\\packages\\recaptcha.aspnetcore\\3.0.10\\recaptcha.aspnetcore.3.0.10.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\marco\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",

@@ -30,8 +30,12 @@ namespace Scadenzario
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddReCaptcha(Configuration.GetSection("ReCaptcha"));
-          
+            services.AddReCaptcha(options =>
+            {
+                options.SecretKey = Environment.GetEnvironmentVariable("ReCaptcha:SecretKey", EnvironmentVariableTarget.User);
+                options.SiteKey = Environment.GetEnvironmentVariable("ReCaptcha:SiteKey", EnvironmentVariableTarget.User);
+                options.Version = ReCaptchaVersion.V2;
+            });
             services.AddResponseCaching();
             services.AddMvc(Options=>{
                 Options.ModelBinderProviders.Insert(0, new DecimalModelBinderProvider());
@@ -50,7 +54,8 @@ namespace Scadenzario
             services.AddTransient<ICachedScadenzaService,MemoryCacheScadenzaService>();
             services.AddTransient<ICachedBeneficiarioService,MemoryCacheBeneficiarioService>();
             services.AddDbContextPool<MyScadenzaDbContext>(optionsBuilder=>{
-                 string ConnectionString=Environment.GetEnvironmentVariable("ConnectionStrings:Default",EnvironmentVariableTarget.User);
+                 //ConnectionString:Server=NOME COMPUTER\SQLEXPRESS;Database=Scadenzario;Trusted_Connection=True;
+                 string ConnectionString =Environment.GetEnvironmentVariable("ConnectionStrings:Default",EnvironmentVariableTarget.User);
                  optionsBuilder.UseSqlServer(ConnectionString);
             });
             services.AddDefaultIdentity<IdentityUser>(options=>{
